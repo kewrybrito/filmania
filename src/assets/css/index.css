@@ -1,0 +1,91 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Quicksand-Medium';
+    src: url('/src/assets/fonts/Quicksand-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Quicksand-Regular';
+    src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;  
+  }
+
+.sec-1{
+    position: relative;
+    background-image: url('/src/assets/img/fundo-hp.jpg');
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    height: 100vh;                  
+    width: 100%;                    
+    overflow: hidden;  
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sec-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1;  
+  }
+
+#info{
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    height: 50vh;
+    padding-left: 13%;
+    justify-content: space-evenly;
+}
+
+#info h1{
+    font-family: 'Quicksand-Regular';
+    color: white;
+    font-size: 96px;
+}
+
+#info p{
+    font-size: 36px;
+    color: white;
+    font-family: 'Quicksand-Regular';
+}
+
+#botao-sec-1{
+    width: 25vw;
+    background-color: #A29BFE;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    height: 8vh;
+    padding: 4px;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+}
+
+#botao-sec-1:hover{
+    background-color: #5344c3; 
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
+}
+
+#bt-sec-1{
+    color: white;
+    font-family: 'Quicksand-Medium';
+    font-size: 20px;
+    font-weight: bold;
+}
