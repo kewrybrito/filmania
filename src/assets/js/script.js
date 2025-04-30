@@ -28,6 +28,6 @@ loginForm.addEventListener('submit', function (e) {
     if (isValid) {
         alert('Login realizado com sucesso!');
         window.location.href = "/src/index.html";
-        // Aqui você pode redirecionar para outra página ou processar os dados
+        // Aqui você pode redirecionar outra pagina
     }
 });

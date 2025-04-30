@@ -1,4 +1,67 @@
 *{
-    margin: 0px;
     box-sizing: border-box;
+    margin: 0px;
+}
+
+@font-face {
+    font-family: 'Quicksand-Regular';
+    src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+}
+
+.rodape{
+    background-color: #1C1B2A;
+    width: 100vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Quicksand-Regular";
+}
+
+
+#textos-rodape{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    background-color: #1C1B2A;
+    height: 15vh;
+    width: 100vw;
+}
+
+
+#textos-rodape p{
+    color: #797982;
+}
+
+#icons-rodape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding-bottom: 4%;
+    background-color: #1C1B2A;
+}
+
+#icons-rodape a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#icons-rodape img {
+    width: 40px; /* ou o tamanho que preferir */
+    height: auto;
+}
+
+#logo-rodape{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C1B2A;
+    height: 3vh;
+}
+
+#logo-rodape img{
+    width: 10vw;
 }
