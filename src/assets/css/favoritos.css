@@ -1,0 +1,23 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Quicksand-Medium';
+    src: url('/src/assets/fonts/Quicksand-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Quicksand-Regular';
+    src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    text-align: center;
+}
