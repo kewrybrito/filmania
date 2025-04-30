@@ -2,24 +2,24 @@
     margin: 0px;
     box-sizing: border-box;
 }
-
+ 
 @font-face {
     font-family: 'Quicksand-Medium';
     src: url('/src/assets/fonts/Quicksand-Medium.ttf');
 }
-
+ 
 @font-face {
     font-family: 'Quicksand-Regular';
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
 }
-
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     overflow-x: hidden;  
   }
-
+ 
+ 
 .sec-1{
     position: relative;
     background-image: url('/src/assets/img/fundo-hp.jpg');
@@ -33,7 +33,7 @@ html, body {
     justify-content: flex-start;
     align-items: center;
 }
-
+ 
 .sec-1::before {
     content: '';
     position: absolute;
@@ -41,10 +41,10 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;  
   }
-
+ 
 #info{
     display: flex;
     flex-direction: column;
@@ -53,19 +53,19 @@ html, body {
     padding-left: 13%;
     justify-content: space-evenly;
 }
-
+ 
 #info h1{
     font-family: 'Quicksand-Regular';
     color: white;
     font-size: 96px;
 }
-
+ 
 #info p{
     font-size: 36px;
     color: white;
     font-family: 'Quicksand-Regular';
 }
-
+ 
 #botao-sec-1{
     width: 25vw;
     background-color: #A29BFE;
@@ -76,16 +76,91 @@ html, body {
     padding: 4px;
     transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
 }
-
+ 
 #botao-sec-1:hover{
-    background-color: #5344c3; 
+    background-color: #5344c3;
     transform: scale(1.05);
     box-shadow: 0 0 15px #5344c3;
 }
-
+ 
 #bt-sec-1{
     color: white;
     font-family: 'Quicksand-Medium';
     font-size: 20px;
     font-weight: bold;
+}
+ 
+.sec-2{
+    background-color: #0D0C1D;
+    width: 100vw;
+    height: 60vh;
+}
+ 
+.sec-2 h2{
+    color: white;
+    font-family: "Quicksand-Regular";
+    padding-left: 2%;
+    padding-top: 2%;
+}
+ 
+.sec-quads{
+    width: 100vw;
+    background-color: #0D0C1D;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    padding-top: 1%;
+}
+ 
+.sec-3{
+    background-color: #0D0C1D;
+}
+ 
+.sec-3 h2{
+    color: white;
+    font-family: "Quicksand-Regular";
+    padding-left: 2%;
+    display: flex;
+}
+ 
+.quad-1{
+    display: flex;
+    background-color: #0D0C1D;
+    width: 50vw;
+    height: 70vh;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+ 
+.quad-1 div{
+    height: 30vh;
+    width: 30vw;
+    background-color: #A29BFE;
+    border-radius: 15px;
+    margin-right: 3%;
+ 
+}
+ 
+.quad-2{
+    display: flex;
+    background-color: #0D0C1D;
+    width: 50vw;
+    height: 70vh;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+ 
+.quad-2 div{
+    height: 30vh;
+    width: 30vw;
+    background-color: #A29BFE;
+    border-radius: 15px;
+    margin-left: 3%;
+ 
+}
+ 
+#tit{
+    color: white
 }

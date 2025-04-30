@@ -2,13 +2,13 @@
     margin: 0px;
     box-sizing: border-box;
 }
-
+ 
 @font-face {
     font-family: 'Quicksand-Medium';
     src: url('/src/assets/fonts/Quicksand-Medium.ttf');
 }
-
-
+ 
+ 
 .header{
     background-color: #0D0C1D;
     width: 100vw;
@@ -19,26 +19,31 @@
     justify-content: space-around;
     font-family: 'Quicksand-Medium';  
 }
-
+ 
+#logo-cabecalho{
+    width: 12vw;
+    padding-top: 1%;
+}
+ 
 #barra-pesquisa{
     width: 100%;
     height: 4vh;
     border-radius: 10px;
     border: none;
     outline: none;
-    padding: 10px 50px 10px 15px; 
+    padding: 10px 50px 10px 15px;
     border-radius: 10px;
     background-color: #ffffff4d;
     caret-color: white;
 }
-
-.input-cabecalho{   
+ 
+.input-cabecalho{  
     position: relative;
     width: 100%;
     max-width: 40vw;
-      
+     
 }
-
+ 
 .input-cabecalho #icone-lupa {
     position: absolute;
     right: 10px;
@@ -46,13 +51,13 @@
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
-    pointer-events: none; 
+    pointer-events: none;
 }
-
+ 
 .header h4{
     color: white;
 }
-
+ 
 .icon-button {
     position: absolute;
     right: 10px;
@@ -61,25 +66,25 @@
     background: none;
     border: none;
     padding: 5px;
-    cursor: pointer; 
-    width: 40px; 
-    height: 40px; 
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+ 
 .icon-button img {
     width: 20px;
     height: 20px;
     pointer-events: none;
 }
-
+ 
 .icon-button:hover {
-    transform: translateY(-50%) scale(1.2); 
-    transition: transform 0.3s ease; 
+    transform: translateY(-50%) scale(1.2);
+    transition: transform 0.3s ease;
 }
-
+ 
 .botao-cabecalho{
     width: 7vw;
     height: 4vh;
@@ -95,26 +100,26 @@
     font-size: 15px;
     transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
 }
-
+ 
 .botao-cabecalho:hover {
-    background-color: #5344c3; 
+    background-color: #5344c3;
     transform: scale(1.05);
     box-shadow: 0 0 15px #5344c3;
 }
-
+ 
 .header a{
     color: white;
     font-size: 16px;
     transition: font-size 0.3s, color 0.3s, border-color 0.3s, text-shadow 0.3s;
 }
-
+ 
 .bt-cabecalho:hover {
     color: white;
     font-size: 18px;
     text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
 }
-
-
+ 
+ 
 .header p{
     color: white;
 }
