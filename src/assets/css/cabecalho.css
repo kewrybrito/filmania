@@ -7,6 +7,11 @@
     font-family: 'Quicksand-Medium';
     src: url('/src/assets/fonts/Quicksand-Medium.ttf');
 }
+
+@font-face {
+    font-family: 'Quicksand-Regular';
+    src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+}
  
  
 .header{
@@ -35,6 +40,8 @@
     border-radius: 10px;
     background-color: #ffffff4d;
     caret-color: white;
+    color: white;
+    font-family: "Quicksand-Regular";
 }
  
 .input-cabecalho{  
