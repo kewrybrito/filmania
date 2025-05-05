@@ -32,6 +32,8 @@ html, body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.6); 
+    background-blend-mode: overlay; 
 }
  
 .sec-1::before {
@@ -163,4 +165,32 @@ html, body {
  
 #tit{
     color: white
+}
+
+#espaco{
+    background-color: #0D0C1D;
+    height: 10vh;
+}
+
+.sec-4{
+    height: 60vh;
+    background-image: url('/src/assets/img/fundo-euphoria.jpg');
+    background-size: cover;  
+    background-position: 0% 20%;
+    background-repeat: no-repeat;
+    height: 45vh;  
+    background-color: rgba(0, 0, 0, 0.5); 
+    background-blend-mode: overlay; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.sec-4 h2{
+    color: white;
+    text-align: center;
+    line-height: 2;
+    font-family: 'Quicksand-Regular';
+    font-size: 180%;
 }
