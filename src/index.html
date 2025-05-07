@@ -25,7 +25,10 @@
 
 
   <div class="sec-2">
-    <h2>Populares essa semana</h2>
+      <h2>Populares essa semana</h2>
+      <img src="/src/assets/img/seta-esquerda.png" alt="Voltar" class="seta-img esquerda">
+      <div class="carrossel" id="carrossel-populares"></div>
+      <img src="/src/assets/img/seta-direita.png" alt="Avançar" class="seta-img direita">
   </div>
 
 
@@ -35,34 +38,54 @@
     <h2>Teste</h2>
     <div class="sec-quads">
       <div class="quad-1">
-        <div>
-          <img src="/src/assets/img/salvar-icon.png" alt="">
-          <h1>Lista de interesse</h1>
-          <p>Demonstre sua paixão por filmes, séries e avaliações favoritas salvando tudo o que ama — e deixe gravado o que quer assistir mais tarde. </p>
-        </div>
-        <div>
-          <img src="/src/assets/img/config-icon.png" alt="">
-          <h1>Como funciona</h1>
-          <p>Descubra como o site funciona e transforme sua forma de escolher o que assistir. </p> 
-        </div>
+        <button id="quad-salvar">
+          <div class="elementos-salvar">
+            <img src="/src/assets/img/salvar-icon.png" alt="">
+            <h1>Lista de Interesse</h1>
+          </div>
+          <div class="elementos-salvar-2">
+            <p>Demonstre sua paixão por filmes, séries e avaliações favoritas salvando tudo o que ama — e deixe gravado o que quer assistir mais tarde. </p>
+          </div>
+        </button>
+
+        <button id="quad-tutorial">
+          <div class="elementos-salvar">
+            <img id="img-config" src="/src/assets/img/config-icon.png" alt="">
+            <h1>Como funciona</h1>
+          </div>
+          <div class="elementos-salvar-2">
+            <p>Descubra como o site funciona e transforme sua forma de escolher o que assistir.  </p>
+          </div>
+        </button>
       </div>
+
       <div class="quad-2">
-        <div>
-          <img src="/src/assets/img/sobrenos-icon.png" alt="">
-          <h1>Sobre nós</h1>
-          <p>Clique aqui e descubra quem somos e por que decidimos facilitar sua escolha de filmes. </p>
-        </div>
-        <div>
-          <img src="/src/assets/img/puzzle-icon.png" alt="">
-          <p>Ainda em dúvida, mesmo vendo o que está em alta? Deixe que a gente escolha por você! No Filme Surpresa, um clique resolve sua indecisão.</p>
-        </div>
+        <button id="quad-sobre">
+          <div class="elementos-salvar">
+            <img id="img-about" src="/src/assets/img/sobrenos-icon.png" alt="">
+            <h1>Sobre nós</h1>
+          </div>
+          <div class="elementos-salvar-2">
+            <p>Clique aqui e descubra quem somos e por que decidimos facilitar sua escolha de filmes.  </p>
+          </div>
+        </button>
+
+        <button id="quad-surpresa">
+          <div class="elementos-salvar">
+            <img id="img-puzzle" src="/src/assets/img/puzzle-icon.png" alt="">
+            <h1>Filme Surpresa</h1>
+          </div>
+          <div class="elementos-salvar-2">
+            <p>Ainda em dúvida, mesmo vendo o que está em alta?  Deixe que a gente escolha por você! No Filme Surpresa, um clique resolve sua indecisão. </p>
+          </div>
+        </button>
       </div>
     </div>
   </div>
 
 
   <div class="sec-4">
-      <h2>A ajuda certa na hora de escolher o filme perfeito, rápido e fácil.<br>Salve os que você ainda quer ver.<br> Ajude seus amigos a encontrarem bons filmes também. </h2>
+    <h2>A ajuda certa na hora de escolher o filme perfeito, rápido e fácil.<br>Salve os que você ainda quer ver.<br> Ajude seus amigos a encontrarem bons filmes também. </h2>
   </div>
 
   <div id="espaco">
@@ -73,6 +96,7 @@
 
   <script src="assets/js/import.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/carrosel.js"></script>
 </body>
 
 </html>
