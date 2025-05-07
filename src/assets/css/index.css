@@ -17,7 +17,7 @@ html, body {
     padding: 0;
     height: 100%;
     overflow-x: hidden;  
-  }
+}
  
  
 .sec-1{
@@ -118,7 +118,7 @@ html, body {
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: 1rem 4rem;
-    width: 100%;
+    min-width: 100vw; 
 }
 
 .seta-img {
@@ -150,11 +150,11 @@ html, body {
 }
   
 .carrossel::-webkit-scrollbar {
-    height: 8px;
+    height: 7px;
 }
   
 .carrossel::-webkit-scrollbar-thumb {
-    background-color: #ffffff38;
+    background-color: transparent;
     border-radius: 10px;
 }
   
