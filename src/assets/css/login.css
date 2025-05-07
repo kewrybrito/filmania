@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Quicksand-Medium';
+    src: url('/src/assets/fonts/Quicksand-Medium.ttf');
+}
+ 
+@font-face {
+    font-family: 'Quicksand-Regular';
+    src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -18,6 +28,7 @@ body {
     width: 300px;
     display: flex;
     flex-direction: column;
+    font-family: 'Quicksand-Regular';
 }
 
 .logo_imagem {
@@ -36,12 +47,25 @@ body {
     color: #FFFDFD;
     text-align: center;
     margin-bottom: 15px;
+    font-family: 'Quicksand-Regular';
 }
 
 .login-container h3 {
-    color: #A29BFE;
     text-align: center;
-    font-weight: 100;
+    font-size: 12px;
+    font-family: 'Quicksand-Regular';
+
+}
+
+#cadastrar{
+    color: white;
+}
+
+
+
+
+#cor_h {
+    color: #ffffff;
 }
 
 .form-group {
@@ -50,15 +74,21 @@ body {
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: px;
+    color: #ffffff
+    
 }
 
 .form-group input {
     width: 93%;
     padding: 10px;
-    border: 1px solid #ccc;
+    color: #ffffff;
     border-radius: 5px;
-}
+    border: none;
+    outline: none;
+    font-family: 'Quicksand-Regular';
+    background-color:#6C797B; 
+} 
 
 .error {
     color: red;
@@ -75,6 +105,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'Quicksand-Regular';
 }
 
 .submit-btn:hover {
