@@ -95,7 +95,7 @@ html, body {
 .sec-2{
     background-color: #0D0C1D;
     width: 100vw;
-    height: 70vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -154,7 +154,7 @@ html, body {
 }
   
 .carrossel::-webkit-scrollbar-thumb {
-    background-color: transparent;
+    background-color: #ffffff38;
     border-radius: 10px;
 }
   
@@ -215,6 +215,7 @@ html, body {
     align-items: flex-end;
     justify-content: space-evenly;
     flex-direction: column;
+    padding-right: 5px;
 }
  
 .quad-1 button{
@@ -227,6 +228,13 @@ html, body {
     border: none;
     display: flex;
     flex-direction: column;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+}
+
+.quad-1 button:hover{
+    background-color: #5344c3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
 }
  
 .quad-2{
@@ -237,6 +245,7 @@ html, body {
     align-items: flex-start;
     justify-content: space-evenly;
     flex-direction: column;
+    padding-left: 5px;
 }
  
 .quad-2 button{
@@ -249,6 +258,13 @@ html, body {
     border: none;
     display: flex;
     flex-direction: column;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+}
+
+.quad-2 button:hover{
+    background-color: #5344c3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
 }
 
 .elementos-salvar{
