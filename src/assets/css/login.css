@@ -111,3 +111,10 @@ body {
 .submit-btn:hover {
     background-color: #5344c3;
 }
+.fa-eye {
+    position: relative;
+        left: 240px;
+    cursor: pointer;
+    color: #fafafa;
+}
+

@@ -1,14 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filmes</title>
-    <link rel="stylesheet" href="../assets/css/filmes.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todos os Filmes - FILMANIA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .movies-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card {
+            background-color: #222;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.03);
+        }
+
+        .movie-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .movie-title {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .fav-button {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .fav-button:hover {
+            background-color: #b00610;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="header">
-        
-    <h1>Filmes</h1>
+
+    <h1>Todos os Filmes</h1>
+    <div class="movies-container" id="moviesContainer"></div>
+
+    <script>
+        const API_KEY = '1abf5fe580ef33d80c44d534b8e3b6d1'; // Substitua pela sua chave da TMDB
+        const BASE_URL = 'https://api.themoviedb.org/3';
+
+        async function fetchMovies() {
+            const response = await fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&language=pt-BR&page=1`);
+            const data = await response.json();
+            renderMovies(data.results);
+        }
+
+        function renderMovies(movies) {
+            const container = document.getElementById('moviesContainer');
+            container.innerHTML = '';
+            movies.forEach(movie => {
+                const card = document.createElement('div');
+                card.className = 'movie-card';
+                card.innerHTML = `
+          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+          <div class="movie-title">${movie.title}</div>
+          <button class="fav-button" onclick="addToFavorites(${movie.id})">Adicionar aos Favoritos</button>
+        `;
+                container.appendChild(card);
+            });
+        }
+
+        function addToFavorites(id) {
+            const favorites = JSON.parse(localStorage.getItem('favoritos')) || [];
+            if (!favorites.includes(id)) {
+                favorites.push(id);
+                localStorage.setItem('favoritos', JSON.stringify(favorites));
+                alert("Filme adicionado aos favoritos!");
+                
+            } else {
+                alert("Este filme já está nos favoritos.");
+            }
+        }
+
+        fetchMovies();
+    </script>
+
 </body>
+
 </html>
