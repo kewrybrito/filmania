@@ -1,6 +1,18 @@
 /* Estilos gerais */
+@font-face {
+    font-family: 'Quicksand-Medium';
+    src: url('/src/assets/fonts/Quicksand-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Quicksand-Regular';
+    src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+}
+ 
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Quicksand-Regular";
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
