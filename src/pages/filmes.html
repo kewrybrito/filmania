@@ -1,113 +1,67 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html> <!-- Declaração do tipo de documento (HTML5) -->
+<html lang="pt-BR"> <!-- Define a língua principal da página como Português do Brasil -->
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" /> <!-- Define a codificação de caracteres para UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todos os Filmes - FILMANIA</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: #fff;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .movies-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .movie-card {
-            background-color: #222;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            transition: transform 0.2s;
-        }
-
-        .movie-card:hover {
-            transform: scale(1.03);
-        }
-
-        .movie-card img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-
-        .movie-title {
-            font-size: 1.1em;
-            margin: 10px 0;
-        }
-
-        .fav-button {
-            background-color: #e50914;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .fav-button:hover {
-            background-color: #b00610;
-        }
-    </style>
+    <link rel="stylesheet" href="/src/assets/css/filmes.css" /> <!-- Importa a folha de estilos CSS para a página -->
+    <!-- Ajusta a escala para dispositivos móveis -->
+    <title>Todos os Filmes - FILMANIA</title> <!-- Define o título da página -->
 </head>
 
 <body>
+    <div id="header"></div> <!-- Container para o cabeçalho da página -->
+    <h1>Todos os Filmes</h1> <!-- Título principal da página -->
+    <div class="movies-container" id="moviesContainer"></div> <!-- Container onde os filmes serão exibidos -->
+</body>
 
-    <h1>Todos os Filmes</h1>
-    <div class="movies-container" id="moviesContainer"></div>
+</html>
 
+    <script src="/src/assets/js/import.js"></script>
+    
     <script>
-        const API_KEY = '1abf5fe580ef33d80c44d534b8e3b6d1'; // Substitua pela sua chave da TMDB
-        const BASE_URL = 'https://api.themoviedb.org/3';
+        const CHAVE_API = '1abf5fe580ef33d80c44d534b8e3b6d1'; // Chave de API para acessar o serviço do TMDB
+        const URL_BASE = 'https://api.themoviedb.org/3'; // URL base da API
 
-        async function fetchMovies() {
-            const response = await fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&language=pt-BR&page=1`);
-            const data = await response.json();
-            renderMovies(data.results);
+        async function buscarFilmes() {
+            // Faz uma requisição à API para obter uma lista de filmes
+            const resposta = await fetch(`${URL_BASE}/discover/movie?api_key=${CHAVE_API}&language=pt-BR&page=1`);
+            const dados = await resposta.json(); // Converte a resposta para JSON
+            mostrarFilmes(dados.results); // Chama a função para exibir os filmes
         }
 
-        function renderMovies(movies) {
-            const container = document.getElementById('moviesContainer');
-            container.innerHTML = '';
-            movies.forEach(movie => {
-                const card = document.createElement('div');
-                card.className = 'movie-card';
+        function mostrarFilmes(filmes) {
+            const container = document.getElementById('moviesContainer'); // Obtém o elemento onde os filmes serão exibidos
+            container.innerHTML = ''; // Limpa o conteúdo atual do container
+
+            filmes.forEach(filme => {
+                const card = document.createElement('div'); // Cria um elemento <div> para o card do filme
+                card.className = 'filme-card'; // Adiciona a classe para estilização
+
                 card.innerHTML = `
-          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-          <div class="movie-title">${movie.title}</div>
-          <button class="fav-button" onclick="addToFavorites(${movie.id})">Adicionar aos Favoritos</button>
-        `;
-                container.appendChild(card);
+                        <img src="https://image.tmdb.org/t/p/w500${filme.poster_path}" alt="${filme.title}"> <!-- Imagem do filme -->
+                        <div class="titulo-filme">${filme.title}</div> <!-- Título do filme -->
+                        <button class="botao-favorito" onclick="adicionarFavorito(${filme.id})">Favoritar</button> <!-- Botão para favoritar -->
+                    `;
+
+                container.appendChild(card); // Adiciona o card ao container de filmes
             });
         }
 
-        function addToFavorites(id) {
-            const favorites = JSON.parse(localStorage.getItem('favoritos')) || [];
-            if (!favorites.includes(id)) {
-                favorites.push(id);
-                localStorage.setItem('favoritos', JSON.stringify(favorites));
-                alert("Filme adicionado aos favoritos!");
-                
+        function adicionarFavorito(id) {
+            const favoritos = JSON.parse(localStorage.getItem('favoritos')) || []; // Recupera a lista de filmes favoritos do armazenamento local
+
+            if (!favoritos.includes(id)) {
+                favoritos.push(id); // Adiciona o filme à lista de favoritos se ainda não estiver nela
+                localStorage.setItem('favoritos', JSON.stringify(favoritos)); // Salva a lista atualizada no armazenamento local
+                alert("Filme favoritado!"); // Exibe um alerta ao usuário
             } else {
-                alert("Este filme já está nos favoritos.");
+                alert("Este filme já está nos favoritos."); // Exibe um alerta se o filme já estiver nos favoritos
             }
         }
 
-        fetchMovies();
+        buscarFilmes(); // Chama a função para buscar e exibir os filmes ao carregar a página
     </script>
-
 </body>
 
 </html>

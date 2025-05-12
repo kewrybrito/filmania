@@ -36,8 +36,9 @@ input{
     margin-bottom: 50px;
     display: flex;
     gap: 10px;
+    flex-direction: column;
     /* Espaçamento entre os inputs */
-
+align-items: center;
 
 }
 
@@ -218,3 +219,7 @@ p {
 }
 
 
+.senhas{
+    display: flex;
+    flex-direction: column;
+}

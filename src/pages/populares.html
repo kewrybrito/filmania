@@ -1,70 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres da página -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/populares.css">
+    <!-- Permite melhor adaptação para dispositivos móveis -->
+    <title>Filmes Populares</title> <!-- Define o título da página -->
+    <link rel="stylesheet" href="../assets/css/populares.css"> <!-- Importa a folha de estilos externa -->
 </head>
 
 <body>
-    <div id="header"></div>
+    <div id="header"></div> <!-- Div para o cabeçalho, possivelmente carregado dinamicamente via JavaScript -->
 
-    <h1>Populares</h1>
-    <div class="card">
-        
-        <div class="botoes1">
-            
-            <a class="tagA">Favoritos</a>
-            <a class="tagA">Series</a>
-            <a class="tagA">filmes</a>
+    <h1>Populares</h1> <!-- Título principal da página -->
+
+    <div class="card"> <!-- Container principal para os filmes -->
+
+        <div class="botoes1"> <!-- Área de botões para navegação -->
+            <button class="tagA">Favoritos</button> <!-- Botão para visualizar filmes favoritos -->
+            <button class="tagA">Séries</button> <!-- Botão para visualizar séries -->
+            <button class="tagA">Filmes</button> <!-- Botão para visualizar filmes -->
         </div>
-        
-            <div class="movies-container caixa" id="moviesContainer">  </div>
- 
 
-        
+        <div class="movies-container caixa" id="moviesContainer"></div>
+        <!-- Container onde os filmes populares serão exibidos dinamicamente pelo JavaScript -->
+
     </div>
+
     <script src="/src/assets/js/import.js"></script>
     <script>
-        const API_KEY = '1abf5fe580ef33d80c44d534b8e3b6d1'; // Substitua pela sua chave da TMDB
-        const BASE_URL = 'https://api.themoviedb.org/3';
+        const CHAVE_API = '1abf5fe580ef33d80c44d534b8e3b6d1'; // Chave de API para acessar o TMDB
+        const URL_BASE = 'https://api.themoviedb.org/3'; // URL base da API
 
-        async function fetchMovies() {
-            const response = await fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&language=pt-BR&page=1`);
-            const data = await response.json();
-            renderMovies(data.results);
+        async function buscarFilmes() {
+            try {
+                const resposta = await fetch(`${URL_BASE}/discover/movie?api_key=${CHAVE_API}&language=pt-BR&page=1`);
+                const dados = await resposta.json();
+                mostrarFilmes(dados.results);
+            } catch (erro) {
+                console.error("Erro ao buscar filmes:", erro);
+            }
         }
 
-        function renderMovies(movies) {
+        function mostrarFilmes(filmes) {
             const container = document.getElementById('moviesContainer');
             container.innerHTML = '';
-            movies.forEach(movie => {
+
+            filmes.forEach(({ id, title, poster_path }) => {
                 const card = document.createElement('div');
-                card.className = 'movie-card';
+                card.className = 'filme-card';
+
                 card.innerHTML = `
-              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-              <div class="movie-title">${movie.title}</div>
-              <button class="fav-button" onclick="addToFavorites(${movie.id})">Adicionar aos Favoritos</button>
-            `;
+                    <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}">
+                    <div class="titulo-filme">${title}</div>
+                    <button class="botao-favorito" onclick="adicionarFavorito(${id})">Favoritar</button>
+                `;
+
                 container.appendChild(card);
             });
         }
 
-        function addToFavorites(id) {
-            const favorites = JSON.parse(localStorage.getItem('favoritos')) || [];
-            if (!favorites.includes(id)) {
-                favorites.push(id);
-                localStorage.setItem('favoritos', JSON.stringify(favorites));
-                alert("Filme adicionado aos favoritos!");
+        function adicionarFavorito(id) {
+            const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
+            if (!favoritos.includes(id)) {
+                favoritos.push(id);
+                localStorage.setItem('favoritos', JSON.stringify(favoritos));
+                alert("Filme favoritado!");
             } else {
                 alert("Este filme já está nos favoritos.");
             }
         }
 
-        fetchMovies();
+        buscarFilmes();
     </script>
 </body>
 
