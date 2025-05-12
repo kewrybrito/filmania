@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
   const basePath = path.includes('/pages/') ? '../components/cabecalho.html' : './components/cabecalho.html';
