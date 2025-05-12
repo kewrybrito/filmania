@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     box-sizing: border-box;
+    font-family: "Quicksand-Regular"; 
 }
 
 @font-face {
@@ -13,12 +14,16 @@
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
 }
 
+
+
 html,
 body {
     margin: 0;
     padding: 0;
     height: 100%;
     background-color: #0D0C1D;
+    font-family: "Quicksand-Regular";
+    overflow-x: hidden;
 
 }
 
@@ -31,8 +36,8 @@ h1 {
 
     display: block;
     width: 100%;
-    height: 100%;
-    border: 2px solid rgb(241, 19, 19);
+    height: 110vh;
+    border: 2px solid white;
 
 
     background-color: #A29BFE;
@@ -49,6 +54,11 @@ h1 {
     height: 100%;
     width: 20%;
     /* Adiciona espaço entre eles */
+    font-family: "Quicksand-Regular";
+}
+
+a{
+    font-family: "Quicksand-Regular";
 }
 
 .tagA {
@@ -58,7 +68,7 @@ h1 {
     text-align: center;
     width: 100%;
     height: 50px;
-    border: 2px solid rgb(231, 2, 2);
+    border: 2px solid white;
     margin-bottom: 20px;
     border-radius: 5px;
     bottom: 1;
