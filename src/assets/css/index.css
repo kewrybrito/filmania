@@ -350,3 +350,7 @@ html, body {
     font-size: 180%;
 }
 
+.botao {
+    visibility: hidden;
+    display: none;
+}

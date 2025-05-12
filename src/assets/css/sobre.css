@@ -15,6 +15,7 @@
 
 body{
     background-color: #0D0C1D;
+    overflow-x: hidden;
 }
 
 .sec-sobre-1{
@@ -26,22 +27,147 @@ body{
 .sec-sobre-1 h2{
     text-align: center;
     color: white;
-    font-size: 30px;
+    font-size: 40px;
     font-family: "Quicksand-Regular";
 }
 
 
 
 .sec-sobre-2{
-    background-color: aqua;
+    background-color: #0D0C1D;
     width: 100vw;
-    height: 30vh;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding-left: 20px;
+    padding-top: 2%;
+    gap: 20px;
+}
+
+.sec-sobre-texto{
+    height: 15vh;
+    width: 60vw;
+    background-color: #0D0C1D;
 }
 
 .sec-sobre-2 h2 {
     color: white;
+    font-family: "Quicksand-Regular";
+    font-size: 30px;
+    text-align: left;
+    margin-right: 31.5%;
 }
 
 .sec-sobre-2 p{
     color: white;
+    font-family: "Quicksand-Regular";
+    font-size: 25px;
+}
+
+.sec-sobre-3{
+    height: 85vh;
+    width: 100vw;
+    background-color: #0D0C1D;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+}
+
+.sec-sobre-3 h2{
+    color: white;
+    font-family: "Quicksand-Regular";
+    font-size: 30px;
+    text-align: left;
+    margin-right: 34%;
+    margin-top: 2%;
+}
+
+.sec-desenvolvedores{
+    height: 80vh;
+    width: 90vw;
+    background-color: #0D0C1D;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+    padding-top: 2%;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;  
+    display: block;
+    margin: 20px auto 10px;
+    border: none;
+    
+}
+
+.dev-card {
+    text-align: left;
+    color: white;
+    font-family: "Quicksand-Regular";
+    padding: 10px;
+    height: 45vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #6C5CE7;
+    border-radius: 20px;
+}
+
+.dev-card-2{
+    height: 30vh;
+    width: 18vw;
+    background-color: #a29bfe67;
+    padding-top: 5%;
+    padding-left: 5%;
+    border-radius: 10px;
+    gap: 50px;
+}
+
+
+.linkedin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: start;
+    background-color: #0D0C1D;
+    width: 100vw;
+    height: 25vh;
+    font-family: "Quicksand-Regular";
+    color: white;
+    font-size: 15px;
+}
+
+.linkedin div{
+    height: 10vh;
+    width: 20vw;
+    background-color: #0D0C1D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.linkedin-icon{
+    width: 25px;
+}
+
+
+
+#espaco-sobre{
+    height: 50vh;
+    width: 100vw;
+    background-color: #0D0C1D;
 }

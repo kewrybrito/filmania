@@ -130,3 +130,7 @@
 .header p{
     color: white;
 }
+.botao {
+    visibility: hidden;
+    display: none;
+}

@@ -9,9 +9,63 @@
 </head>
 
 <body>
-    <div class="header">
+    <div id="header"></div>
 
     <h1>Populares</h1>
+    <div class="card">
+        
+        <div class="botoes1">
+            
+            <a class="tagA">Favoritos</a>
+            <a class="tagA">Series</a>
+            <a class="tagA">filmes</a>
+        </div>
+        
+            <div class="movies-container caixa" id="moviesContainer">  </div>
+ 
+
+        
+    </div>
+    <script src="/src/assets/js/import.js"></script>
+    <script>
+        const API_KEY = '1abf5fe580ef33d80c44d534b8e3b6d1'; // Substitua pela sua chave da TMDB
+        const BASE_URL = 'https://api.themoviedb.org/3';
+
+        async function fetchMovies() {
+            const response = await fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&language=pt-BR&page=1`);
+            const data = await response.json();
+            renderMovies(data.results);
+        }
+
+        function renderMovies(movies) {
+            const container = document.getElementById('moviesContainer');
+            container.innerHTML = '';
+            movies.forEach(movie => {
+                const card = document.createElement('div');
+                card.className = 'movie-card';
+                card.innerHTML = `
+              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+              <div class="movie-title">${movie.title}</div>
+              <button class="fav-button" onclick="addToFavorites(${movie.id})">Adicionar aos Favoritos</button>
+            `;
+                container.appendChild(card);
+            });
+        }
+
+        function addToFavorites(id) {
+            const favorites = JSON.parse(localStorage.getItem('favoritos')) || [];
+            if (!favorites.includes(id)) {
+                favorites.push(id);
+                localStorage.setItem('favoritos', JSON.stringify(favorites));
+                alert("Filme adicionado aos favoritos!");
+
+            } else {
+                alert("Este filme já está nos favoritos.");
+            }
+        }
+
+        fetchMovies();
+    </script>
 </body>
 
 </html>

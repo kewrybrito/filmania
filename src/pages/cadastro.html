@@ -13,38 +13,39 @@
 <body>
     <div class="container">
         <div class="card">
-            <h1>Cadastrar</h1>
+            <h1>Que Bom Ter Você na Filmania</h1>
 
             <div id="msgError"></div>
             <div id="msgSuccess"></div>
 
-            <div class="label-float">
-                <input type="text" id="nome" placeholder=" " required />
-                <label id="labelNome" for="nome">Nome</label>
+            <div class="label-nome">
+                <label id="labelNome" for="nome">Nome completo:</label>
+                <input type="text" id="nome" placeholder="Digite seu nome:" required />
             </div>
 
-            <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required />
-                <label id="labelUsuario" for="usuario">Usuário</label>
+            <div class="labelEmail">
+                <label id="labelUsuario" for="email">Email:</label>
+                <input type="email" id="email" placeholder=" " required />
             </div>
 
-            <div class="label-float">
+            <div class="label-senha">
+                <label id="labelSenha" for="senha">Senha:</label>
                 <input type="password" id="senha" placeholder=" " required />
-                <label id="labelSenha" for="senha">Senha</label>
                 <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
             </div>
-
-            <div class="label-float">
-                <input type="password" id="confirmSenha" placeholder=" " required />
-                <label id="labelConfirmSenha" for="confirmSenha">Confirmar Senha</label>
+            <div class="label-Csenha">
+              
+                <label id="labelCSenha" for="Csenha">Confirmar Senha:</label>
+                <input type="password" id="Csenha" placeholder=" " required />
                 <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
+
             </div>
 
             <div class="justify-center">
                 <button onclick="cadastrar()">Cadastrar</button>
             </div>
             <br>
-            <p>Já uma tem conta<a href="../pages/login.html" style="text-decoration: none;"> clique aqui</a></p>
+            <p>Já uma tem conta <a href="../pages/login.html" style="text-decoration: none;">clique aqui</a> </p>
         </div>
     </div>
 

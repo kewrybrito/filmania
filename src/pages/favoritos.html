@@ -1,17 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!-- Define a codificação para evitar problemas de acentuação -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favoritos</title>
-    <link rel="stylesheet" href="../assets/css/favoritos.css">
+    <!-- Ajusta a visualização para dispositivos móveis -->
+    <title>Favoritos de Filmes</title>
+    <link rel="stylesheet" href="/src/assets/css/favoritos.css"> <!-- Importação do arquivo CSS -->
 </head>
 
 <body>
-    <div class="header">
+    <div class="container"> <!-- Container principal -->
+        <div id="header"></div>
+        <h1>Favoritos de Filmes</h1>
 
-    <h1>Favoritos</h1>
-</body>
+        <input type="text" id="letterInput" placeholder="Digite a inicial do filme...">
+        <!-- Campo de entrada para busca -->
+        <button id="searchBtn">Pesquisar pela Inicial</button> <!-- Botão para pesquisar -->
+
+        <h2>Resultados da Pesquisa</h2>
+        <div class="results">
+
+            <div id="movies-list"></div> <!-- Onde os filmes encontrados serão exibidos -->
+            
+            <h2>Filmes Favoritos</h2>
+            <div id="favorites-list"></div> <!-- Onde os filmes favoritos serão exibidos -->
+        </div>
+    </div>
+    <script src="/src/assets/js/favoritos.js"></script> <!-- Importação do arquivo JavaScript -->
+    <script src="/src/assets/js/import.js"></script> <!-- Importação do arquivo JavaScript do cabeçalho -->
+    <script src="assets/js/script.js"></script>
 
 </html>

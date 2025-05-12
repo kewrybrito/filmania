@@ -18,6 +18,96 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-x: hidden;
+    background-color: #0D0C1D;
+
+}
+
+h1 {
     text-align: center;
+    color: #fff;
+}
+
+.caixa {
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(241, 19, 19);
+
+
+    background-color: #A29BFE;
+}
+
+
+.botoes1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centraliza os elementos */
+    gap: 10px;
+    position: relative;
+    height: 100%;
+    width: 20%;
+    /* Adiciona espaço entre eles */
+}
+
+.tagA {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    border: 2px solid rgb(231, 2, 2);
+    margin-bottom: 20px;
+    border-radius: 5px;
+    bottom: 1;
+    color: white;
+
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    /* Separa os elementos */
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* Alinha verticalmente */
+}
+
+.filmes {
+    border: 1px solid red;
+    height: 20%;
+    overflow: hidden;
+    /* Esconde qualquer conteúdo que ultrapasse a div */
+}
+
+.movies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.movie-card {
+    background-color: #222;
+    border-radius: 5px;
+    padding: 10px;
+
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.movie-card:hover {
+    transform: scale(1.03);
+}
+
+.movie-card img {
+    max-width: 80%;
+    border-radius: 5px;
+}
+
+.movie-title {
+    font-size: 1.1em;
+    margin: 10px 0;
 }
