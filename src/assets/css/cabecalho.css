@@ -131,6 +131,5 @@
     color: white;
 }
 .botao {
-    visibility: hidden;
-    display: none;
+    color: red;
 }

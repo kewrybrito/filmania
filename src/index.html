@@ -5,7 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FILMANIA</title>
+
+  <!-- Ícone da página -->
   <link rel="icon" href="/src/assets/img/favicon.png">
+
+  <!-- Estilos CSS -->
   <link rel="stylesheet" href="assets/css/cabecalho.css">
   <link rel="stylesheet" href="assets/css/rodape.css">
   <link rel="stylesheet" href="assets/css/index.css">
@@ -13,32 +17,44 @@
 
 <body>
 
+  <!-- Importação do cabeçalho -->
   <div id="header"></div>
 
+  <!-- Seção de boas-vindas -->
   <div class="sec-1">
     <div id="info">
       <h1>Bem-Vindo!</h1>
       <p>Tudo sobre filmes e séries, sem spoilers e sem enrolação!</p>
-      <button id="botao-sec-1"><a href="../src/pages/cadastro.html" style="text-decoration: none;" id="bt-sec-1">Faça já seu cadastro</a></button>
+
+      <!-- Botão para cadastro -->
+      <button id="botao-sec-1">
+        <a href="../src/pages/cadastro.html" style="text-decoration: none;" id="bt-sec-1">
+          Faça já seu cadastro
+        </a>
+      </button>
     </div>
   </div>
 
-
-
+  <!-- Seção de filmes populares -->
   <div class="sec-2">
-      <h2>Populares essa semana</h2>
-      <img src="/src/assets/img/seta-esquerda.png" alt="Voltar" class="seta-img esquerda">
-      <div class="carrossel" id="carrossel-populares"></div>
-      <img src="/src/assets/img/seta-direita.png" alt="Avançar" class="seta-img direita">
+    <h2>Populares essa semana</h2>
+
+    <!-- Botão para voltar -->
+    <img src="/src/assets/img/seta-esquerda.png" alt="Voltar" class="seta-img esquerda">
+
+    <!-- Carrossel de filmes -->
+    <div class="carrossel" id="carrossel-populares"></div>
+
+    <!-- Botão para avançar -->
+    <img src="/src/assets/img/seta-direita.png" alt="Avançar" class="seta-img direita">
   </div>
 
-
-
-
+  <!-- Seção de funcionalidades -->
   <div class="sec-3">
     <h2>Descubra o que você pode fazer 🍿</h2>
     <div class="sec-quads">
       <div class="quad-1">
+        <!-- Botão para lista de interesse -->
         <a href="pages/favoritos.html" style="text-decoration: none;">
           <button id="quad-salvar">
             <div class="elementos-salvar">
@@ -46,10 +62,12 @@
               <h1>Lista de Interesse</h1>
             </div>
             <div class="elementos-salvar-2">
-              <p>Demonstre sua paixão por filmes, séries e avaliações favoritas salvando tudo o que ama — e deixe gravado o que quer assistir mais tarde. </p>
+              <p>Salve seus filmes e séries favoritas para assistir mais tarde.</p>
             </div>
           </button>
         </a>
+
+        <!-- Botão para tutorial -->
         <a href="pages/tutorial.html" style="text-decoration: none;">
           <button id="quad-tutorial">
             <div class="elementos-salvar">
@@ -57,13 +75,14 @@
               <h1>Como funciona</h1>
             </div>
             <div class="elementos-salvar-2">
-              <p>Descubra como o site funciona e transforme sua forma de escolher o que assistir.  </p>
+              <p>Saiba mais sobre como navegar e escolher o que assistir.</p>
             </div>
           </button>
         </a>
       </div>
 
       <div class="quad-2">
+        <!-- Botão sobre nós -->
         <a href="pages/sobre.html" style="text-decoration: none;">
           <button id="quad-sobre">
             <div class="elementos-salvar">
@@ -71,42 +90,43 @@
               <h1>Sobre nós</h1>
             </div>
             <div class="elementos-salvar-2">
-              <p>Clique aqui e descubra quem somos e por que decidimos facilitar sua escolha de filmes.  </p>
+              <p>Saiba mais sobre o projeto e nossa missão.</p>
             </div>
           </button>
         </a>
 
+        <!-- Botão para filme surpresa -->
         <a href="pages/sorteio.html" style="text-decoration: none">
           <button id="quad-surpresa">
-              <div class="elementos-salvar">
-                <img id="img-puzzle" src="/src/assets/img/puzzle-icon.png" alt="">
-                <h1>Filme Surpresa</h1>
-              </div>
-              <div class="elementos-salvar-2">
-                <p>Ainda em dúvida, mesmo vendo o que está em alta?  Deixe que a gente escolha por você! No Filme Surpresa, um clique resolve sua indecisão. </p>
-              </div>
+            <div class="elementos-salvar">
+              <img id="img-puzzle" src="/src/assets/img/puzzle-icon.png" alt="">
+              <h1>Filme Surpresa</h1>
+            </div>
+            <div class="elementos-salvar-2">
+              <p>Deixe que escolhemos um filme para você!</p>
+            </div>
           </button>
         </a>
       </div>
     </div>
   </div>
 
-
-
-
+  <!-- Seção final -->
   <div class="sec-4">
-    <h2>A ajuda certa na hora de escolher o filme perfeito, rápido e fácil.<br>Salve os que você ainda quer ver.<br> Ajude seus amigos a encontrarem bons filmes também. </h2>
+    <h2>A ajuda certa para encontrar o filme perfeito, rápido e fácil.</h2>
   </div>
 
-  <div id="espaco">
+  <!-- Espaço extra -->
+  <div id="espaco"></div>
 
-  </div>
-
+  <!-- Importação do rodapé -->
   <div id="footer"></div>
 
+  <!-- Scripts JS -->
   <script src="assets/js/import.js"></script>
   <script src="assets/js/script.js"></script>
   <script src="assets/js/carrosel.js"></script>
+
 </body>
 
 </html>
