@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Login</title>
     <link rel="stylesheet" href="../assets/css/login.css">
+    <!-- estou importando as bibliotecas (fa icone de olho) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
@@ -17,36 +18,39 @@
         <h2>Prepare a pipoca e faça login para continuar sua sessão na Filmania!</h2>
         
         <div>
-            <form id="loginForm"></form>
+            <form id="loginForm">
         </div>
       
-        <div class="form-group">
-            
-            <div class="error" id="msgError"></div>
+            <div class="form-group">
+                
+                <div class="error" id="msgError"></div>
+    
+                <label id="userLabel" for="email">Email</label>
+                
+                <!-- required torna o input obrigatorio  -->
+                <input type="email" id="email" name="email" required>
+            </div>
+           
+    
+            <div class="form-group">
+                
+                <div class="error" id="passwordError"></div>
 
-            <label id="userLabel" for="email">Email</label>
-            
-            <input type="email" id="email" name="email" required>
-        </div>
-       
-
-        <div class="form-group">
-            
-            <div class="error" id="passwordError"></div>
-
-            <label id="senhaLabel" for="password">Senha<i class="fa fa-eye" id="verSenha" aria-hidden="true"></i></label>
-            
-            
-            <input type="password" id="senha" name="password" required minlength="6">
-
-        </div>
-        <button onclick="entrar()" type="submit" class="submit-btn">Entrar</button>
-        <h3><a id="cadastrar" href="/src/pages/cadastro.html"> Não tem uma conta? <b>Faça cadastro</b></a> </h3>
-       
-    </form>
+                <!-- estou usando a biblioteca de ícones (FA) Font Awesome -->
+                <!-- label da um nome visível ao campo -->
+                <!-- usado para dizer aos leitores com deficiência visual se um elemento deve ou não ser ignorado-->
+                <label id="senhaLabel" for="password">Senha</label>
+                <input type="password" id="senha" name="password" required minlength="6">
+    
+            </div>
+            <button onclick="entrar()" type="submit" class="submit-btn">Entrar</button>
+            <h3><a id="cadastrar" href="/src/pages/cadastro.html"> Não tem uma conta? <b>Faça cadastro</b></a> </h3>
+           
+        </form>
+  
    
 </div>
-    <!-- <script src="../assets/js/script.js"></script> -->
+    <!-- puxa o caminho do javascript  -->
     <script src="../assets/js/signin.js"></script>
 </body>
 
