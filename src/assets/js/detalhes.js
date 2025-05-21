@@ -26,6 +26,12 @@ async function carregarDetalhes() {
       <p><strong>Sinopse:</strong> ${dados.overview}</p> <br>
       <p><strong>Nota:</strong> ${dados.vote_average}</p>
       <p><strong>Data de lançamento:</strong> ${dados.release_date || dados.first_air_date}</p>
+    <div class="icons-filmes">
+      <div>
+        <a href="" style="text-decoration: none;"><img src="/src/assets/img/salvar-2.png" alt=""> Adicionar nos Favoritos</a>   
+      </div>     
+    </div>
+      
     </div>
     `;
   } catch (erro) {

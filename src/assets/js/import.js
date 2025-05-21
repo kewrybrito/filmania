@@ -1,5 +1,4 @@
 // Ao carregar a página, dispara uma função
-window.addEventListener('DOMContentLoaded', () => {
   
   // Obtém o caminho da URL atual
   const path = window.location.pathname;
@@ -44,6 +43,5 @@ window.addEventListener('DOMContentLoaded', () => {
       // Insere o conteúdo do rodapé no elemento com ID "footer"
       document.getElementById('footer').innerHTML = data;
     })
-    .catch(error=> console.error('Erro:', error)); // Captura e exibe erros no console
-})
+    .catch(error=> {console.error('Erro:', error)}); // Captura e exibe erros no console
 });
