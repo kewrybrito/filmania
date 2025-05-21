@@ -1,8 +1,8 @@
 const apiKey = '1abf5fe580ef33d80c44d534b8e3b6d1';
 const apiUrl = 'https://api.themoviedb.org/3/search/movie?api_key=' + apiKey + '&query=';
 
-const letterInput = document.getElementById('letterInput');
-const searchBtn = document.getElementById('searchBtn');
+const letterInput = document.getElementById('barra-pesquisa');
+const searchBtn = document.getElementById('botao-pesquisa');
 const moviesList = document.getElementById('movies-list');
 const favoritesList = document.getElementById('favorites-list');
 
@@ -85,11 +85,14 @@ function renderFavorites() {
     });
 }
 
-// Evento para pesquisa pela inicial ao clicar no botão
-searchBtn.addEventListener('click', () => {
-    const initial = letterInput.value.trim();
-    searchMoviesByInitial(initial);
-});
+
+    // Evento para pesquisa pela inicial ao clicar no botão
+    searchBtn.addEventListener('click', () => {
+        const initial = letterInput.value.trim();
+        searchMoviesByInitial(initial);
+    })
 
 // Renderizar os favoritos ao carregar a página
 renderFavorites();
+    console.log(letterInput)
+    console.log(searchBtn)

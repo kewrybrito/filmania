@@ -21,7 +21,7 @@
     
     <script>
         const CHAVE_API = '1abf5fe580ef33d80c44d534b8e3b6d1'; // Chave de API para acessar o serviço do TMDB
-        const URL_BASE = 'https://api.themoviedb.org/3'; // URL base da API
+        const URL_BASE = `https://api.themoviedb.org/3/trending/all/week?api_key=${CHAVE_API}&language=pt-BR`; // URL base da API
 
         async function buscarFilmes() {
             // Faz uma requisição à API para obter uma lista de filmes

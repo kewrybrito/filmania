@@ -1,6 +1,9 @@
 const loginForm = document.getElementById('loginForm');
+
+document.addEventListener('DOMContenteLoded', () => {
 loginForm.addEventListener('submit', function (e) {
     e.preventDefault();
+});
 
     const email = document.getElementById('email');
     const password = document.getElementById('password');

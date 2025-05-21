@@ -1,5 +1,5 @@
 let btn = document.querySelector('#verSenha'); // Seleciona o botão de mostrar senha
-
+document.addEventListener('DOMContenteLoded', () => {
 btn.addEventListener('click', () => {
     let inputSenha = document.querySelector('#senha'); // Seleciona o campo de senha
 
@@ -9,8 +9,8 @@ btn.addEventListener('click', () => {
     } else {
         inputSenha.setAttribute('type', 'password'); // Caso contrário, mantém oculto
     }
+})
 });
-
 
 
 //Função para entrar 
