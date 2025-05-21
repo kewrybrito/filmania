@@ -36,7 +36,7 @@ body{
 .sec-sobre-2{
     background-color: #0D0C1D;
     width: 100vw;
-    height: 60vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -114,7 +114,7 @@ body{
     color: white;
     font-family: "Quicksand-Regular";
     padding: 10px;
-    height: 45vh;
+    height: 42vh;
     width: 20vw;
     display: flex;
     flex-direction: column;
@@ -142,7 +142,7 @@ body{
     align-items: start;
     background-color: #0D0C1D;
     width: 100vw;
-    height: 25vh;
+    height: 20vh;
     font-family: "Quicksand-Regular";
     color: white;
     font-size: 15px;
@@ -167,7 +167,7 @@ body{
 
 
 #espaco-sobre{
-    height: 50vh;
+    height: 25vh;
     width: 100vw;
     background-color: #0D0C1D;
 }

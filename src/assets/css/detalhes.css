@@ -23,15 +23,16 @@ body{
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    height: 90vh;
+    height: 65vh;
     background-color: #0D0C1D;
 }
 
 .lado-a{
-    height: 85vh;
-    width: 25vw;
-    background-color: #0D0C1D;
+    height: 65vh;
+    width: 22vw;
+    background-color: #0D0C1D;;
     padding-left: 2%;
+    padding-top: 1%;
 }
 
 .lado-a h1{
@@ -47,7 +48,7 @@ body{
 .lado-b{
     width: 73vw;
     height: 45vh;
-    background-color: #0D0C1D;
+    background-color: #0D0C1D;;
     line-height: 1.5;
 }
 
@@ -57,16 +58,16 @@ body{
 }
 
 .icons-filmes{
-    height: 20vh;
+    height: 12vh;
     width: 100vw;
-    background-color: #0D0C1D;
+    background-color: #0D0C1D;;
     display: flex;
 }
 
 .icons-filmes div{
     height: 8vh;
     width: 25vw;
-    background-color: #0D0C1D;
+    background-color: #0D0C1D;;
     padding-left: 5%;
     display: flex;
     flex-direction: row;

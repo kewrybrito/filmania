@@ -5,27 +5,24 @@
     <meta charset="UTF-8"> <!-- Define o conjunto de caracteres da página -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Permite melhor adaptação para dispositivos móveis -->
-    <title>Filmes Populares</title> <!-- Define o título da página -->
+    <title>FILMANIA</title> <!-- Define o título da página -->
+    <link rel="icon" href="/src/assets/img/favicon.png">
     <link rel="stylesheet" href="../assets/css/populares.css"> <!-- Importa a folha de estilos externa -->
 </head>
 
 <body>
     <div id="header"></div> <!-- Div para o cabeçalho, possivelmente carregado dinamicamente via JavaScript -->
+    <hr>
+
 
     <h1>Populares</h1> <!-- Título principal da página -->
 
-    <div class="card"> <!-- Container principal para os filmes -->
 
-        <div class="botoes1"> <!-- Área de botões para navegação -->
-            <button class="tagA">Favoritos</button> <!-- Botão para visualizar filmes favoritos -->
-            <button class="tagA">Séries</button> <!-- Botão para visualizar séries -->
-            <button class="tagA">Filmes</button> <!-- Botão para visualizar filmes -->
-        </div>
 
-        <div class="movies-container caixa" id="moviesContainer"></div>
+        <div class="movies-container" id="moviesContainer"></div>
         <!-- Container onde os filmes populares serão exibidos dinamicamente pelo JavaScript -->
 
-    </div>
+    
 
     <script src="/src/assets/js/import.js"></script>
     <script>
@@ -48,10 +45,10 @@
 
             filmes.forEach(({ id, title, poster_path }) => {
                 const card = document.createElement('div');
-                card.className = 'filme-card';
+                card.className = 'movie-card';
 
                 card.innerHTML = `
-                    <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}">
+                    <img id="img-populares"  src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}">
                     <div class="titulo-filme">${title}</div>
                     <button class="botao-favorito" onclick="adicionarFavorito(${id})">Favoritar</button>
                 `;

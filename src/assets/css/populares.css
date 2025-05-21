@@ -1,11 +1,8 @@
-/* Define estilos globais */
 * {
     margin: 0px;
-    /* Remove margem de todos os elementos */
     box-sizing: border-box;
 }
 
-/* Importa fontes personalizadas */
 @font-face {
     font-family: 'Quicksand-Medium';
     src: url('/src/assets/fonts/Quicksand-Medium.ttf');
@@ -15,129 +12,91 @@
     font-family: 'Quicksand-Regular';
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
 }
+        body {
+            font-family: "Quicksand-Regular";
+            /* Define a fonte do texto */
+            background: #0D0C1D;
+            /* Define a cor de fundo da página */
+            color: #fff;
+            /* Define a cor do texto */
+            margin: 0;
+            /* Remove a margem padrão */
+            overflow-x: hidden;
+        }
 
+        h1 {
+            text-align: center;
+            /* Centraliza o título */
+            margin-bottom: 2%;
+            margin-top: 2%;
+        }
 
+        .movies-container {
+            display: grid;
+            /* Utiliza um layout de grade */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* Define um layout responsivo */
+            gap: 20px;
+            /* Adiciona espaçamento entre os elementos */
+        }
 
-/* Estiliza o HTML e o corpo da página */
-html,
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: #0D0C1D;
+        .movie-card {
+            background-color: #1C1B2A;
+            /* Define a cor de fundo dos cards */
+            border-radius: 10px;
+            /* Arredonda as bordas */
+            padding: 15px;
+            /* Adiciona espaçamento interno */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* Adiciona sombra ao card */
+            text-align: center;
+            /* Centraliza o texto */
+            transition: transform 0.2s;
+            /* Adiciona uma animação de transformação */
+            cursor: pointer;
+        }
 
-}
+        .movie-card:hover {
+            transform: scale(1.03);
+            /* Aumenta levemente o tamanho do card ao passar o mouse */
+        }
 
-/* Estiliza títulos */
-h1 {
-    text-align: center;
-    /* Centraliza o texto */
-    color: #fff;
-    /* Define cor branca */
-}
+        .movie-card img {
+            max-width: 100%;
+            /* Ajusta a imagem ao tamanho do card */
+            border-radius: 8px;
+            /* Arredonda as bordas da imagem */
+        }
 
-/* Container principal */
-.caixa {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 2px solid rgb(241, 19, 19);
+        .titulo-filme {
+            font-size: 1.1em;
+            /* Define o tamanho da fonte do título */
+            margin: 10px 0;
+            /* Adiciona espaçamento */
+        }
 
+        .botao-favorito {
+            background-color: #A29BFE;
+            /* Define a cor do botão */
+            color: white;
+            /* Define a cor do texto */
+            border: none;
+            /* Remove a borda */
+            padding: 10px 15px;
+            /* Adiciona espaçamento interno */
+            border-radius: 15px;
+            /* Arredonda as bordas do botão */
+            cursor: pointer;
+            /* Altera o cursor ao passar sobre o botão */
+            width: 12vh;
+            transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+            font-family: "Quicksand-Regular";
+        }
 
-    background-color: #A29BFE;
-}
+        .botao-favorito:hover{
+            background-color: #5344c3;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #5344c3;
 
-/* Botões organizados em coluna */
-.botoes1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Centraliza os elementos */
-    gap: 10px;
-    /* Adiciona espaçamento entre os itens */
-    position: relative;
-    height: 100%;
-    width: 20%;
-    /* Adiciona espaço entre eles */
-}
+        }
 
-/* Estiliza links ou botões */
-.tagA {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    height: 50px;
-    border: 2px solid rgb(231, 2, 2);
-    margin-bottom: 20px;
-    border-radius: 5px;
-    /* Arredonda os cantos */
-    color: white;
-}
-
-/* Estiliza cartões */
-.card {
-    display: flex;
-    justify-content: space-between;
-    /* Separa os elementos horizontalmente */
-    align-items: center;
-    /* Centraliza verticalmente */
-    width: 100%;
-    height: 100%;
-}
-
-/* Container de filmes */
-.filmes {
-    height: 20%;
-    overflow: hidden;
-    /* Esconde conteúdo que ultrapasse os limites da div */
-}
-
-/* Container de filmes organizado em grid */
-.movies-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    /* Cria colunas adaptáveis */
-    gap: 20px;
-}
-
-/* Estiliza cada cartão de filme */
-.movie-card {
-    background-color: #222;
-    /* Fundo escuro */
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    transition: transform 0.2s;
-    /* Suaviza efeito ao passar o mouse */
-}
-
-/* Efeito ao passar o mouse */
-.movie-card:hover {
-    transform: scale(1.03);
-}
-
-/* Estiliza imagens dos filmes */
-.movie-card img {
-    max-width: 80%;
-    border-radius: 5px;
-}
-
-/* Estiliza título dos filmes */
-.titulo-filme{
-    font-size: 1.1em;
-    margin: 10px 0;
-}
-.botao-facorito {
-    background-color: #e50914;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.botao-facorito:hover {
-    background-color: #b00610;
-}

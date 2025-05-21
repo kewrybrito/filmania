@@ -13,21 +13,22 @@
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
 }
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Quicksand-Regular";
             /* Define a fonte do texto */
-            background: gray;
+            background: #0D0C1D;
             /* Define a cor de fundo da página */
             color: #fff;
             /* Define a cor do texto */
             margin: 0;
             /* Remove a margem padrão */
+            overflow-x: hidden;
         }
 
         h1 {
             text-align: center;
             /* Centraliza o título */
-            margin-bottom: 40px;
-            /* Adiciona espaçamento inferior */
+            margin-bottom: 2%;
+            margin-top: 2%;
         }
 
         .movies-container {
@@ -40,7 +41,7 @@
         }
 
         .filme-card {
-            background-color: #222;
+            background-color: #1C1B2A;
             /* Define a cor de fundo dos cards */
             border-radius: 10px;
             /* Arredonda as bordas */
@@ -52,6 +53,7 @@
             /* Centraliza o texto */
             transition: transform 0.2s;
             /* Adiciona uma animação de transformação */
+            cursor: pointer;
         }
 
         .filme-card:hover {
@@ -74,7 +76,7 @@
         }
 
         .botao-favorito {
-            background-color: #e50914;
+            background-color: #A29BFE;
             /* Define a cor do botão */
             color: white;
             /* Define a cor do texto */
@@ -82,13 +84,19 @@
             /* Remove a borda */
             padding: 10px 15px;
             /* Adiciona espaçamento interno */
-            border-radius: 5px;
+            border-radius: 15px;
             /* Arredonda as bordas do botão */
             cursor: pointer;
             /* Altera o cursor ao passar sobre o botão */
+            width: 12vh;
+            transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+            font-family: "Quicksand-Regular";
         }
 
-        .botao-favorito:hover {
-            background-color: #b00610;
-            /* Muda a cor do botão ao passar o mouse */
+        .botao-favorito:hover{
+            background-color: #5344c3;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #5344c3;
+
         }
+
