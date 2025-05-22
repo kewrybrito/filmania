@@ -12,13 +12,95 @@
     font-family: 'Quicksand-Regular';
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
 }
+        body {
+            font-family: "Quicksand-Regular";
+            /* Define a fonte do texto */
+            background: #0D0C1D;
+            /* Define a cor de fundo da página */
+            color: #fff;
+            /* Define a cor do texto */
+            margin: 0;
+            /* Remove a margem padrão */
+            overflow-x: hidden;
+        }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-x: hidden;
-    text-align: center;
-    font-family: "Quicksand-Regular";
-}
+        h1 {
+            text-align: center;
+            /* Centraliza o título */
+            margin-bottom: 2%;
+            margin-top: 2%;
+        }
+
+        a{
+            color: white;
+        }
+
+        .movies-container {
+            display: grid;
+            /* Utiliza um layout de grade */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* Define um layout responsivo */
+            gap: 20px;
+            /* Adiciona espaçamento entre os elementos */
+        }
+
+        .filme-card {
+            background-color: #1C1B2A;
+            /* Define a cor de fundo dos cards */
+            border-radius: 10px;
+            /* Arredonda as bordas */
+            padding: 15px;
+            /* Adiciona espaçamento interno */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* Adiciona sombra ao card */
+            text-align: center;
+            /* Centraliza o texto */
+            transition: transform 0.2s;
+            /* Adiciona uma animação de transformação */
+            cursor: pointer;
+        }
+
+        .filme-card:hover {
+            transform: scale(1.03);
+            /* Aumenta levemente o tamanho do card ao passar o mouse */
+        }
+
+        .filme-card img {
+            max-width: 100%;
+            /* Ajusta a imagem ao tamanho do card */
+            border-radius: 8px;
+            /* Arredonda as bordas da imagem */
+        }
+
+        .titulo-filme {
+            font-size: 1.1em;
+            /* Define o tamanho da fonte do título */
+            margin: 10px 0;
+            /* Adiciona espaçamento */
+        }
+
+        .botao-favorito {
+            background-color: #A29BFE;
+            /* Define a cor do botão */
+            color: white;
+            /* Define a cor do texto */
+            border: none;
+            /* Remove a borda */
+            padding: 10px 15px;
+            /* Adiciona espaçamento interno */
+            border-radius: 15px;
+            /* Arredonda as bordas do botão */
+            cursor: pointer;
+            /* Altera o cursor ao passar sobre o botão */
+            width: 12vh;
+            transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+            font-family: "Quicksand-Regular";
+        }
+
+        .botao-favorito:hover{
+            background-color: #5344c3;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #5344c3;
+
+        }
+
