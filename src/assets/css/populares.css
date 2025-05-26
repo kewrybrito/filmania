@@ -12,6 +12,9 @@
     font-family: 'Quicksand-Regular';
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
 }
+a {
+    color: white;
+}
         body {
             font-family: "Quicksand-Regular";
             /* Define a fonte do texto */

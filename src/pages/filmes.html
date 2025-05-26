@@ -1,94 +1,119 @@
-<!DOCTYPE html> <!-- Declaração do tipo de documento (HTML5) -->
-<html lang="pt-BR"> <!-- Define a língua principal da página como Português do Brasil -->
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" /> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/assets/css/filmes.css" /> <!-- Importa a folha de estilos CSS para a página -->
-    <!-- Ajusta a escala para dispositivos móveis -->
-    <title>Todos os Filmes - FILMANIA</title> <!-- Define o título da página -->
+    <link rel="stylesheet" href="/src/assets/css/filmes.css" />
+    <title>Todos os Filmes - FILMANIA</title>
 </head>
 
 <body>
-    <div id="header"></div> <!-- Container para o cabeçalho da página -->
+    <div id="header"></div>
     <hr>
-    <h1>Todos os Filmes</h1> <!-- Título principal da página -->
-    <div class="movies-container" id="moviesContainer"></div> <!-- Container onde os filmes serão exibidos -->
+    <h1>Todos os Filmes</h1>
+    <div class="movies-container" id="moviesContainer"></div>
+<script src="/src/assets/js/import.js"></script>
+    <script>
+        const apiKey = '1abf5fe580ef33d80c44d534b8e3b6d1';
+        const apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=pt-BR';
 
+        const moviesContainer = document.getElementById('moviesContainer');
 
+        // ======================= Funções de Favoritos =========================
 
+        function salvaFavorito(filmes) {
+            localStorage.setItem('favoritos', JSON.stringify(filmes));
+        }
 
+        function pegarFilmeFavorito() {
+            const filmes = localStorage.getItem('favoritos');
+            return filmes ? JSON.parse(filmes) : [];
+        }
 
+        function adicionaFavorito(id, title, posterUrl) {
+            const favoritos = pegarFilmeFavorito();
+            if (!favoritos.some(filme => filme.id === id)) {
+                favoritos.push({ id, title, posterUrl });
+                salvaFavorito(favoritos);
+                alert(`${title} foi adicionado aos favoritos!`);
+                renderizarFilmes(); // Atualiza os botões
+            }
+        }
 
-    <script src="/src/assets/js/import.js"></script>
-    
-<script>
+        function removeDoFavoritos(id) {
+            const favoritos = pegarFilmeFavorito();
+            const atualizados = favoritos.filter(filme => filme.id !== id);
+            salvaFavorito(atualizados);
+            alert(`Removido dos favoritos!`);
+            renderizarFilmes();
+        }
 
-    const CHAVE_API = '1abf5fe580ef33d80c44d534b8e3b6d1';
-    const URL_BASE = 'https://api.themoviedb.org/3/discover/movie';
-    let paginaAtual = 1;
-    let carregando = false;
+        function estaNosFavoritos(id) {
+            const favoritos = pegarFilmeFavorito();
+            return favoritos.some(filme => filme.id === id);
+        }
 
-    async function buscarFilmes() {
-        if (carregando) return;
-        carregando = true;
+        // ======================= Buscar Filmes =========================
 
-        const resposta = await fetch(`${URL_BASE}?api_key=${CHAVE_API}&language=pt-BR&page=${paginaAtual}`);
-        const dados = await resposta.json();
+        async function buscarFilmes() {
+            try {
+                const resposta = await fetch(apiUrl);
+                const dados = await resposta.json();
 
-        mostrarFilmes(dados.results);
-        paginaAtual++;
-        carregando = false;
-    }
+                if (dados.results) {
+                    mostrarFilmes(dados.results);
+                } else {
+                    moviesContainer.innerHTML = '<p>Não foi possível carregar os filmes.</p>';
+                }
+            } catch (erro) {
+                console.error('Erro ao buscar filmes:', erro);
+                moviesContainer.innerHTML = '<p>Erro ao carregar os filmes.</p>';
+            }
+        } 
 
-    function mostrarFilmes(filmes) {
-    const container = document.getElementById('moviesContainer');
+        function mostrarFilmes(filmes) {
+            moviesContainer.innerHTML = '';
 
-    // Filtra os que têm título e poster
-    const filmesValidos = filmes.filter(filme => filme.poster_path && filme.title);
+            filmes.forEach(filme => {
+                const posterUrl = filme.poster_path
+                    ? `https://image.tmdb.org/t/p/w500${filme.poster_path}`
+                    : 'https://via.placeholder.com/180x250?text=Sem+Imagem';
 
-    // Ordena por título A-Z
-    filmesValidos.sort((a, b) => a.title.localeCompare(b.title));
+                const estaFavorito = estaNosFavoritos(filme.id);
 
-    filmesValidos.forEach(filme => {
-        const card = document.createElement('div');
-        card.className = 'filme-card';
+                const card = document.createElement('div');
+                card.className = 'filme-card';
 
-        card.innerHTML = `
-            <a href="detalhes.html?id=${filme.id}&tipo=movie" style="text-decoration: none;">
-                <img src="https://image.tmdb.org/t/p/w500${filme.poster_path}" alt="${filme.title}">
-                <div class="card-title">${filme.title}</div>
-            </a>
-            <button class="botao-favorito" onclick="adicionarFavorito(${filme.id})">Favoritar</button>
-        `;
-        container.appendChild(card);
-    });
-}
+                card.innerHTML = `
+                    <a href="detalhes.html?id=${filme.id}&tipo=movie" style="text-decoration: none;">
+                        <img src="${posterUrl}" alt="${filme.title}">
+                        <div class="card-title">${filme.title}</div>
+                    </a>
+                    <button class="botao-favorito">
+                        ${estaFavorito ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
+                    </button>
+                `;
 
+                const botao = card.querySelector('.botao-favorito');
+                botao.addEventListener('click', () => {
+                    if (estaFavorito) {
+                        removeDoFavoritos(filme.id);
+                    } else {
+                        adicionaFavorito(filme.id, filme.title, posterUrl);
+                    }
+                });
 
-    // Detecta quando o usuário chega no fim da página
-    window.addEventListener('scroll', () => {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+                moviesContainer.appendChild(card);
+            });
+        }
 
-        if (scrollTop + clientHeight >= scrollHeight - 50) {
+        function renderizarFilmes() {
             buscarFilmes();
         }
-    });
 
-
-    function adicionarFavorito(id) {
-            const favoritos = JSON.parse(localStorage.getItem('favoritos')) || []; // Recupera a lista de filmes favoritos do armazenamento local
-
-            if (!favoritos.includes(id)) {
-                favoritos.push(id); // Adiciona o filme à lista de favoritos se ainda não estiver nela
-                localStorage.setItem('favoritos', JSON.stringify(favoritos)); // Salva a lista atualizada no armazenamento local
-                alert("Filme favoritado!"); // Exibe um alerta ao usuário
-            } else {
-                alert("Este filme já está nos favoritos."); // Exibe um alerta se o filme já estiver nos favoritos
-            }
-    }
-
-    buscarFilmes(); // Chama a função para buscar e exibir os filmes ao carregar a página
-</script>
+        document.addEventListener('DOMContentLoaded', renderizarFilmes);
+    </script>
 </body>
 
+</html>

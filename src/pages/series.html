@@ -1,89 +1,132 @@
-<!DOCTYPE html> <!-- Declaração do tipo de documento (HTML5) -->
-<html lang="pt-BR"> <!-- Define a língua principal da página como Português do Brasil -->
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" /> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/assets/css/filmes.css" /> <!-- Importa a folha de estilos CSS para a página -->
-    <!-- Ajusta a escala para dispositivos móveis -->
-    <title>Todos os Filmes - FILMANIA</title> <!-- Define o título da página -->
+    <link rel="stylesheet" href="/src/assets/css/filmes.css" />
+    <title>Todas as Séries - FILMANIA</title>
 </head>
 
 <body>
-    <div id="header"></div> <!-- Container para o cabeçalho da página -->
+    <div id="header"></div>
     <hr>
-    <h1>Todas as Séries</h1> <!-- Título principal da página -->
-    <div class="movies-container" id="moviesContainer"></div> <!-- Container onde os filmes serão exibidos -->
-
-
-
-
-
+    <h1>Todas as Séries</h1>
+    <div class="movies-container" id="moviesContainer"></div>
 
     <script src="/src/assets/js/import.js"></script>
-    
-<script>
 
-const CHAVE_API = '1abf5fe580ef33d80c44d534b8e3b6d1';
-const URL_BASE = 'https://api.themoviedb.org/3/discover/tv';
-let paginaAtual = 1;
-let carregando = false;
+    <script>
+        const CHAVE_API = '1abf5fe580ef33d80c44d534b8e3b6d1';
+        const URL_BASE = 'https://api.themoviedb.org/3/discover/tv';
+        let paginaAtual = 1;
+        let carregando = false;
 
-async function buscarSeries() {
-    if (carregando) return;
-    carregando = true;
+        // ======================= Funções de Favoritos =========================
 
-    const resposta = await fetch(`${URL_BASE}?api_key=${CHAVE_API}&language=pt-BR&page=${paginaAtual}`);
-    const dados = await resposta.json();
+        function salvaFavorito(series) {
+            localStorage.setItem('favoritos', JSON.stringify(series));
+        }
 
-    mostrarSeries(dados.results);
-    paginaAtual++;
-    carregando = false;
-}
+        function pegarSeriesFavoritas() {
+            const series = localStorage.getItem('favoritos');
+            return series ? JSON.parse(series) : [];
+        }
 
-function mostrarSeries(series) {
-    const container = document.getElementById('moviesContainer');
-
-    const seriesValidas = series.filter(serie => serie.poster_path && serie.name);
-
-    seriesValidas.sort((a, b) => a.name.localeCompare(b.name));
-
-    seriesValidas.forEach(serie => {
-        const card = document.createElement('div');
-        card.className = 'filme-card';
-
-        card.innerHTML = `
-            <a href="detalhes.html?id=${serie.id}&tipo=tv" style="text-decoration: none;">
-                <img src="https://image.tmdb.org/t/p/w500${serie.poster_path}" alt="${serie.name}">
-                <div class="card-title">${serie.name}</div>
-            </a>
-            <button class="botao-favorito" onclick="adicionarFavorito(${serie.id})">Favoritar</button>
-        `;
-        container.appendChild(card);
-    });
-}
-
-window.addEventListener('scroll', () => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
-    if (scrollTop + clientHeight >= scrollHeight - 50) {
-        buscarSeries();
-    }
-});
-
-    function adicionarFavorito(id) {
-            const favoritos = JSON.parse(localStorage.getItem('favoritos')) || []; // Recupera a lista de filmes favoritos do armazenamento local
-
-            if (!favoritos.includes(id)) {
-                favoritos.push(id); // Adiciona o filme à lista de favoritos se ainda não estiver nela
-                localStorage.setItem('favoritos', JSON.stringify(favoritos)); // Salva a lista atualizada no armazenamento local
-                alert("Série favoritada!"); // Exibe um alerta ao usuário
-            } else {
-                alert("Esta série já está nos favoritos."); // Exibe um alerta se o filme já estiver nos favoritos
+        function adicionaFavorito(id, name, posterUrl) {
+            const favoritos = pegarSeriesFavoritas();
+            if (!favoritos.some(serie => serie.id === id)) {
+                favoritos.push({ id, name, posterUrl });
+                salvaFavorito(favoritos);
+                alert(`${name} foi adicionada aos favoritos!`);
+                renderizarSeries();
             }
-    }
+        }
 
-    buscarSeries(); // Chama a função para buscar e exibir os filmes ao carregar a página
-</script>
+        function removeDoFavoritos(id) {
+            const favoritos = pegarSeriesFavoritas();
+            const atualizados = favoritos.filter(serie => serie.id !== id);
+            salvaFavorito(atualizados);
+            alert(`Removido dos favoritos!`);
+            renderizarSeries();
+        }
+
+        function estaNosFavoritos(id) {
+            const favoritos = pegarSeriesFavoritas();
+            return favoritos.some(serie => serie.id === id);
+        }
+
+        // ======================= Buscar Séries =========================
+
+        async function buscarSeries() {
+            if (carregando) return;
+            carregando = true;
+
+            const resposta = await fetch(`${URL_BASE}?api_key=${CHAVE_API}&language=pt-BR&page=${paginaAtual}`);
+            const dados = await resposta.json();
+
+            mostrarSeries(dados.results);
+            paginaAtual++;
+            carregando = false;
+        }
+
+        function mostrarSeries(series) {
+            const container = document.getElementById('moviesContainer');
+
+            const seriesValidas = series.filter(serie => serie.poster_path && serie.name);
+
+            seriesValidas.sort((a, b) => a.name.localeCompare(b.name));
+
+            seriesValidas.forEach(serie => {
+                const posterUrl = serie.poster_path
+                    ? `https://image.tmdb.org/t/p/w500${serie.poster_path}`
+                    : 'https://via.placeholder.com/180x250?text=Sem+Imagem';
+
+                const estaFavorito = estaNosFavoritos(serie.id);
+
+                const card = document.createElement('div');
+                card.className = 'filme-card';
+
+                card.innerHTML = `
+                    <a href="detalhes.html?id=${serie.id}&tipo=tv" style="text-decoration: none;">
+                        <img src="${posterUrl}" alt="${serie.name}">
+                        <div class="card-title">${serie.name}</div>
+                    </a>
+                    <button class="botao-favorito">
+                        ${estaFavorito ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
+                    </button>
+                `;
+
+                const botao = card.querySelector('.botao-favorito');
+                botao.addEventListener('click', () => {
+                    if (estaFavorito) {
+                        removeDoFavoritos(serie.id);
+                    } else {
+                        adicionaFavorito(serie.id, serie.name, posterUrl);
+                    }
+                });
+
+                container.appendChild(card);
+            });
+        }
+
+        function renderizarSeries() {
+            document.getElementById('moviesContainer').innerHTML = '';
+            paginaAtual = 1;
+            buscarSeries();
+        }
+
+        window.addEventListener('scroll', () => {
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+            if (scrollTop + clientHeight >= scrollHeight - 50) {
+                buscarSeries();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', renderizarSeries);
+    </script>
 </body>
+
+</html>
 
