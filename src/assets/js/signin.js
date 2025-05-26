@@ -47,16 +47,15 @@ function entrar() {
 
     // Verifica se usuário e senha correspondem a um usuário válido
     else if (usuario.value == userValid.user && senha.value == userValid.senha) {
-        window.location.href = '../index.html'; // Redireciona para a página principal
-        // Parece haver um erro aqui: "pag.load.classList.add('botao');" não faz sentido
-       
-
         let token = crypto.randomUUID(); // Gera um identificador único
-        localStorage.setItem('token', token);
-        
-
         localStorage.setItem('token', token); // Salva o token de autenticação
         localStorage.setItem('userLogado', JSON.stringify(userValid)); // Salva o usuário logado
+
+        window.location.href = '../index.html'; // Redireciona para a página principal
+        // Parece haver um erro aqui: "pag.load.classList.add('botao');" não faz sentido
+
+
+
     }
 
     // Caso as credenciais estejam erradas, exibe mensagem de erro

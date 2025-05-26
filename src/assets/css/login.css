@@ -52,7 +52,7 @@ body {
 
 .login-container h3 {
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     font-family: 'Quicksand-Regular';
 
 }
@@ -103,13 +103,30 @@ body {
     color: white;
     border: none;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    font-family: 'Quicksand-Regular';
+    font-family: "Quicksand-Medium";
+    font-weight: bold;
+    font-size: 15px;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
 }
 
 .submit-btn:hover {
     background-color: #5344c3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
 }
 
 
+a{
+    margin-left: 0.4rem;
+    color: #5344c3;
+    font-size: 14px;
+    transition: font-size 0.3s, color 0.3s, border-color 0.3s, text-shadow 0.3s;
+}
+
+a:hover{
+    color: #5344c3;
+    font-size: 16px;
+    text-shadow: 0 0 10px #5344c3, 0 0 20px #5344c3, 0 0 30px #5344c3;
+}

@@ -21,34 +21,28 @@ body {
     background-size: cover;
     background-attachment: fixed;
     font-family: "Quicksand-Regular";
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 input{
     border: none;
     outline: none;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 70px;
-    margin-bottom: 50px;
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    /* Espaçamento entre os inputs */
-align-items: center;
-
+    font-family: "Quicksand-Regular";
 }
 
 .card {
-    background-color: rgba(29, 24, 23, 0.8);
-    padding: 30px;
-    border-radius: 4%;
+    width: 45vw;
+    height: 45vh;
+    background-color:rgba(29, 24, 23, 0.8);
+    border-radius: 25px;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
 
-    width: 700px;
-    height: 500px;
 }
 
 h1 {
@@ -57,12 +51,16 @@ h1 {
     color: hsl(240, 100%, 99%)
 }
 
+label{
+    color: white;
+}
+
 button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 9vw;
-    height: 5vh;
+    width: 10vw;
+    height: 4vh;
     border-radius: 15px;
     outline: none;
     border: none;
@@ -100,13 +98,7 @@ button:hover {
     display: none;
 }
 
-#labelNome {
-    display: block;
-    margin-bottom: 5px;
-    color: white;
-    
-    /* Adiciona um pequeno espaçamento */
-}
+
 
 #nome {
     color: white;
@@ -114,7 +106,8 @@ button:hover {
     height: 30px;
     border: 2px solid rgba(164, 163, 163, 1);
     border-radius: 5px;
-    background-color: rgba(108, 121, 123, 0.9)
+    background-color: rgba(108, 121, 123, 0.9);
+    padding: 10px 50px 10px 15px;
 }
 
 input::placeholder {
@@ -123,6 +116,26 @@ input::placeholder {
     font-style: italic;
     /* Opcional */
 
+}
+
+#senha{
+    color: white;
+    width: 20vw;
+    height: 20px;
+    border: 2px solid rgba(164, 163, 163, 1);
+    border-radius: 5px;
+    background-color: rgba(108, 121, 123, 0.9);
+    padding: 10px 50px 10px 15px;
+}
+
+#Csenha{
+    color: white;
+    width: 20vw;
+    height: 20px;
+    border: 2px solid rgba(164, 163, 163, 1);
+    border-radius: 5px;
+    background-color: rgba(108, 121, 123, 0.9);
+    padding: 10px 50px 10px 15px;
 }
 
 .labelEmail {
@@ -155,37 +168,13 @@ input::placeholder {
     height: 30px;
     border: 2px solid rgba(164, 163, 163, 1);
     border-radius: 5px;
-    background-color: rgba(108, 121, 123, 0.9)
-}
-
-#labelSenha {
-    display: inline;
-    margin-bottom: 5px;
-    color: white;
-
-    /* Adiciona um pequeno espaçamento */
-}
-
-#senha {
-    margin-top: 5%;
-    color: white;
-    width: 33%;
-    height: 30px;
-    border: 2px solid rgba(164, 163, 163, 1);
-    border-radius: 5px;
     background-color: rgba(108, 121, 123, 0.9);
-
+    padding: 10px 50px 10px 15px;
 }
-#Csenha {
-    margin-top: 5%;
-    color: white;
-    width: 33%;
-    height: 30px;
-    border: 2px solid rgba(164, 163, 163, 1);
-    border-radius: 5px;
-    background-color: rgba(108, 121, 123, 0.9);
 
-}
+
+
+
 
 #verConfirmSenha,
 #verSenha {
@@ -205,7 +194,7 @@ input::placeholder {
 p {
     color: rgba(166, 166, 166, 1);
     font-weight: bold;
-    font-size: medium;
+    font-size: 14px;
     align-items: center;
     margin-right: 10px;
     /* display: inline ; */
@@ -222,4 +211,23 @@ p {
 .senhas{
     display: flex;
     flex-direction: column;
+}
+
+.parte-senhas{
+    height: 30vw;
+    width: 98vh;
+
+}
+
+a{
+    margin-left: 0.4rem;
+    color: #5344c3;
+    font-size: 14px;
+    transition: font-size 0.3s, color 0.3s, border-color 0.3s, text-shadow 0.3s;
+}
+
+a:hover{
+    color: #5344c3;
+    font-size: 16px;
+    text-shadow: 0 0 10px #5344c3, 0 0 20px #5344c3, 0 0 30px #5344c3;
 }
