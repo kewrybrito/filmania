@@ -18,11 +18,21 @@
    Estilização do Corpo da Página
 ========================================== */
 body {
+<<<<<<< HEAD
     font-family: "Quicksand-Regular"; /* Aplica a fonte personalizada ao corpo */
     background-color: #f0f0f0; /* Define um fundo cinza claro */
     margin: 0; /* Remove margens padrões */
     padding: 0; /* Remove espaços internos padrões */
     text-align: center; /* Centraliza o texto por padrão */
+=======
+    font-family: "Quicksand-Regular";
+    background-color: #0d0c1d;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+>>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
 }
 
 /* ==========================================
@@ -66,7 +76,12 @@ button {
 
 /* Efeito hover para os botões */
 button:hover {
+<<<<<<< HEAD
     background-color: #0056b3; /* Muda o tom do azul ao passar o mouse */
+=======
+    transform: translateY(-50%) scale(1.2);
+    transition: transform 0.3s ease;
+>>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
 }
 
 /* ==========================================
@@ -74,11 +89,19 @@ button:hover {
 ========================================== */
 .results,
 .favorites {
+<<<<<<< HEAD
     padding: 20px; /* Espaçamento interno para o conteúdo */
     background: white; /* Fundo branco para destacar os itens */
     margin: 20px auto; /* Margem em cima, embaixo e centralizado horizontalmente */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+=======
+    padding: 20px;
+    background: #0d0c1d;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+>>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
 }
 
 /* ==========================================
@@ -86,12 +109,22 @@ button:hover {
 ========================================== */
 .movie-item,
 .favorite-item {
+<<<<<<< HEAD
     display: inline-block; /* Exibe os itens lado a lado */
     background: #ececec; /* Fundo cinza claro para os itens */
     padding: 15px; /* Espaçamento interno */
     border-radius: 8px; /* Bordas arredondadas */
     width: 180px; /* Largura fixa para padronizar os itens */
     margin: 10px; /* Espaçamento ao redor de cada item */
+=======
+    display: inline-block;
+    background: #1C1B2A;
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+    margin: 10px;
+    gap: 5px;
+>>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
 }
 
 /* ==========================================
@@ -107,10 +140,49 @@ button:hover {
    Botões Específicos para Itens Favoritos
 ========================================== */
 .favorite-item button {
+<<<<<<< HEAD
     background-color: #dc3545; /* Fundo vermelho para indicar ação de remoção ou similar */
+=======
+    background-color: #A29BFE;
+    /* Define a cor do botão */
+    color: white;
+    /* Define a cor do texto */
+    border: none;
+    /* Remove a borda */
+    padding: 10px 15px;
+     /* Adiciona espaçamento interno */
+    border-radius: 15px;
+    /* Arredonda as bordas do botão */
+    cursor: pointer;
+    /* Altera o cursor ao passar sobre o botão */
+    width: 15vh;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+    font-family: "Quicksand-Regular";
+>>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
 }
 
 /* Efeito hover para os botões dos itens favoritos */
 .favorite-item button:hover {
+<<<<<<< HEAD
     background-color: #c82333; /* Tom mais escuro de vermelho ao passar o mouse */
 }
+=======
+    background-color: #5344c3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
+}
+
+#botao-limpar{
+    background-color: #A29BFE;
+    font-family: "Quicksand-Medium";
+    font-weight: medium;
+    border-radius: 12px;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+}
+
+#botao-limpar:hover{
+    background-color: #5344c3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
+}
+>>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
