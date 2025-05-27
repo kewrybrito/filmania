@@ -1,67 +1,102 @@
-*{
+* {
     box-sizing: border-box;
+    /* Define que o padding e a borda serão incluídos nas dimensões totais de todos os elementos */
     margin: 0px;
+    /* Remove as margens padrão de todos os elementos */
 }
 
 @font-face {
     font-family: 'Quicksand-Regular';
+    /* Define o nome da fonte personalizada "Quicksand-Regular" */
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+    /* Especifica o caminho para o arquivo da fonte */
 }
 
-.rodape{
+.rodape {
     background-color: #1C1B2A;
+    /* Define a cor de fundo do rodapé */
     width: 100vw;
+    /* Define a largura do rodapé como 100% da largura da viewport */
     height: 40vh;
+    /* Define a altura do rodapé como 40% da altura da viewport */
     display: flex;
+    /* Utiliza Flexbox para organizar os elementos internos */
     flex-direction: column;
+    /* Organiza os elementos em coluna (um abaixo do outro) */
     font-family: "Quicksand-Regular";
+    /* Define a fonte dos elementos do rodapé usando a fonte personalizada */
 }
 
-
-#textos-rodape{
+#textos-rodape {
     display: flex;
+    /* Utiliza Flexbox para organizar os textos do rodapé */
     flex-direction: row;
+    /* Organiza os elementos em linha (horizontalmente) */
     justify-content: center;
+    /* Centraliza os elementos horizontalmente */
     gap: 50px;
+    /* Adiciona um espaçamento de 50px entre os elementos */
     align-items: center;
+    /* Alinha os elementos verticalmente ao centro */
     background-color: #1C1B2A;
+    /* Define a cor de fundo desta seção (mesma que o rodapé) */
     height: 15vh;
+    /* Define a altura desta seção como 15% da altura da viewport */
     width: 100vw;
+    /* Define a largura como 100% da largura da viewport */
 }
 
-
-#textos-rodape p{
+#textos-rodape p {
     color: #797982;
+    /* Define a cor do texto dos parágrafos dentro de "#textos-rodape" */
 }
 
 #icons-rodape {
     display: flex;
+    /* Utiliza Flexbox para organizar os ícones do rodapé */
     justify-content: center;
+    /* Centraliza horizontalmente os ícones */
     align-items: center;
+    /* Alinha verticalmente os ícones */
     gap: 60px;
+    /* Adiciona um espaçamento de 60px entre os ícones */
     padding-bottom: 4%;
+    /* Adiciona um padding na parte inferior de 4% para espaçamento extra */
     background-color: #1C1B2A;
+    /* Define a cor de fundo da seção de ícones, igual ao rodapé */
 }
 
 #icons-rodape a {
     display: flex;
+    /* Exibe os links como flex containers para permitir centralização interna */
     align-items: center;
+    /* Alinha os itens (ícones) verticalmente ao centro */
     justify-content: center;
+    /* Centraliza os itens horizontalmente dentro dos links */
 }
 
 #icons-rodape img {
-    width: 40px; /* ou o tamanho que preferir */
+    width: 40px;
+    /* Define a largura das imagens dos ícones; ajuste conforme preferir */
+    /* ou o tamanho que preferir */
     height: auto;
+    /* Mantém a proporção da imagem automaticamente */
 }
 
-#logo-rodape{
+#logo-rodape {
     display: flex;
+    /* Define o container do logo do rodapé como flex para centralização */
     justify-content: center;
+    /* Centraliza horizontalmente o conteúdo do container */
     align-items: center;
+    /* Alinha verticalmente o conteúdo ao centro */
     background-color: #1C1B2A;
+    /* Define a cor de fundo do container de logo (mesma do rodapé) */
     height: 3vh;
+    /* Define a altura do container como 3% da altura da viewport */
 }
 
-#logo-rodape img{
+#logo-rodape img {
     width: 10vw;
+    /* Define a largura da imagem do logo como 10% da largura da viewport */
 }

@@ -1,106 +1,166 @@
+/* Aplica para todos os elementos da página */
 * {
     margin: 0px;
+    /* Remove a margem padrão de todos os elementos */
     box-sizing: border-box;
+    /* Define que o padding e a border fazem parte da largura/altura total */
 }
 
+/* Define a fonte "Quicksand-Medium" personalizada */
 @font-face {
     font-family: 'Quicksand-Medium';
+    /* Nome da fonte personalizada */
     src: url('/src/assets/fonts/Quicksand-Medium.ttf');
+    /* Caminho para o arquivo da fonte */
 }
 
+/* Define a fonte "Quicksand-Regular" personalizada */
 @font-face {
     font-family: 'Quicksand-Regular';
+    /* Nome da fonte personalizada */
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+    /* Caminho para o arquivo da fonte */
 }
-        body {
-            font-family: "Quicksand-Regular";
-            /* Define a fonte do texto */
-            background: #0D0C1D;
-            /* Define a cor de fundo da página */
-            color: #fff;
-            /* Define a cor do texto */
-            margin: 0;
-            /* Remove a margem padrão */
-            overflow-x: hidden;
-        }
 
-        h1 {
-            text-align: center;
-            /* Centraliza o título */
-            margin-bottom: 2%;
-            margin-top: 2%;
-        }
+/* Configurações do corpo da página */
+body {
+    font-family: "Quicksand-Regular";
+    /* Define a fonte do texto usando "Quicksand-Regular" */
+    background: #0D0C1D;
+    /* Define a cor de fundo da página */
+    color: #fff;
+    /* Define a cor do texto como branco */
+    margin: 0;
+    /* Remove a margem padrão do body */
+    overflow-x: hidden;
+    /* Impede a rolagem horizontal */
+}
 
-        a{
-            color: white;
-        }
+/* Estilização do cabeçalho h1 */
+h1 {
+    text-align: center;
+    /* Centraliza o título horizontalmente */
+    margin-bottom: 2%;
+    /* Define uma margem inferior de 2% */
+    margin-top: 2%;
+    /* Define uma margem superior de 2% */
+}
 
-        .movies-container {
-            display: grid;
-            /* Utiliza um layout de grade */
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            /* Define um layout responsivo */
-            gap: 20px;
-            /* Adiciona espaçamento entre os elementos */
-        }
+/* Estilização dos links (<a>) */
+a {
+    color: white;
+    /* Define a cor dos links como branco */
+}
 
-        .filme-card {
-            background-color: #1C1B2A;
-            /* Define a cor de fundo dos cards */
-            border-radius: 10px;
-            /* Arredonda as bordas */
-            padding: 15px;
-            /* Adiciona espaçamento interno */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            /* Adiciona sombra ao card */
-            text-align: center;
-            /* Centraliza o texto */
-            transition: transform 0.2s;
-            /* Adiciona uma animação de transformação */
-            cursor: pointer;
-        }
+/* Container para os cards de filmes, organizado em grid */
+.movies-container {
+    display: grid;
+    /* Utiliza o layout de grid para organizar os itens */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Cria colunas responsivas: cada coluna tem no mínimo 200px e, se possível, se expande igualmente */
+    gap: 20px;
+    /* Define um espaçamento de 20px entre as células do grid */
+}
 
-        .filme-card:hover {
-            transform: scale(1.03);
-            /* Aumenta levemente o tamanho do card ao passar o mouse */
-        }
+/* Estilização básica de cada card de filme */
+.filme-card {
+    background-color: #1C1B2A;
+    /* Define a cor de fundo dos cards */
+    border-radius: 10px;
+    /* Arredonda as bordas do card com um raio de 10px */
+    padding: 15px;
+    /* Adiciona um espaçamento interno de 15px */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Adiciona uma sombra ao redor do card com 10px de desfoque e opacidade de 0.5 */
+    text-align: center;
+    /* Centraliza o texto dentro do card */
+    transition: transform 0.2s;
+    /* Define uma transição de 0.2 segundos para transformações */
+    cursor: pointer;
+    /* Altera o cursor para pointer, indicando que o card é clicável */
+}
 
-        .filme-card img {
-            max-width: 100%;
-            /* Ajusta a imagem ao tamanho do card */
-            border-radius: 8px;
-            /* Arredonda as bordas da imagem */
-        }
+/* Efeito ao passar o mouse sobre o card de filme */
+.filme-card:hover {
+    transform: scale(1.03);
+    /* Aumenta levemente o tamanho do card em 3% no hover */
+}
 
-        .titulo-filme {
-            font-size: 1.1em;
-            /* Define o tamanho da fonte do título */
-            margin: 10px 0;
-            /* Adiciona espaçamento */
-        }
+/* Estilização das imagens dentro de um card de filme */
+.filme-card img {
+    max-width: 100%;
+    /* Garante que a imagem não ultrapasse a largura do card */
+    border-radius: 8px;
+    /* Arredonda as bordas da imagem com um raio de 8px */
+}
 
-        .botao-favorito {
-            background-color: #A29BFE;
-            /* Define a cor do botão */
-            color: white;
-            /* Define a cor do texto */
-            border: none;
-            /* Remove a borda */
-            padding: 10px 15px;
-            /* Adiciona espaçamento interno */
-            border-radius: 15px;
-            /* Arredonda as bordas do botão */
-            cursor: pointer;
-            /* Altera o cursor ao passar sobre o botão */
-            width: 12vh;
-            transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
-            font-family: "Quicksand-Regular";
-        }
+/* Estilização do texto do título de cada filme */
+.titulo-filme {
+    font-size: 1.1em;
+    /* Define o tamanho da fonte como 1.1 vezes o tamanho padrão */
+    margin: 10px 0;
+    /* Adiciona 10px de margem vertical (acima e abaixo), sem margem lateral */
+}
 
-        .botao-favorito:hover{
-            background-color: #5344c3;
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #5344c3;
+/* Estilização do botão de favorito dentro do card */
+.botao-favorito {
+    background-color: #A29BFE;
+    /* Define a cor de fundo do botão */
+    color: white;
+    /* Define a cor do texto do botão como branco */
+    border: none;
+    /* Remove a borda padrão do botão */
+    padding: 10px 15px;
+    /* Adiciona 10px de padding vertical e 15px horizontal */
+    border-radius: 15px;
+    /* Arredonda as bordas do botão com um raio de 15px */
+    cursor: pointer;
+    /* Altera o cursor para pointer, indicando clicabilidade */
+    width: 12vh;
+    /* Define a largura do botão como 12% da altura da viewport */
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+    /* Adiciona transições suaves de 0.4s para background, transform e box-shadow */
+    font-family: "Quicksand-Regular";
+    /* Define a fonte do botão como "Quicksand-Regular" */
+}
 
-        }
+/* Efeito hover para o botão de favorito */
+.botao-favorito:hover {
+    background-color: #5344c3;
+    /* Altera a cor de fundo do botão ao passar o mouse */
+    transform: scale(1.05);
+    /* Aumenta o botão em 5% quando o mouse passa sobre ele */
+    box-shadow: 0 0 15px #5344c3;
+    /* Adiciona uma sombra de 15px com a cor #5344c3 para destaque */
+}
+/* Estilização do botão de favorito dentro do card */
+.botao-nao-favorito {
+    background-color: #f16100;
+    /* Define a cor de fundo do botão */
+    color: white;
+    /* Define a cor do texto do botão como branco */
+    border: none;
+    /* Remove a borda padrão do botão */
+    padding: 10px 15px;
+    /* Adiciona 10px de padding vertical e 15px horizontal */
+    border-radius: 15px;
+    /* Arredonda as bordas do botão com um raio de 15px */
+    cursor: pointer;
+    /* Altera o cursor para pointer, indicando clicabilidade */
+    width: 12vh;
+    /* Define a largura do botão como 12% da altura da viewport */
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+    /* Adiciona transições suaves de 0.4s para background, transform e box-shadow */
+    font-family: "Quicksand-Regular";
+    /* Define a fonte do botão como "Quicksand-Regular" */
+}
 
+/* Efeito hover para o botão de favorito */
+.botao-nao-favorito:hover:hover {
+    background-color: #5344c3;
+    /* Altera a cor de fundo do botão ao passar o mouse */
+    transform: scale(1.05);
+    /* Aumenta o botão em 5% quando o mouse passa sobre ele */
+    box-shadow: 0 0 15px #5344c3;
+    /* Adiciona uma sombra de 15px com a cor #5344c3 para destaque */
+}

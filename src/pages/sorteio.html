@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Filme Surpresa</title>
+  <!-- Link para o arquivo CSS que define os estilos visuais do jogo -->
   <link rel="stylesheet" href="../assets/css/jogo.css">
 </head>
+
 <body>
-<div id="header"></div>
+  <!-- Seção de cabeçalho: pode ser utilizada para inserir um logotipo ou menu -->
+  <div id="header"></div>
+
+  <!-- Título principal da página -->
   <h1>🎲 Filme Surpresa</h1>
+
+  <!-- Introdução que orienta o usuário sobre como utilizar a aplicação -->
   <p>Clique no botão e descubra qual será seu filme para assistir agora!</p>
+
+  <!-- Botão que, ao ser clicado, invoca a função 'sortearFilme' definida no arquivo JavaScript -->
   <button onclick="sortearFilme()">Me surpreenda!</button>
 
+  <!-- Área destinada a exibir dinamicamente o resultado (filme sorteado) -->
   <div id="result"></div>
 
-<script src="/src/assets/js/import.js"></script>
+  <!-- Inclusão do script 'import.js'; possivelmente utilizado para importar módulos ou configurar o ambiente -->
+  <script src="/src/assets/js/import.js"></script>
 
-
+  <!-- Inclusão do script que contém a lógica para sortear o filme -->
   <script src="/src/assets/js/jogosorte.js"></script>
 </body>
+
 </html>

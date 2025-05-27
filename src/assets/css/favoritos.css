@@ -1,85 +1,116 @@
-/* Estilos gerais */
+/* ==========================================
+   Estilos Gerais e Fontes
+========================================== */
+
+/* Define a fonte "Quicksand-Medium" personalizada */
 @font-face {
     font-family: 'Quicksand-Medium';
     src: url('/src/assets/fonts/Quicksand-Medium.ttf');
 }
 
+/* Define a fonte "Quicksand-Regular" personalizada */
 @font-face {
     font-family: 'Quicksand-Regular';
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
 }
- 
 
-
+/* ==========================================
+   Estilização do Corpo da Página
+========================================== */
 body {
-    font-family: "Quicksand-Regular";
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    font-family: "Quicksand-Regular"; /* Aplica a fonte personalizada ao corpo */
+    background-color: #f0f0f0; /* Define um fundo cinza claro */
+    margin: 0; /* Remove margens padrões */
+    padding: 0; /* Remove espaços internos padrões */
+    text-align: center; /* Centraliza o texto por padrão */
 }
 
+/* ==========================================
+   Cabeçalho (Header)
+========================================== */
 header {
-    background-color: #007bff;
-    color: white;
-    padding: 15px;
-    font-size: 1.5rem;
+    background-color: #007bff; /* Cor de fundo azul viva */
+    color: white; /* Texto em branco */
+    padding: 15px; /* Espaçamento interno */
+    font-size: 1.5rem; /* Tamanho de fonte aumentado */
 }
 
+/* ==========================================
+   Seção de Busca
+========================================== */
 .search {
-    margin: 20px;
+    margin: 20px; /* Espaçamento ao redor da área de busca */
 }
 
+/* ==========================================
+   Estilização de Inputs (Campos de Texto)
+========================================== */
 input {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 80%; /* Largura ocupando a maioria do espaço disponível */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    border-radius: 5px; /* Bordas levemente arredondadas */
 }
 
+/* ==========================================
+   Estilização de Botões
+========================================== */
 button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px; /* Espaçamento interno */
+    background-color: #007bff; /* Fundo azul para combinar com o header */
+    color: white; /* Texto em branco */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
 }
 
+/* Efeito hover para os botões */
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Muda o tom do azul ao passar o mouse */
 }
 
-/* Estilo para os resultados e favoritos */
+/* ==========================================
+   Estilo para Área de Resultados e Favoritos
+========================================== */
 .results,
 .favorites {
-    padding: 20px;
-    background: white;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Espaçamento interno para o conteúdo */
+    background: white; /* Fundo branco para destacar os itens */
+    margin: 20px auto; /* Margem em cima, embaixo e centralizado horizontalmente */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
 }
 
+/* ==========================================
+   Itens de Filme e Favoritos
+========================================== */
 .movie-item,
 .favorite-item {
-    display: inline-block;
-    background: #ececec;
-    padding: 15px;
-    border-radius: 8px;
-    width: 180px;
-    margin: 10px;
+    display: inline-block; /* Exibe os itens lado a lado */
+    background: #ececec; /* Fundo cinza claro para os itens */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    width: 180px; /* Largura fixa para padronizar os itens */
+    margin: 10px; /* Espaçamento ao redor de cada item */
 }
 
+/* ==========================================
+   Imagens nos Itens de Filme e Favoritos
+========================================== */
 .movie-item img,
 .favorite-item img {
-    width: 100%;
-    border-radius: 8px;
+    width: 100%; /* Assegura que a imagem ocupe toda a largura do item */
+    border-radius: 8px; /* Bordas arredondadas na imagem para harmonizar com o container */
 }
 
+/* ==========================================
+   Botões Específicos para Itens Favoritos
+========================================== */
 .favorite-item button {
-    background-color: #dc3545;
+    background-color: #dc3545; /* Fundo vermelho para indicar ação de remoção ou similar */
 }
 
+/* Efeito hover para os botões dos itens favoritos */
 .favorite-item button:hover {
-    background-color: #c82333;
+    background-color: #c82333; /* Tom mais escuro de vermelho ao passar o mouse */
 }

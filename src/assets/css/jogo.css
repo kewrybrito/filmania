@@ -1,45 +1,75 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #fff;
-    text-align: center;
-    overflow-x: hidden;
-  }
-  
-  button {
-    background-color: #5344c3;
-    color: white;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 2rem;
-  }
-  
-  button:hover {
-    background-color: #A29BFE;
-  }
-  
-  #result {
-    margin-top: 2rem;
-  }
-  
-  .movie-title {
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  img {
-    max-width: 200px;
-    border-radius: 12px;
-    margin: 1rem 0;
-  }
-  
-  .overview {
-    font-size: 1rem;
-    max-width: 600px;
-    margin: 0 auto;
-    color: #ccc;
-  }
+  /* Inicia as configurações para o elemento <body> da página */
+  font-family: Arial, sans-serif;
+  /* Define a fonte principal como Arial, utilizando sans-serif como alternativa */
+  background-color: #121212;
+  /* Define a cor de fundo para um tom escuro (almost preto) */
+  color: #fff;
+  /* Define a cor do texto como branco */
+  text-align: center;
+  /* Centraliza todo o texto horizontalmente */
+  overflow-x: hidden;
+  /* Impede a rolagem horizontal caso algum conteúdo ultrapasse a largura da janela */
+}
 
+button {
+  /* Inicia as configurações para todos os elementos <button> */
+  background-color: #5344c3;
+  /* Define a cor de fundo do botão como um tom de roxo */
+  color: white;
+  /* Define a cor do texto do botão como branco */
+  padding: 1rem 2rem;
+  /* Adiciona espaço interno: 1rem para o vertical e 2rem para o horizontal */
+  font-size: 1.2rem;
+  /* Define o tamanho da fonte do botão para 1.2 vezes o tamanho base */
+  border: none;
+  /* Remove a borda padrão do botão */
+  border-radius: 8px;
+  /* Arredonda os cantos do botão com um raio de 8px */
+  cursor: pointer;
+  /* Altera o cursor para pointer, indicando que o botão é clicável */
+  margin-top: 2rem;
+  /* Adiciona uma margem superior de 2rem para espaçar o botão dos elementos acima */
+}
+
+button:hover {
+  /* Configura o estilo para o estado hover do botão (quando o mouse passa sobre ele) */
+  background-color: #A29BFE;
+  /* Altera a cor de fundo do botão para um tom mais claro de roxo ao passar o mouse */
+}
+
+#result {
+  /* Seleciona o elemento com id "result" */
+  margin-top: 2rem;
+  /* Adiciona um espaço de 2rem acima do elemento para separação */
+}
+
+.movie-title {
+  /* Seleciona os elementos com a classe "movie-title" */
+  font-weight: bold;
+  /* Define o texto em negrito */
+  font-size: 1.5rem;
+  /* Define o tamanho da fonte em 1.5 vezes o tamanho base */
+}
+
+img {
+  /* Configura estilos para todas as imagens da página */
+  max-width: 200px;
+  /* Limita a largura máxima das imagens a 200px */
+  border-radius: 12px;
+  /* Arredonda os cantos das imagens com um raio de 12px */
+  margin: 1rem 0;
+  /* Adiciona uma margem vertical de 1rem e nenhuma margem horizontal */
+}
+
+.overview {
+  /* Seleciona os elementos com a classe "overview" */
+  font-size: 1rem;
+  /* Define o tamanho da fonte como 1rem (tamanho base) */
+  max-width: 600px;
+  /* Limita a largura máxima do elemento a 600px */
+  margin: 0 auto;
+  /* Centraliza o elemento horizontalmente, definindo margem zero para cima e para baixo e automáticas para os lados */
+  color: #ccc;
+  /* Define a cor do texto como um cinza claro (#ccc) */
+}

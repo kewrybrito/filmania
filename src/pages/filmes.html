@@ -2,35 +2,66 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Define a codificação de caracteres para evitar problemas com acentuação -->
     <meta charset="UTF-8" />
+    <!-- Ajusta a visualização para dispositivos móveis (responsividade) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Importa o CSS específico para a página de filmes -->
     <link rel="stylesheet" href="/src/assets/css/filmes.css" />
+    <!-- Define o título da página exibido na aba do navegador -->
     <title>Todos os Filmes - FILMANIA</title>
 </head>
 
 <body>
+    <!-- Espaço reservado para o cabeçalho, que pode ser inserido dinamicamente via JavaScript -->
     <div id="header"></div>
+
+    <!-- Linha horizontal separando o cabeçalho do conteúdo -->
     <hr>
+
+    <!-- Título da página -->
     <h1>Todos os Filmes</h1>
+
+    <!-- Container que receberá dinamicamente a lista de filmes -->
     <div class="movies-container" id="moviesContainer"></div>
-<script src="/src/assets/js/import.js"></script>
+
+    <!-- Inclusão do script que pode importar elementos comuns, como cabeçalho e rodapé -->
+    <script src="/src/assets/js/import.js"></script>
+
     <script>
+        // Chave de acesso para a API do TMDb
         const apiKey = '1abf5fe580ef33d80c44d534b8e3b6d1';
+        // URL para buscar filmes, adicionando o idioma como português do Brasil
         const apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=pt-BR';
 
+        // Seleciona o container onde os filmes serão renderizados
         const moviesContainer = document.getElementById('moviesContainer');
 
         // ======================= Funções de Favoritos =========================
 
+        /**
+         * Salva a lista de filmes favoritos no localStorage
+         * @param {Array} filmes - Lista de filmes favoritos
+         */
         function salvaFavorito(filmes) {
             localStorage.setItem('favoritos', JSON.stringify(filmes));
         }
 
+        /**
+         * Recupera a lista de filmes favoritos armazenada no localStorage
+         * @returns {Array} - Lista de filmes favoritos
+         */
         function pegarFilmeFavorito() {
             const filmes = localStorage.getItem('favoritos');
             return filmes ? JSON.parse(filmes) : [];
         }
 
+        /**
+         * Adiciona um filme à lista de favoritos e salva no localStorage
+         * @param {number} id - ID do filme
+         * @param {string} title - Título do filme
+         * @param {string} posterUrl - URL do pôster do filme
+         */
         function adicionaFavorito(id, title, posterUrl) {
             const favoritos = pegarFilmeFavorito();
             if (!favoritos.some(filme => filme.id === id)) {
@@ -41,6 +72,10 @@
             }
         }
 
+        /**
+         * Remove um filme da lista de favoritos e atualiza no localStorage
+         * @param {number} id - ID do filme
+         */
         function removeDoFavoritos(id) {
             const favoritos = pegarFilmeFavorito();
             const atualizados = favoritos.filter(filme => filme.id !== id);
@@ -49,6 +84,11 @@
             renderizarFilmes();
         }
 
+        /**
+         * Verifica se um filme já está nos favoritos
+         * @param {number} id - ID do filme
+         * @returns {boolean} - True se o filme está nos favoritos, false caso contrário
+         */
         function estaNosFavoritos(id) {
             const favoritos = pegarFilmeFavorito();
             return favoritos.some(filme => filme.id === id);
@@ -56,6 +96,9 @@
 
         // ======================= Buscar Filmes =========================
 
+        /**
+         * Faz uma requisição assíncrona para buscar filmes populares na API
+         */
         async function buscarFilmes() {
             try {
                 const resposta = await fetch(apiUrl);
@@ -70,31 +113,44 @@
                 console.error('Erro ao buscar filmes:', erro);
                 moviesContainer.innerHTML = '<p>Erro ao carregar os filmes.</p>';
             }
-        } 
+        }
 
+        /**
+         * Exibe os filmes encontrados no container da página
+         * @param {Array} filmes - Lista de filmes retornada pela API
+         */
         function mostrarFilmes(filmes) {
             moviesContainer.innerHTML = '';
 
             filmes.forEach(filme => {
+                // Se não houver imagem, exibe um placeholder indicando que a imagem não está disponível
                 const posterUrl = filme.poster_path
                     ? `https://image.tmdb.org/t/p/w500${filme.poster_path}`
                     : 'https://via.placeholder.com/180x250?text=Sem+Imagem';
 
+                // Verifica se o filme já está nos favoritos
                 const estaFavorito = estaNosFavoritos(filme.id);
 
+                // Cria um card para exibir o filme
                 const card = document.createElement('div');
                 card.className = 'filme-card';
-
+                // Define a classe do botão de favoritos, que muda dependendo se o filme está favoritado ou não
+                let valor ="botao-favorito";
+              // Se o filme já está favoritado, adiciona a classe correspondente
+              // Caso contrário, adiciona a classe de não favorito
+                estaFavorito ? valor += " botao-nao-favorito" : valor += " botao-favorito";
+             
+                // Define o conteúdo do card, incluindo imagem, título e botão de favoritos
                 card.innerHTML = `
                     <a href="detalhes.html?id=${filme.id}&tipo=movie" style="text-decoration: none;">
                         <img src="${posterUrl}" alt="${filme.title}">
                         <div class="card-title">${filme.title}</div>
                     </a>
-                    <button class="botao-favorito">
+                    <button class="${valor}">
                         ${estaFavorito ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
                     </button>
                 `;
-
+                // Captura o botão criado dentro do card
                 const botao = card.querySelector('.botao-favorito');
                 botao.addEventListener('click', () => {
                     if (estaFavorito) {
@@ -104,14 +160,19 @@
                     }
                 });
 
+                // Adiciona o card de filme ao container principal
                 moviesContainer.appendChild(card);
             });
         }
 
+        /**
+         * Inicia a busca e exibição dos filmes na tela
+         */
         function renderizarFilmes() {
             buscarFilmes();
         }
 
+        // Aguarda o carregamento do DOM antes de executar a função inicial de renderização
         document.addEventListener('DOMContentLoaded', renderizarFilmes);
     </script>
 </body>

@@ -1,36 +1,52 @@
-let btn = document.querySelector('#verSenha'); // Seleciona o botão de mostrar senha
-document.addEventListener('DOMContenteLoded', () => {
-btn.addEventListener('click', () => {
-    let inputSenha = document.querySelector('#senha'); // Seleciona o campo de senha
+// Seleciona o botão que alterna a exibição da senha
+let btn = document.querySelector('#verSenha');
 
-    // Se o tipo do input for "password", muda para "text" (para exibir a senha)
-    if (inputSenha.getAttribute('type') == 'password') {
-        inputSenha.setAttribute('type', 'text');
-    } else {
-        inputSenha.setAttribute('type', 'password'); // Caso contrário, mantém oculto
-    }
-})
+// Adiciona um listener para o carregamento do DOM
+// ATENÇÃO: há um erro de digitação: "DOMContenteLoded" deveria ser "DOMContentLoaded"
+// Isso pode impedir que o código dentro do listener seja executado corretamente.
+document.addEventListener('DOMContenteLoded', () => {
+    // Quando o botão é clicado, inicia a função que troca o tipo do input de senha
+    btn.addEventListener('click', () => {
+        // Seleciona o campo de senha
+        let inputSenha = document.querySelector('#senha');
+
+        // Se o campo de senha estiver oculto (tipo "password"), muda para "text" para exibi-la
+        if (inputSenha.getAttribute('type') == 'password') {
+            inputSenha.setAttribute('type', 'text');
+        } else {
+            // Caso contrário, volta para o tipo "password", mantendo o valor oculto
+            inputSenha.setAttribute('type', 'password');
+        }
+    });
 });
 
 
-//Função para entrar 
+// Função responsável por realizar o login (entrar)
 function entrar() {
-    let usuario = document.querySelector('#email'); // Obtém o input do e-mail
-    let userLabel = document.querySelector('#userLabel'); // Obtém o label do e-mail
+    // Seleciona o campo de email (usuário) e seu respectivo label
+    let usuario = document.querySelector('#email');
+    let userLabel = document.querySelector('#userLabel');
 
-    let senha = document.querySelector('#senha'); // Obtém o input da senha
-    let senhaLabel = document.querySelector('#senhaLabel'); // Obtém o label da senha
-    let msgError = document.querySelector('#msgError'); // Obtém a div de erro
-    let listaUser = []; // Inicializa a lista de usuários cadastrados
+    // Seleciona o campo de senha e seu respectivo label
+    let senha = document.querySelector('#senha');
+    let senhaLabel = document.querySelector('#senhaLabel');
 
-    let userValid = { nome: '', user: '', senha: '' }; // Cria um objeto para armazenar usuário válido
+    // Seleciona o elemento que exibirá mensagens de erro, se necessário
+    let msgError = document.querySelector('#msgError');
 
-    listaUser = JSON.parse(localStorage.getItem('listaUser')) || []; // Obtém usuários salvos no `localStorage`
+    // Inicializa uma lista para os usuários cadastrados (usada para busca no localStorage)
+    let listaUser = [];
 
-    // Percorre a lista de usuários salvos e verifica se as credenciais coincidem
+    // Cria um objeto para armazenar os dados do usuário válido, se encontrado
+    let userValid = { nome: '', user: '', senha: '' };
+
+    // Tenta recuperar a lista de usuários do localStorage (se não houver, utiliza um array vazio)
+    listaUser = JSON.parse(localStorage.getItem('listaUser')) || [];
+
+    // Itera sobre a lista de usuários salvos para verificar se há correspondência com os dados inseridos
     listaUser.forEach((item) => {
         if (usuario.value == item.userCad && senha.value == item.senhaCad) {
-
+            // Se houver correspondência, atualiza o objeto userValid com os dados do usuário encontrado
             userValid = {
                 nome: item.nomeCad,
                 user: item.userCad,
@@ -39,33 +55,40 @@ function entrar() {
         }
     });
 
-    // Verifica se os campos estão vazios
+    // Verifica se os campos de email ou senha estão vazios (trim() remove espaços em branco)
     if (usuario.value.trim() === '' || senha.value.trim() === '') {
         alert("Digite o seu usuário e senha.");
-        return;
+        return; // Interrompe a execução se os campos não estiverem preenchidos
     }
 
-    // Verifica se usuário e senha correspondem a um usuário válido
+    // Se as credenciais inseridas correspondem ao usuário válido encontrado
     else if (usuario.value == userValid.user && senha.value == userValid.senha) {
-        let token = crypto.randomUUID(); // Gera um identificador único
-        localStorage.setItem('token', token); // Salva o token de autenticação
-        localStorage.setItem('userLogado', JSON.stringify(userValid)); // Salva o usuário logado
+        // Gera um identificador único para a sessão utilizando crypto.randomUUID()
+        let token = crypto.randomUUID();
+        // Armazena o token no localStorage (poderia ser usado na autenticação)
+        localStorage.setItem('token', token);
+        // Armazena os detalhes do usuário logado no localStorage (converte o objeto para JSON)
+        localStorage.setItem('userLogado', JSON.stringify(userValid));
 
-        window.location.href = '../index.html'; // Redireciona para a página principal
-        // Parece haver um erro aqui: "pag.load.classList.add('botao');" não faz sentido
-
-
-
+        // Redireciona para a página principal após o login bem-sucedido
+        window.location.href = '../index.html';
+        // Nota: A linha "pag.load.classList.add('botao');" mencionada no comentário não está presente
+        // e, conforme comentado, não faria sentido no contexto atual.
     }
 
-    // Caso as credenciais estejam erradas, exibe mensagem de erro
+    // Caso as credenciais não estejam corretas, exibe uma mensagem de erro e altera o estilo dos inputs
     else {
+        // Altera a cor dos labels para vermelho
         userLabel.style.color = 'red';
-        usuario.style.borderColor = 'red';
         senhaLabel.style.color = 'red';
+        // Altera a borda dos inputs de usuário e senha para vermelho
+        usuario.style.borderColor = 'red';
+
         senha.style.borderColor = 'red';
+        // Exibe a mensagem de erro informando que os dados estão incorretos
         msgError.style.display = 'block';
         msgError.innerHTML = 'E-mail ou senha incorretos!';
+        // Define o foco no campo de email para facilitar a correção pelo usuário
         usuario.focus();
 
     }

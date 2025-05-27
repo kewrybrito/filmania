@@ -2,14 +2,17 @@
 <html lang="pt-br">
 
 <head>
+  <!-- Define a codificação para garantir que os caracteres especiais sejam exibidos corretamente -->
   <meta charset="UTF-8">
+  <!-- Configura a viewport para que a página seja responsiva em diferentes dispositivos -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título da página exibido na aba do navegador -->
   <title>FILMANIA</title>
 
-  <!-- Ícone da página -->
+  <!-- Ícone da página (favicon) -->
   <link rel="icon" href="/src/assets/img/favicon.png">
 
-  <!-- Estilos CSS -->
+  <!-- Importa os arquivos CSS que estilizam o cabeçalho, o rodapé e a página inicial -->
   <link rel="stylesheet" href="assets/css/cabecalho.css">
   <link rel="stylesheet" href="assets/css/rodape.css">
   <link rel="stylesheet" href="assets/css/index.css">
@@ -17,7 +20,7 @@
 
 <body>
 
-  <!-- Importação do cabeçalho -->
+  <!-- Espaço destinado ao cabeçalho; o conteúdo pode ser carregado dinamicamente via JavaScript -->
   <div id="header"></div>
 
   <!-- Seção de boas-vindas -->
@@ -26,8 +29,9 @@
       <h1>Bem-Vindo!</h1>
       <p>Tudo sobre filmes e séries, sem spoilers e sem enrolação!</p>
 
-      <!-- Botão para cadastro -->
+      <!-- Botão que direciona para a página de cadastro -->
       <button id="botao-sec-1">
+        <!-- Link com estilo removido do sublinhado -->
         <a href="../src/pages/cadastro.html" style="text-decoration: none;" id="bt-sec-1">
           Faça já seu cadastro
         </a>
@@ -39,13 +43,13 @@
   <div class="sec-2">
     <h2>Populares essa semana</h2>
 
-    <!-- Botão para voltar -->
+    <!-- Botão para retroceder no carrossel -->
     <img src="/src/assets/img/seta-esquerda.png" alt="Voltar" class="seta-img esquerda">
 
-    <!-- Carrossel de filmes -->
-    <div class="carrossel" id="carrossel-populares" ></div>
+    <!-- Container do carrossel de filmes populares -->
+    <div class="carrossel" id="carrossel-populares"></div>
 
-    <!-- Botão para avançar -->
+    <!-- Botão para avançar no carrossel -->
     <img src="/src/assets/img/seta-direita.png" alt="Avançar" class="seta-img direita">
   </div>
 
@@ -54,7 +58,7 @@
     <h2>Descubra o que você pode fazer 🍿</h2>
     <div class="sec-quads">
       <div class="quad-1">
-        <!-- Botão para lista de interesse -->
+        <!-- Botão que leva o usuário à página de Lista de Interesse (Favoritos) -->
         <a href="pages/favoritos.html" style="text-decoration: none;">
           <button id="quad-salvar">
             <div class="elementos-salvar">
@@ -67,7 +71,7 @@
           </button>
         </a>
 
-        <!-- Botão para tutorial -->
+        <!-- Botão que direciona para o tutorial (como funciona) -->
         <a href="pages/tutorial.html" style="text-decoration: none;">
           <button id="quad-tutorial">
             <div class="elementos-salvar">
@@ -82,7 +86,7 @@
       </div>
 
       <div class="quad-2">
-        <!-- Botão sobre nós -->
+        <!-- Botão que direciona para a página "Sobre nós" -->
         <a href="pages/sobre.html" style="text-decoration: none;">
           <button id="quad-sobre">
             <div class="elementos-salvar">
@@ -95,7 +99,7 @@
           </button>
         </a>
 
-        <!-- Botão para filme surpresa -->
+        <!-- Botão para acessar a página de Filme Surpresa -->
         <a href="pages/sorteio.html" style="text-decoration: none">
           <button id="quad-surpresa">
             <div class="elementos-salvar">
@@ -111,20 +115,22 @@
     </div>
   </div>
 
-  <!-- Seção final -->
+  <!-- Seção final com mensagem motivacional e benefícios -->
   <div class="sec-4">
-    <h2>A ajuda certa na hora de escolher o filme perfeito, rápido e fácil. <br>Salve os que você ainda quer ver. <br> Ajude seus amigos a encontrarem bons filmes também. .</h2>
+    <h2>A ajuda certa na hora de escolher o filme perfeito, rápido e fácil. <br>Salve os que você ainda quer ver.
+      <br>Ajude seus amigos a encontrarem bons filmes também.</h2>
   </div>
 
-  <!-- Espaço extra -->
+  <!-- Espaço extra para evitar sobreposição do conteúdo com o rodapé -->
   <div id="espaco"></div>
 
-  <!-- Importação do rodapé -->
+  <!-- Espaço reservado para o rodapé; o conteúdo pode ser carregado dinamicamente -->
   <div id="footer"></div>
 
-  <!-- Scripts JS -->
+  <!-- Importa os scripts JavaScript responsáveis por carregar elementos comuns e funcionalidades do site -->
+  
   <script src="assets/js/import.js"></script>
-  <script src="assets/js/script.js"></script>
+  
   <script src="assets/js/carrosel.js"></script>
 
 </body>

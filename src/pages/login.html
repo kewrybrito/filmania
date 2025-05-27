@@ -2,55 +2,76 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Define a codificação de caracteres para evitar problemas com acentuação -->
     <meta charset="UTF-8">
+    <!-- Ajusta a visualização para dispositivos móveis, garantindo responsividade -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da página exibido na aba do navegador -->
     <title>Página de Login</title>
+    <!-- Importa o CSS específico para a estilização da página de login -->
     <link rel="stylesheet" href="../assets/css/login.css">
-    <!-- estou importando as bibliotecas (fa icone de olho) -->
+    <!-- Importa a biblioteca Font Awesome para utilização de ícones (como o ícone de olho) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
+    <!-- Container principal que envolve todo o conteúdo do login -->
     <div class="login-container">
-      
-        <a href="/src/index.html"><div class="logo_imagem"><img src="/src/assets/img/logo-branco.png" alt="" id="logo-login"> </div></a>
-       
+
+        <!-- Link para a página inicial: ao clicar na imagem do logo o usuário é redirecionado para o index -->
+        <a href="/src/index.html">
+            <div class="logo_imagem">
+                <img src="/src/assets/img/logo-branco.png" alt="" id="logo-login">
+            </div>
+        </a>
+
+        <!-- Mensagem de boas-vindas ou instrução para o usuário -->
         <h2>Prepare a pipoca e faça login para continuar sua sessão na Filmania!</h2>
-        
+
+        <!-- Início do formulário de login -->
+        <!-- Observação: há uma div extra abrindo o form; ela é usada aqui apenas para organização visual -->
         <div>
             <form id="loginForm">
         </div>
-      
-            <div class="form-group">
-                
-                <div class="error" id="msgError"></div>
-    
-                <label id="userLabel" for="email">Email</label>
-                
-                <!-- required torna o input obrigatorio  -->
-                <input type="email" id="email" name="email" required>
-            </div>
-           
-    
-            <div class="form-group">
-                
-                <div class="error" id="passwordError"></div>
 
-                <!-- estou usando a biblioteca de ícones (FA) Font Awesome -->
-                <!-- label da um nome visível ao campo -->
-                <!-- usado para dizer aos leitores com deficiência visual se um elemento deve ou não ser ignorado-->
-                <label id="senhaLabel" for="password">Senha</label>
-                <input type="password" id="senha" name="password" required minlength="6">
-    
-            </div>
-            <button type="button" onclick="entrar()" class="submit-btn">Entrar</button>
-            <h3 id="cadastrar">Ainda não tem uma conta?  <a href="/src/pages/cadastro.html" style="text-decoration: none;"> clique aqui</a> </h3>
-           
+        <!-- Grupo de formulário para o campo de email -->
+        <div class="form-group">
+            <!-- Área para exibir mensagens de erro relacionadas ao email -->
+            <div class="error" id="msgError"></div>
+
+            <!-- Label que identifica o campo de email; também auxilia leitores de tela -->
+            <label id="userLabel" for="email">Email</label>
+
+            <!-- Input do tipo email (campo obrigatório) -->
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Grupo de formulário para o campo de senha -->
+        <div class="form-group">
+            <!-- Área para exibir mensagens de erro relacionadas à senha -->
+            <div class="error" id="passwordError"></div>
+
+            <!-- Label que identifica o campo de senha; os comentários ajudam na acessibilidade -->
+            <!-- A biblioteca Font Awesome pode ser utilizada para melhorar a interface (ex.: ícone de olho) -->
+            <label id="senhaLabel" for="password">Senha</label>
+
+            <!-- Input do tipo password (campo obrigatório com mínimo de 6 caracteres) -->
+            <input type="password" id="senha" name="password" required minlength="6">
+        </div>
+
+        <!-- Botão de login que chama a função "entrar()" quando clicado -->
+        <button type="button" onclick="entrar()" class="submit-btn">Entrar</button>
+
+        <!-- Link para redirecionar o usuário à página de cadastro caso ainda não possua uma conta -->
+        <h3 id="cadastrar">
+            Ainda não tem uma conta?
+            <a href="/src/pages/cadastro.html" style="text-decoration: none;">clique aqui</a>
+        </h3>
+
         </form>
-  
-   
-</div>
-    <!-- puxa o caminho do javascript  -->
+    </div>
+
+    <!-- Importa o arquivo JavaScript que contém a lógica de login -->
     <script src="../assets/js/signin.js"></script>
 </body>
 

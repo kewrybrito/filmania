@@ -1,132 +1,217 @@
 @font-face {
+    /* Inicia a definição de uma fonte personalizada */
     font-family: 'Quicksand-Medium';
+    /* Define o nome da fonte como "Quicksand-Medium" */
     src: url('/src/assets/fonts/Quicksand-Medium.ttf');
+    /* Especifica o caminho para o arquivo da fonte */
 }
- 
+
 @font-face {
+    /* Inicia a definição de outra fonte personalizada */
     font-family: 'Quicksand-Regular';
+    /* Define o nome da fonte como "Quicksand-Regular" */
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+    /* Especifica o caminho para o arquivo da fonte */
 }
 
 body {
+    /* Inicia as regras para o elemento <body> da página */
     font-family: Arial, sans-serif;
+    /* Define a fonte padrão do corpo como Arial (com fallback para sans-serif) */
     display: flex;
+    /* Configura o corpo para usar Flexbox, permitindo centralização de conteúdos */
     justify-content: center;
+    /* Centraliza horizontalmente os elementos filhos do body */
     align-items: center;
+    /* Centraliza verticalmente os elementos filhos do body */
     height: 100vh;
+    /* Define a altura do body como 100% da altura da viewport */
     margin: 0;
+    /* Remove a margem padrão do navegador */
     background-color: #000000;
+    /* Define a cor de fundo como preto */
     background-image: url('/src/assets/img/fundo_login.png');
+    /* Especifica uma imagem de fundo para o body */
 }
 
 .login-container {
+    /* Seleciona o container de login pelo nome da classe */
     background-color: #000000d8;
+    /* Define uma cor de fundo preta com opacidade (transparência) */
     padding: 50px;
+    /* Adiciona 50px de espaçamento interno em todos os lados */
     height: 400px;
+    /* Define a altura do container de login como 400px */
     border-radius: 10px;
+    /* Arredonda os cantos do container com um raio de 10px */
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    /* Adiciona uma sombra suave ao redor do container */
     width: 300px;
+    /* Define a largura do container como 300px */
     display: flex;
+    /* Utiliza Flexbox para organizar o conteúdo interno */
     flex-direction: column;
+    /* Organiza os elementos internos em coluna */
     font-family: 'Quicksand-Regular';
+    /* Define a fonte interna do container como "Quicksand-Regular" */
 }
 
-.logo_imagem {
-    width: 6vw;
-    height: 70px;
-    padding-bottom: 10px;
-}
+    .logo_imagem {
+        /* Seleciona os elementos com a classe "logo_imagem" */
+        width: 6vw;
+        /* Define a largura da imagem como 6% da largura da viewport */
+        height: 70px;
+        /* Define a altura fixa da imagem como 70px */
+        padding-bottom: 10px;
+        /* Adiciona 10px de espaço abaixo da imagem */
+    }
 
 #logo-login {
-  text-align: left;
-  width: 150px;
-  height: 100px;
+    /* Seleciona o elemento com o ID "logo-login" */
+    text-align: left;
+    /* Alinha o conteúdo à esquerda */
+    width: 150px;
+    /* Define a largura como 150px */
+    height: 100px;
+    /* Define a altura como 100px */
 }
 
 .login-container h2 {
+    /* Seleciona os elementos <h2> dentro de ".login-container" */
     color: #FFFDFD;
+    /* Define a cor do texto como branco (quase branco) */
     text-align: center;
+    /* Centraliza o texto horizontalmente */
     margin-bottom: 15px;
+    /* Adiciona uma margem inferior de 15px */
     font-family: 'Quicksand-Regular';
+    /* Utiliza a fonte "Quicksand-Regular" para o título */
 }
 
 .login-container h3 {
+    /* Seleciona os elementos <h3> dentro de ".login-container" */
     text-align: center;
+    /* Centraliza o texto horizontalmente */
     font-size: 14px;
+    /* Define o tamanho da fonte como 14px */
     font-family: 'Quicksand-Regular';
-
+    /* Define a fonte como "Quicksand-Regular" */
 }
 
-#cadastrar{
+#cadastrar {
+    /* Seleciona o elemento com o ID "cadastrar" */
     color: white;
+    /* Define a cor do texto como branco */
 }
-
-
-
 
 #cor_h {
+    /* Seleciona o elemento com o ID "cor_h" */
     color: #ffffff;
+    /* Define a cor do texto como branco (hexadecimal) */
 }
 
 .form-group {
+    /* Seleciona os elementos com a classe "form-group" */
     margin-bottom: 15px;
+    /* Adiciona uma margem inferior de 15px para separar os grupos de formulário */
 }
 
 .form-group label {
+    /* Seleciona os elementos <label> dentro de ".form-group" */
     display: block;
+    /* Exibe os labels como bloco, ocupando a linha inteira */
     margin-bottom: px;
-    color: #ffffff
-    
+    /* Define uma margem inferior; nota: valor não especificado (possivelmente um erro) */
+    color: #ffffff;
+    /* Define a cor do texto do label como branco */
 }
 
 .form-group input {
+    /* Seleciona os elementos <input> dentro de ".form-group" */
     width: 93%;
+    /* Define a largura do input como 93% do seu container */
     padding: 10px;
+    /* Adiciona 10px de espaçamento interno em todos os lados */
     color: #ffffff;
+    /* Define a cor do texto digitado como branco */
     border-radius: 5px;
+    /* Arredonda os cantos do input com um raio de 5px */
     border: none;
+    /* Remove a borda padrão do input */
     outline: none;
+    /* Remove a linha de contorno ao focar o input */
     font-family: 'Quicksand-Regular';
-    background-color:#6C797B; 
-} 
+    /* Define a fonte do input como "Quicksand-Regular" */
+    background-color: #6C797B;
+    /* Define a cor de fundo do input */
+}
 
 .error {
+    /* Seleciona os elementos com a classe "error" */
     color: red;
+    /* Define a cor do texto como vermelho para destacar erros */
     font-size: 12px;
+    /* Define o tamanho da fonte como 12px */
     margin-top: 5px;
+    /* Adiciona 5px de margem acima para separação visual */
 }
 
 .submit-btn {
+    /* Seleciona os botões de envio com a classe "submit-btn" */
     width: 100%;
+    /* Define a largura do botão como 100% do container */
     height: 100px;
+    /* Define a altura do botão como 100px */
     background-color: #A29BFE;
+    /* Define a cor de fundo do botão */
     color: white;
+    /* Define a cor do texto do botão como branco */
     border: none;
+    /* Remove a borda padrão do botão */
     padding: 10px;
+    /* Adiciona 10px de padding interno */
     border-radius: 10px;
+    /* Arredonda os cantos do botão com um raio de 10px */
     cursor: pointer;
+    /* Altera o cursor para pointer, indicando que o botão é clicável */
     font-family: "Quicksand-Medium";
+    /* Define a fonte do botão como "Quicksand-Medium" */
     font-weight: bold;
+    /* Define o texto do botão em negrito */
     font-size: 15px;
+    /* Define o tamanho da fonte como 15px */
     transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+    /* Configura transições suaves para background, transformações e box-shadow */
 }
 
 .submit-btn:hover {
+    /* Define o estado hover para o botão de envio */
     background-color: #5344c3;
+    /* Altera a cor de fundo do botão ao passar o mouse */
     transform: scale(1.05);
+    /* Aumenta levemente o tamanho do botão (5%) no hover */
     box-shadow: 0 0 15px #5344c3;
+    /* Adiciona uma sombra com cor #5344c3 para destaque */
 }
 
-
-a{
+a {
+    /* Seleciona todos os elementos de link (<a>) */
     margin-left: 0.4rem;
+    /* Adiciona uma margem à esquerda de 0.4rem */
     color: #5344c3;
+    /* Define a cor do texto do link como #5344c3 */
     font-size: 14px;
+    /* Define o tamanho da fonte do link como 14px */
     transition: font-size 0.3s, color 0.3s, border-color 0.3s, text-shadow 0.3s;
+    /* Configura transições suaves para mudanças de propriedades no hover */
 }
 
-a:hover{
+a:hover {
+    /* Define o estado hover para os links (<a>) */
     color: #5344c3;
+    /* Mantém ou redefine a cor como #5344c3 quando o mouse passa sobre o link */
     font-size: 16px;
+    /* Aumenta o tamanho da fonte para 16px no hover */
     text-shadow: 0 0 10px #5344c3, 0 0 20px #5344c3, 0 0 30px #5344c3;
+    /* Aplica um efeito de sombra (glow) para destacar o link */
 }

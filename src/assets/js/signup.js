@@ -1,146 +1,161 @@
 // Captura os botões que permitem visualizar ou ocultar a senha e a confirmação de senha
-let btn = document.querySelector('#verSenha')
-let btnConfirm = document.querySelector('#verConfirmSenha')
+let btn = document.querySelector('#verSenha');        // Botão para alternar a visualização do campo de senha
+let btnConfirm = document.querySelector('#verConfirmSenha'); // Botão para alternar a visualização do campo de confirmação de senha
 
 // Captura os campos de entrada do formulário e seus respectivos rótulos para validação
-let nome = document.querySelector('#nome') // Campo de nome
-let labelNome = document.querySelector('#labelNome') // Rótulo do nome
-let validNome = false // Variável para verificar se o nome está válido
+// Elementos e variáveis para o campo "Nome"
+let nome = document.querySelector('#nome');             // Input de nome do usuário
+let labelNome = document.querySelector('#labelNome');   // Label associado ao campo nome
+let validNome = false;                                  // Variável de controle: indica se o nome é válido
 
-let usuario = document.querySelector('#email') // Campo de email
-let labelUsuario = document.querySelector('#labelUsuario') // Rótulo do email
-let validUsuario = false // Variável para verificar se o email está válido
+// Elementos e variáveis para o campo "Email" (usuário)
+let usuario = document.querySelector('#email');         // Input de email/usuário
+let labelUsuario = document.querySelector('#labelUsuario'); // Label associado ao campo email
+let validUsuario = false;                               // Variável de controle: indica se o email é válido
 
-let senha = document.querySelector('#senha') // Campo de senha
-let labelSenha = document.querySelector('#labelSenha') // Rótulo da senha
-let validSenha = false // Variável para verificar se a senha está válida
+// Elementos e variáveis para o campo "Senha"
+let senha = document.querySelector('#senha');           // Input de senha
+let labelSenha = document.querySelector('#labelSenha'); // Label associado ao campo de senha
+let validSenha = false;                                 // Variável de controle: indica se a senha é válida
 
-let confirmSenha = document.querySelector('#Csenha') // Campo de confirmação de senha
-let labelConfirmSenha = document.querySelector('#labelCSenha') // Rótulo da confirmação de senha
-let validConfirmSenha = false // Variável para verificar se a confirmação de senha está válida
+// Elementos e variáveis para o campo "Confirma Senha"
+let confirmSenha = document.querySelector('#Csenha');   // Input de confirmação de senha
+let labelConfirmSenha = document.querySelector('#labelCSenha'); // Label associado ao campo de confirmação de senha
+let validConfirmSenha = false;                          // Variável de controle: indica se a confirmação de senha é válida
 
-// Captura os elementos para mensagens de erro e sucesso
-let msgError = document.querySelector('#msgError')
-let msgSuccess = document.querySelector('#msgSuccess')
+// Captura os elementos que apresentarão mensagens de erro e sucesso para o usuário
+let msgError = document.querySelector('#msgError');     // Elemento para exibir mensagens de erro
+let msgSuccess = document.querySelector('#msgSuccess'); // Elemento para exibir mensagens de sucesso
 
-// Adiciona um evento para validar o campo Nome sempre que uma tecla for pressionada
+// Evento para validar o campo "Nome" à medida que o usuário digita
 nome.addEventListener('keyup', () => {
-    if (nome.value.length <= 12) { // Se o nome tiver 12 caracteres ou menos, mostra erro
-        labelNome.setAttribute('style', 'color: red')
-        labelNome.innerHTML = 'Nome *Insira seu nome completo'
-        nome.setAttribute('style', 'border-color: red')
-        validNome = false
-    } else { // Se tiver mais que 12 caracteres, considera válido
-        labelNome.setAttribute('style', 'color: green')
-        labelNome.innerHTML = 'Nome'
-        nome.setAttribute('style', 'border-color: green')
-        validNome = true
+    // Valida se o valor digitado possui mais de 12 caracteres
+    if (nome.value.length <= 12) { // Caso o nome tenha 12 ou menos caracteres, exibe erro
+        labelNome.setAttribute('style', 'color: red');
+        labelNome.innerHTML = 'Nome *Insira seu nome completo';
+        nome.setAttribute('style', 'border-color: red');
+        validNome = false;
+    } else { // Se o nome contém mais de 12 caracteres, considera válido
+        labelNome.setAttribute('style', 'color: green');
+        labelNome.innerHTML = 'Nome';
+        nome.setAttribute('style', 'border-color: green');
+        validNome = true;
     }
-})
+});
 
-// Adiciona um evento para validar o campo Email sempre que uma tecla for pressionada
+// Evento para validar o campo "Email" (usuário) conforme o usuário digita
 usuario.addEventListener('keyup', () => {
-    if (!usuario.value.includes('@') || !usuario.value.includes('.')) { // Verifica se contém "@" e "."
-        labelUsuario.setAttribute('style', 'color: red')
-        labelUsuario.innerHTML = 'Email *Precisa ter @ e .com'
-        usuario.setAttribute('style', 'border-color: red')
-        validUsuario = false
-    } else { // Se for válido, exibe um check verde
-        labelUsuario.setAttribute('style', 'color: green')
-        labelUsuario.innerHTML = 'Usuário✔️'
-        usuario.setAttribute('style', 'border-color: green')
-        validUsuario = true
+    // Verifica se o valor inserido contém um símbolo '@' e um ponto '.', requisitos básicos para um email válido
+    if (!usuario.value.includes('@') || !usuario.value.includes('.')) {
+        labelUsuario.setAttribute('style', 'color: red');
+        labelUsuario.innerHTML = 'Email *Precisa ter @ e .com';
+        usuario.setAttribute('style', 'border-color: red');
+        validUsuario = false;
+    } else {
+        // Se a validação passar, indica sucesso com cores e um check
+        labelUsuario.setAttribute('style', 'color: green');
+        labelUsuario.innerHTML = 'Usuário✔️';
+        usuario.setAttribute('style', 'border-color: green');
+        validUsuario = true;
     }
-})
+});
 
-// Adiciona um evento para validar o campo Senha sempre que uma tecla for pressionada
+// Evento para validar o campo "Senha" enquanto o usuário digita
 senha.addEventListener('keyup', () => {
-    if (senha.value.length <= 5) { // Senha deve ter no mínimo 6 caracteres
-        labelSenha.setAttribute('style', 'color: red')
-        labelSenha.innerHTML = 'Senha *Insira no mínimo 6 caracteres'
-        senha.setAttribute('style', 'border-color: red')
-        validSenha = false
-    } else { // Se for válida, exibe um check verde
-        labelSenha.setAttribute('style', 'color: green')
-        labelSenha.innerHTML = 'Senha✔️'
-        senha.setAttribute('style', 'border-color: green')
-        validSenha = true
+    // A senha precisa ter, no mínimo, 6 caracteres; caso contrário, é considerada inválida
+    if (senha.value.length <= 5) {
+        labelSenha.setAttribute('style', 'color: red');
+        labelSenha.innerHTML = 'Senha *Insira no mínimo 6 caracteres';
+        senha.setAttribute('style', 'border-color: red');
+        validSenha = false;
+    } else {
+        // Se a senha atender ao comprimento mínimo, a validação é positiva
+        labelSenha.setAttribute('style', 'color: green');
+        labelSenha.innerHTML = 'Senha✔️';
+        senha.setAttribute('style', 'border-color: green');
+        validSenha = true;
     }
-})
+});
 
-// Adiciona um evento para validar a confirmação de senha sempre que uma tecla for pressionada
+// Evento para validar a confirmação de senha enquanto o usuário digita
 confirmSenha.addEventListener('keyup', () => {
-    if (senha.value != confirmSenha.value) { // Compara os valores da senha e da confirmação
-        labelConfirmSenha.setAttribute('style', 'color: red')
-        labelConfirmSenha.innerHTML = 'Confirmar Senha *As senhas não conferem'
-        confirmSenha.setAttribute('style', 'border-color: red')
-        validConfirmSenha = false
-    } else { // Se as senhas forem iguais, exibe um check verde
-        labelConfirmSenha.setAttribute('style', 'color: green')
-        labelConfirmSenha.innerHTML = 'Senha Confere✔️'
-        confirmSenha.setAttribute('style', 'border-color: green')
-        validConfirmSenha = true
+    // Compara o valor do campo senha com o da confirmação; se forem diferentes, exibe erro
+    if (senha.value != confirmSenha.value) {
+        labelConfirmSenha.setAttribute('style', 'color: red');
+        labelConfirmSenha.innerHTML = 'Confirmar Senha *As senhas não conferem';
+        confirmSenha.setAttribute('style', 'border-color: red');
+        validConfirmSenha = false;
+    } else {
+        // Se os valores baterem, sinaliza que a confirmação está correta
+        labelConfirmSenha.setAttribute('style', 'color: green');
+        labelConfirmSenha.innerHTML = 'Senha Confere✔️';
+        confirmSenha.setAttribute('style', 'border-color: green');
+        validConfirmSenha = true;
     }
-})
+});
 
-// Função de cadastro de usuário
+// Função responsável pelo cadastro do usuário
 function cadastrar() {
-    if (validNome && validUsuario && validSenha && validConfirmSenha) { // Verifica se todos os campos estão válidos
+    // Verifica se todos os campos passaram na validação
+    if (validNome && validUsuario && validSenha && validConfirmSenha) {
+        // Recupera a lista de usuários já cadastrados no localStorage.
+        // Se não existir, é criado um array vazio.
+        let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
 
-        // Obtém a lista de usuários armazenada no localStorage ou cria uma nova lista vazia
-        let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
+        // Adiciona um novo objeto de usuário à lista com os dados coletados do formulário
+        listaUser.push({
+            nomeCad: nome.value,
+            userCad: usuario.value,
+            senhaCad: senha.value
+        });
 
-        // Adiciona um novo usuário à lista
-        listaUser.push(
-            {
-                nomeCad: nome.value,
-                userCad: usuario.value,
-                senhaCad: senha.value
-            }
-        )
+        // Atualiza o localStorage com a nova lista de usuários convertida para JSON
+        localStorage.setItem('listaUser', JSON.stringify(listaUser));
 
-        // Atualiza o localStorage com a lista de usuários
-        localStorage.setItem('listaUser', JSON.stringify(listaUser))
+        // Exibe mensagem de sucesso informando que o usuário está sendo cadastrado
+        msgSuccess.setAttribute('style', 'display: block');
+        msgSuccess.innerHTML = '<strong>Cadastrando usuário...</strong>';
+        // Oculta qualquer mensagem de erro anterior
+        msgError.setAttribute('style', 'display: none');
+        msgError.innerHTML = '';
 
-        // Exibe mensagem de sucesso e oculta mensagem de erro
-        msgSuccess.setAttribute('style', 'display: block')
-        msgSuccess.innerHTML = '<strong>Cadastrando usuário...</strong>'
-        msgError.setAttribute('style', 'display: none')
-        msgError.innerHTML = ''
-
-        // Aguarda 3 segundos e redireciona para a página de login
+        // Aguarda 3 segundos para dar tempo ao usuário de perceber a mensagem e, em seguida, redireciona para a página de login
         setTimeout(() => {
             window.location.href = '../pages/login.html';
-        }, 3000)
+        }, 3000);
 
-       
     } else {
-        // Se algum campo estiver inválido, exibe mensagem de erro
-        msgError.setAttribute('style', 'display: block')
-        msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>'
-        msgSuccess.innerHTML = ''
-        msgSuccess.setAttribute('style', 'display: none')
+        // Se algum campo estiver inválido, exibe uma mensagem de erro para o usuário
+        msgError.setAttribute('style', 'display: block');
+        msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>';
+        // Oculta mensagem de sucesso, se houver
+        msgSuccess.innerHTML = '';
+        msgSuccess.setAttribute('style', 'display: none');
     }
 }
 
-// Adiciona um evento para alternar a visibilidade do campo Senha ao clicar no botão
+// Evento para alternar a visibilidade do campo "Senha"
+// Este evento é acionado ao clicar no botão para mostrar ou ocultar a senha
 btn.addEventListener('click', () => {
-    let inputSenha = document.querySelector('#senha')
-
+    let inputSenha = document.querySelector('#senha'); // Seleciona o campo de senha
+    // Checa o atributo "type" do input: se for "password", muda para "text" para exibir o conteúdo
     if (inputSenha.getAttribute('type') == 'password') {
-        inputSenha.setAttribute('type', 'text') // Mostra a senha
+        inputSenha.setAttribute('type', 'text');
     } else {
-        inputSenha.setAttribute('type', 'password') // Oculta a senha
+        // Caso já esteja visível, volta para "password" para ocultá-lo
+        inputSenha.setAttribute('type', 'password');
     }
-})
+});
 
-// Adiciona um evento para alternar a visibilidade do campo Confirmar Senha ao clicar no botão
+// Evento para alternar a visibilidade do campo "Confirmar Senha"
+// Este evento permite ao usuário ver ou ocultar a confirmação de senha
 btnConfirm.addEventListener('click', () => {
-    let inputConfirmSenha = document.querySelector('#Csenha')
-
+    let inputConfirmSenha = document.querySelector('#Csenha'); // Seleciona o campo de confirmação de senha
+    // Se o campo estiver oculto ("password"), altera para "text"
     if (inputConfirmSenha.getAttribute('type') == 'password') {
-        inputConfirmSenha.setAttribute('type', 'text') // Mostra a senha
+        inputConfirmSenha.setAttribute('type', 'text');
     } else {
-        inputConfirmSenha.setAttribute('type', 'password') // Oculta a senha
+        // Caso o campo esteja visível, volta a ser "password"
+        inputConfirmSenha.setAttribute('type', 'password');
     }
-})
+});

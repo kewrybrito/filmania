@@ -1,356 +1,613 @@
-*{
+* {
+    /* Seleciona TODOS os elementos da página */
     margin: 0px;
+    /* Remove a margem padrão de todos os elementos */
     box-sizing: border-box;
+    /* Inclui padding e border no cálculo das dimensões */
 }
- 
+
 @font-face {
+    /* Inicia a definição de uma fonte personalizada */
     font-family: 'Quicksand-Medium';
+    /* Nome da fonte personalizada */
     src: url('/src/assets/fonts/Quicksand-Medium.ttf');
+    /* Caminho para o arquivo da fonte */
 }
- 
+
 @font-face {
+    /* Inicia a definição de outra fonte personalizada */
     font-family: 'Quicksand-Regular';
+    /* Nome da fonte personalizada */
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+    /* Caminho para o arquivo da fonte */
 }
-html, body {
+
+html,
+body {
+    /* Aplica regras para os elementos HTML e body */
     margin: 0;
+    /* Remove margens padrão */
     padding: 0;
+    /* Remove o padding padrão */
     height: 100%;
-    overflow-x: hidden;  
+    /* Define a altura de ambos para 100% */
+    overflow-x: hidden;
+    /* Impede o overflow horizontal nos dois elementos */
 }
- 
- 
-.sec-1{
+
+
+.sec-1 {
+    /* Define a seção 1 da página */
     position: relative;
+    /* Permite posicionamentos absolutos de elementos filhos */
     background-image: url('/src/assets/img/fundo-hp.jpg');
-    background-size: cover;  
-    background-position: center;  
-    background-repeat: no-repeat;  
-    height: 100vh;                  
-    width: 100%;                    
-    overflow: hidden;  
+    /* Define a imagem de fundo */
+    background-size: cover;
+    /* Faz a imagem cobrir toda a área */
+    background-position: center;
+    /* Centraliza a imagem de fundo */
+    background-repeat: no-repeat;
+    /* Evita a repetição da imagem */
+    height: 100vh;
+    /* Define a altura igual à altura da viewport */
+    width: 100%;
+    /* Define a largura como 100% do contêiner pai */
+    overflow: hidden;
+    /* Oculta qualquer conteúdo que ultrapasse os limites */
     display: flex;
+    /* Utiliza Flexbox para layout interno */
     justify-content: flex-start;
+    /* Alinha os itens no início do eixo horizontal */
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.6); 
-    background-blend-mode: overlay; 
+    /* Centraliza os itens verticalmente */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Aplica uma cor de fundo semitransparente */
+    background-blend-mode: overlay;
+    /* Mescla a cor de fundo com a imagem usando o modo overlay */
 }
- 
+
 .sec-1::before {
+    /* Cria um pseudo-elemento antes de .sec-1 */
     content: '';
+    /* Define conteúdo vazio para o pseudo-elemento */
     position: absolute;
+    /* Posiciona o pseudo-elemento de forma absoluta */
     top: 0;
+    /* Posiciona na parte superior */
     left: 0;
+    /* Posiciona no lado esquerdo */
     right: 0;
+    /* Estende até o lado direito */
     bottom: 0;
+    /* Estende até a parte inferior */
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;  
-  }
- 
-#info{
+    /* Aplica uma camada preta semitransparente */
+    z-index: -1;
+    /* Coloca o pseudo-elemento atrás do conteúdo de .sec-1 */
+}
+
+#info {
+    /* Seleciona o elemento com ID "info" */
     display: flex;
+    /* Utiliza Flexbox para organizar o conteúdo */
     flex-direction: column;
+    /* Organiza os itens em coluna */
     width: 60vw;
+    /* Define a largura como 60% da viewport */
     height: 50vh;
+    /* Define a altura como 50% da viewport */
     padding-left: 13%;
+    /* Adiciona padding à esquerda de 13% */
     justify-content: space-evenly;
+    /* Distribui os itens com espaçamento igual */
 }
- 
-#info h1{
+
+#info h1 {
+    /* Seleciona os h1 dentro do elemento com ID "info" */
     font-family: 'Quicksand-Regular';
+    /* Define a fonte do título */
     color: white;
+    /* Define a cor do texto como branco */
     font-size: 96px;
+    /* Define o tamanho da fonte para o título */
 }
- 
-#info p{
+
+#info p {
+    /* Seleciona os parágrafos dentro do elemento com ID "info" */
     font-size: 36px;
+    /* Define o tamanho da fonte do parágrafo */
     color: white;
+    /* Define a cor do texto como branco */
     font-family: 'Quicksand-Regular';
+    /* Define a fonte dos parágrafos */
 }
- 
-#botao-sec-1{
+
+#botao-sec-1 {
+    /* Seleciona o elemento com ID "botao-sec-1" */
     width: 25vw;
+    /* Define a largura como 25% da viewport */
     background-color: #A29BFE;
+    /* Define a cor de fundo do botão */
     border-radius: 15px;
+    /* Arredonda as bordas com raio de 15px */
     border: none;
+    /* Remove a borda padrão */
     cursor: pointer;
+    /* Define o cursor como pointer ao passar o mouse */
     height: 8vh;
+    /* Define a altura como 8% da viewport */
     padding: 4px;
+    /* Adiciona padding interno de 4px */
     transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+    /* Define transições suaves para propriedades */
 }
- 
-#botao-sec-1:hover{
+
+#botao-sec-1:hover {
+    /* Estiliza o estado hover do elemento com ID "botao-sec-1" */
     background-color: #5344c3;
+    /* Altera a cor de fundo ao passar o mouse */
     transform: scale(1.05);
+    /* Aumenta levemente o tamanho do botão */
     box-shadow: 0 0 15px #5344c3;
+    /* Adiciona uma sombra com cor #5344c3 */
 }
- 
-#bt-sec-1{
+
+#bt-sec-1 {
+    /* Seleciona o elemento com ID "bt-sec-1" */
     color: white;
+    /* Define a cor do texto como branco */
     font-family: 'Quicksand-Medium';
+    /* Define a fonte para "Quicksand-Medium" */
     font-size: 20px;
+    /* Define o tamanho da fonte */
     font-weight: bold;
+    /* Define o texto em negrito */
 }
- 
-.sec-2{
+
+.sec-2 {
+    /* Seleciona a seção com a classe "sec-2" */
     background-color: #0D0C1D;
+    /* Define a cor de fundo da seção */
     width: 100vw;
+    /* Define a largura como 100% da viewport */
     height: 60vh;
+    /* Define a altura como 60% da viewport */
     display: flex;
+    /* Utiliza Flexbox para organização interna */
     flex-direction: column;
+    /* Organiza os itens em coluna */
     justify-content: flex-start;
+    /* Alinha os itens no início (topo) */
     position: relative;
+    /* Define posicionamento relativo para ajudar em posicionamentos absolutos de filhos */
     overflow: visible;
+    /* Permite que os elementos filhos transbordem, se necessário */
 }
- 
-.sec-2 h2{
+
+.sec-2 h2 {
+    /* Seleciona os h2 dentro da seção com classe "sec-2" */
     color: white;
+    /* Define a cor do texto como branco */
     font-family: "Quicksand-Regular";
+    /* Define a fonte para os h2 */
     padding-left: 2%;
+    /* Adiciona padding à esquerda de 2% */
     padding-top: 2%;
+    /* Adiciona padding no topo de 2% */
     margin-bottom: 1%;
+    /* Adiciona uma margem inferior de 1% */
 }
 
 
 .carrossel {
+    /* Seleciona o container com a classe "carrossel" */
     display: flex;
+    /* Utiliza Flexbox para dispor os itens em linha */
     gap: 1rem;
+    /* Define um espaçamento de 1rem entre os itens */
     overflow-x: auto;
+    /* Permite rolagem horizontal se os itens ultrapassarem */
     scroll-behavior: smooth;
+    /* Faz a rolagem horizontal de forma suave */
     padding: 1rem 4rem;
-    min-width: 100vw; 
+    /* Adiciona padding de 1rem vertical e 4rem horizontal */
+    min-width: 100vw;
+    /* Garante que o container tenha no mínimo a largura da viewport */
 }
 
 .seta-img {
+    /* Seleciona os elementos com a classe "seta-img" (provavelmente botões com setas) */
     width: 50px;
+    /* Define a largura de 50px */
     height: 50px;
+    /* Define a altura de 50px */
     position: absolute;
-    top: 50%; 
+    /* Posiciona o elemento de forma absoluta */
+    top: 50%;
+    /* Posiciona a 50% do topo do elemento pai */
     transform: translateY(-50%);
+    /* Centraliza verticalmente o elemento */
     cursor: pointer;
+    /* Altera o cursor para indicar que é clicável */
     padding: 0.5rem;
+    /* Adiciona padding interno de 0.5rem */
     background: none;
+    /* Remove qualquer fundo padrão */
     border: none;
+    /* Remove a borda padrão */
     z-index: 3;
+    /* Define uma camada elevada para sobrepor outros elementos */
     transition: transform 0.2s ease;
+    /* Define uma transição suave para transformações */
 }
 
 .seta-img:hover {
+    /* Estiliza o estado hover dos elementos com a classe "seta-img" */
     transform: translateY(-50%) scale(1.1);
-
+    /* Aumenta um pouco o tamanho quando o mouse passa sobre */
 }
 
-  
 .seta-img.esquerda {
+    /* Seleciona o elemento com a classe "esquerda" que também tem "seta-img" */
     left: 1px;
+    /* Posiciona o elemento a 1px da esquerda */
 }
-  
+
 .seta-img.direita {
+    /* Seleciona o elemento com a classe "direita" que também tem "seta-img" */
     right: 1px;
+    /* Posiciona o elemento a 1px da direita */
 }
-  
+
 .carrossel::-webkit-scrollbar {
+    /* Estiliza a barra de rolagem do container "carrossel" em navegadores WebKit */
     height: 7px;
+    /* Define a altura da barra de rolagem */
 }
-  
+
 .carrossel::-webkit-scrollbar-thumb {
+    /* Estiliza o polegar (thumb) da barra de rolagem */
     background-color: transparent;
+    /* Define a cor do polegar como transparente */
     border-radius: 10px;
+    /* Arredonda as bordas do polegar */
 }
-  
+
 .card {
+    /* Seleciona os elementos com a classe "card" */
     min-width: 180px;
+    /* Define uma largura mínima de 180px para cada card */
     background-color: #1C1B2A;
+    /* Define a cor de fundo do card */
     border-radius: 12px;
+    /* Arredonda as bordas do card com raio de 12px */
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    /* Oculta qualquer conteúdo que ultrapasse os limites do card */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Adiciona uma sombra para dar profundidade */
     transition: transform 0.3s;
+    /* Define uma transição suave de 0.3s para transformações */
     cursor: pointer;
+    /* Altera o cursor para pointer indicando que o card é clicável */
 }
-  
+
 .card:hover {
+    /* Estiliza o estado hover do card */
     transform: scale(1.05);
+    /* Aumenta o tamanho do card em 5% ao passar o mouse */
 }
-  
+
 .card img {
+    /* Seleciona as imagens dentro de um card */
     width: 100%;
+    /* Faz com que a imagem ocupe toda a largura do card */
     height: 270px;
+    /* Define a altura da imagem como 270px */
     object-fit: cover;
+    /* Faz com que a imagem se ajuste sem distorção, cobrindo todo o espaço */
 }
-  
+
 .card-title {
+    /* Seleciona os elementos com a classe "card-title" */
     padding: 0.5rem;
+    /* Adiciona padding de 0.5rem em volta do conteúdo */
     font-size: 0.95rem;
+    /* Define o tamanho da fonte como 0.95rem */
     text-align: center;
+    /* Centraliza o texto */
     color: #E6E6FA;
+    /* Define a cor do texto */
     font-family: "Quicksand-Regular";
+    /* Define a fonte para "Quicksand-Regular" */
 }
-  
- 
-.sec-quads{
+
+
+.sec-quads {
+    /* Seleciona a seção de quads com a classe "sec-quads" */
     width: 100vw;
+    /* Define a largura como 100% da viewport */
     background-color: #0D0C1D;
+    /* Define a cor de fundo */
     height: 80vh;
+    /* Define a altura como 80% da viewport */
     display: flex;
+    /* Utiliza Flexbox para organizar os itens */
     flex-direction: row;
+    /* Organiza os itens em linha */
     padding-top: 1%;
+    /* Adiciona padding no topo de 1% */
 }
- 
-.sec-3{
+
+.sec-3 {
+    /* Seleciona a seção com a classe "sec-3" */
     background-color: #0D0C1D;
+    /* Define a cor de fundo */
 }
- 
-.sec-3 h2{
+
+.sec-3 h2 {
+    /* Seleciona os h2 dentro da seção "sec-3" */
     color: white;
+    /* Define a cor do texto como branco */
     font-family: "Quicksand-Regular";
+    /* Define a fonte */
     padding-left: 2%;
+    /* Adiciona padding à esquerda de 2% */
     display: flex;
+    /* Define o display como flex (possivelmente para alinhamento) */
 }
- 
-.quad-1{
+
+.quad-1 {
+    /* Seleciona o elemento com a classe "quad-1" */
     display: flex;
+    /* Utiliza Flexbox */
     background-color: #0D0C1D;
+    /* Define a cor de fundo */
     width: 50vw;
+    /* Define a largura como 50% da viewport */
     height: 70vh;
+    /* Define a altura como 70% da viewport */
     align-items: flex-end;
+    /* Alinha os itens ao final (parte inferior) */
     justify-content: space-evenly;
+    /* Distribui os itens com espaçamento uniforme */
     flex-direction: column;
+    /* Organiza os itens em coluna */
     padding-right: 5px;
+    /* Adiciona padding de 5px à direita */
 }
- 
-.quad-1 button{
+
+.quad-1 button {
+    /* Seleciona os botões dentro de ".quad-1" */
     height: 30vh;
+    /* Define a altura do botão como 30% da viewport */
     width: 30vw;
+    /* Define a largura do botão como 30% da viewport */
     background-color: #A29BFE;
+    /* Define a cor de fundo do botão */
     border-radius: 15px;
+    /* Arredonda as bordas do botão com raio de 15px */
     margin-right: 3%;
+    /* Adiciona uma margem à direita de 3% */
     cursor: pointer;
+    /* Altera o cursor para pointer, indicando clicabilidade */
     border: none;
+    /* Remove a borda padrão do botão */
     display: flex;
+    /* Define o display como flex para organizar o conteúdo interno */
     flex-direction: column;
+    /* Organiza o conteúdo interno em coluna */
     transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+    /* Define transições suaves para mudanças */
 }
 
-.quad-1 button:hover{
+.quad-1 button:hover {
+    /* Estado hover para os botões dentro de ".quad-1" */
     background-color: #5344c3;
+    /* Muda a cor de fundo ao passar o mouse */
     transform: scale(1.05);
+    /* Aumenta levemente o tamanho do botão */
     box-shadow: 0 0 15px #5344c3;
+    /* Adiciona uma sombra para destaque */
 }
- 
-.quad-2{
+
+.quad-2 {
+    /* Seleciona o elemento com a classe "quad-2" */
     display: flex;
+    /* Utiliza Flexbox */
     background-color: #0D0C1D;
+    /* Define a cor de fundo */
     width: 50vw;
+    /* Define a largura como 50% da viewport */
     height: 70vh;
+    /* Define a altura como 70% da viewport */
     align-items: flex-start;
+    /* Alinha os itens ao início (topo) */
     justify-content: space-evenly;
+    /* Distribui os itens com espaçamento uniforme */
     flex-direction: column;
+    /* Organiza os itens em coluna */
     padding-left: 5px;
+    /* Adiciona padding à esquerda de 5px */
 }
- 
-.quad-2 button{
+
+.quad-2 button {
+    /* Seleciona os botões dentro de ".quad-2" */
     height: 30vh;
+    /* Define a altura como 30% da viewport */
     width: 30vw;
+    /* Define a largura como 30% da viewport */
     background-color: #A29BFE;
+    /* Define a cor de fundo do botão */
     border-radius: 15px;
+    /* Arredonda as bordas do botão */
     margin-left: 3%;
+    /* Adiciona uma margem à esquerda de 3% */
     cursor: pointer;
+    /* Define o cursor como pointer */
     border: none;
+    /* Remove a borda padrão */
     display: flex;
+    /* Utiliza Flexbox para o conteúdo interno */
     flex-direction: column;
+    /* Organiza o conteúdo em coluna */
     transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+    /* Define transições suaves */
 }
 
-.quad-2 button:hover{
+.quad-2 button:hover {
+    /* Estado hover para os botões dentro de ".quad-2" */
     background-color: #5344c3;
+    /* Muda a cor de fundo no hover */
     transform: scale(1.05);
+    /* Aumenta levemente o tamanho do botão */
     box-shadow: 0 0 15px #5344c3;
+    /* Adiciona uma sombra para destaque */
 }
 
-.elementos-salvar{
+.elementos-salvar {
+    /* Seleciona o container ".elementos-salvar" */
     height: 10vh;
+    /* Define a altura como 10% da viewport */
     width: 29vw;
+    /* Define a largura como 29% da viewport */
     display: flex;
+    /* Utiliza Flexbox para organizar os itens */
     flex-direction: row;
+    /* Organiza os itens em linha */
     justify-content: flex-start;
+    /* Alinha os itens ao início na horizontal */
     align-items: center;
+    /* Alinha os itens ao centro verticalmente */
 }
 
-.elementos-salvar img{
+.elementos-salvar img {
+    /* Seleciona as imagens dentro do container ".elementos-salvar" */
     width: 80px;
+    /* Define a largura das imagens em 80px */
 }
 
-.elementos-salvar h1{
+.elementos-salvar h1 {
+    /* Seleciona os h1 dentro do container ".elementos-salvar" */
     color: white;
+    /* Define a cor do texto como branco */
     font-family: "Quicksand-Regular";
+    /* Define a fonte */
     font-size: 30px;
+    /* Define o tamanho da fonte como 30px */
 }
 
-.elementos-salvar-2{
-
+.elementos-salvar-2 {
+    /* Seleciona o container ".elementos-salvar-2" */
     height: 20vh;
+    /* Define a altura como 20% da viewport */
     width: 29vw;
+    /* Define a largura como 29% da viewport */
     padding-left: 5%;
+    /* Adiciona padding à esquerda de 5% */
 }
 
-.elementos-salvar-2 p{
+.elementos-salvar-2 p {
+    /* Seleciona os parágrafos dentro de ".elementos-salvar-2" */
     color: white;
+    /* Define a cor do texto como branco */
     font-family: "Quicksand-Regular";
+    /* Define a fonte */
     font-size: 20px;
+    /* Define o tamanho da fonte como 20px */
     text-align: left;
+    /* Alinha o texto à esquerda */
 }
 
-#img-about{
+#img-about {
+    /* Seleciona o elemento com ID "img-about" */
     width: 55px;
+    /* Define a largura como 55px */
     margin-right: 12px;
+    /* Adiciona margem à direita de 12px */
     margin-left: 15px;
+    /* Adiciona margem à esquerda de 15px */
 }
 
-#img-config{
+#img-config {
+    /* Seleciona o elemento com ID "img-config" */
     width: 60px;
+    /* Define a largura como 60px */
     margin-right: 12px;
+    /* Adiciona margem à direita de 12px */
     margin-left: 15px;
+    /* Adiciona margem à esquerda de 15px */
 }
 
-#img-puzzle{
+#img-puzzle {
+    /* Seleciona o elemento com ID "img-puzzle" */
     width: 55px;
+    /* Define a largura como 55px */
     margin-right: 12px;
+    /* Adiciona margem à direita de 12px */
     margin-left: 15px;
-}
-    
-#tit{
-    color: white
+    /* Adiciona margem à esquerda de 15px */
 }
 
-#espaco{
-    background-color: #0D0C1D;
-    height: 10vh;
-}
-
-.sec-4{
-    height: 60vh;
-    background-image: url('/src/assets/img/fundo-euphoria.jpg');
-    background-size: cover;  
-    background-position: 0% 20%;
-    background-repeat: no-repeat;
-    height: 45vh;  
-    background-color: rgba(0, 0, 0, 0.5); 
-    background-blend-mode: overlay; 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.sec-4 h2{
+#tit {
+    /* Seleciona o elemento com ID "tit" */
     color: white;
+    /* Define a cor do texto como branco */
+}
+
+#espaco {
+    /* Seleciona o elemento com ID "espaco" */
+    background-color: #0D0C1D;
+    /* Define a cor de fundo */
+    height: 10vh;
+    /* Define a altura como 10% da viewport */
+}
+
+.sec-4 {
+    /* Seleciona a seção "sec-4" */
+    height: 60vh;
+    /* Define a altura como 60% da viewport */
+    background-image: url('/src/assets/img/fundo-euphoria.jpg');
+    /* Define a imagem de fundo */
+    background-size: cover;
+    /* Faz a imagem cobrir toda a seção */
+    background-position: 0% 20%;
+    /* Posiciona a imagem (0% na horizontal, 20% na vertical) */
+    background-repeat: no-repeat;
+    /* Evita a repetição da imagem */
+    height: 45vh;
+    /* Define a altura como 45% da viewport (nota: sobrescreve a altura definida anteriormente) */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Define uma cor de fundo semitransparente */
+    background-blend-mode: overlay;
+    /* Mescla a cor de fundo com a imagem usando overlay */
+    display: flex;
+    /* Utiliza Flexbox para organizar o conteúdo */
+    flex-direction: row;
+    /* Organiza os itens em linha */
+    align-items: center;
+    /* Centraliza os itens verticalmente */
+    justify-content: center;
+    /* Centraliza os itens horizontalmente */
+}
+
+.sec-4 h2 {
+    /* Seleciona os h2 dentro da seção "sec-4" */
+    color: white;
+    /* Define a cor do texto como branco */
     text-align: center;
+    /* Centraliza o texto */
     line-height: 2;
+    /* Define uma altura de linha de 2 para espaçamento vertical */
     font-family: 'Quicksand-Regular';
+    /* Define a fonte como "Quicksand-Regular" */
     font-size: 180%;
+    /* Define o tamanho da fonte em 180% do tamanho padrão */
 }
 
 .botao {
+    /* Seleciona os elementos com a classe "botao" */
     visibility: hidden;
+    /* Torna o elemento invisível */
     display: none;
+    /* Remove o elemento do fluxo do layout */
 }

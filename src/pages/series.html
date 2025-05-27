@@ -2,39 +2,66 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Define a codificação para evitar problemas com acentuação -->
     <meta charset="UTF-8" />
+    <!-- Configura a visualização para dispositivos móveis (responsividade) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Importa o arquivo CSS específico para estilizar a página de séries -->
     <link rel="stylesheet" href="/src/assets/css/filmes.css" />
+    <!-- Define o título da página exibido na aba do navegador -->
     <title>Todas as Séries - FILMANIA</title>
 </head>
 
 <body>
+    <!-- Espaço reservado para o cabeçalho, que pode ser inserido dinamicamente -->
     <div id="header"></div>
     <hr>
+    <!-- Título da página -->
     <h1>Todas as Séries</h1>
+    <!-- Container onde os cards com as séries serão renderizados -->
     <div class="movies-container" id="moviesContainer"></div>
 
+    <!-- Importa o script que pode inserir elementos comuns como cabeçalho/rodapé -->
     <script src="/src/assets/js/import.js"></script>
 
     <script>
+        // Chave da API do TMDb para autenticação nas requisições
         const CHAVE_API = '1abf5fe580ef33d80c44d534b8e3b6d1';
+        // URL base para buscar séries (tipo TV) na API
         const URL_BASE = 'https://api.themoviedb.org/3/discover/tv';
+        // Variável para controlar a paginação das séries
         let paginaAtual = 1;
+        // Flag para evitar buscas concorrentes enquanto uma requisição está em andamento
         let carregando = false;
 
         // ======================= Funções de Favoritos =========================
 
+        /**
+         * Salva a lista de séries favoritas no localStorage.
+         * @param {Array} series - Array com as séries favoritas
+         */
         function salvaFavorito(series) {
             localStorage.setItem('favoritos', JSON.stringify(series));
         }
 
+        /**
+         * Recupera a lista de séries favoritas armazenada no localStorage.
+         * @returns {Array} Array com as séries favoritas ou array vazio se não houver dados.
+         */
         function pegarSeriesFavoritas() {
             const series = localStorage.getItem('favoritos');
             return series ? JSON.parse(series) : [];
         }
 
+        /**
+         * Adiciona uma série aos favoritos, se ainda não estiver presente.
+         * @param {number} id - ID da série
+         * @param {string} name - Nome da série
+         * @param {string} posterUrl - URL do pôster da série
+         */
         function adicionaFavorito(id, name, posterUrl) {
             const favoritos = pegarSeriesFavoritas();
+            // Verifica se a série já não está nos favoritos
             if (!favoritos.some(serie => serie.id === id)) {
                 favoritos.push({ id, name, posterUrl });
                 salvaFavorito(favoritos);
@@ -43,6 +70,10 @@
             }
         }
 
+        /**
+         * Remove uma série dos favoritos.
+         * @param {number} id - ID da série a ser removida.
+         */
         function removeDoFavoritos(id) {
             const favoritos = pegarSeriesFavoritas();
             const atualizados = favoritos.filter(serie => serie.id !== id);
@@ -51,6 +82,11 @@
             renderizarSeries();
         }
 
+        /**
+         * Verifica se uma série está na lista de favoritos.
+         * @param {number} id - ID da série
+         * @returns {boolean} True se a série estiver nos favoritos, caso contrário false.
+         */
         function estaNosFavoritos(id) {
             const favoritos = pegarSeriesFavoritas();
             return favoritos.some(serie => serie.id === id);
@@ -58,45 +94,69 @@
 
         // ======================= Buscar Séries =========================
 
+        /**
+         * Busca séries na API utilizando a página atual.
+         * Evita requisições simultâneas utilizando a flag "carregando".
+         */
         async function buscarSeries() {
             if (carregando) return;
             carregando = true;
 
+            // Constrói a URL com a chave da API, idioma e página
             const resposta = await fetch(`${URL_BASE}?api_key=${CHAVE_API}&language=pt-BR&page=${paginaAtual}`);
             const dados = await resposta.json();
 
+            // Chama a função para exibir as séries obtidas
             mostrarSeries(dados.results);
+            // Incrementa a página para a próxima requisição
             paginaAtual++;
             carregando = false;
         }
 
+        /**
+         * Exibe as séries na interface.
+         * Filtra séries que possuem pôster e nome, ordena alfabeticamente e cria os cards.
+         * @param {Array} series - Lista de séries retornadas da API.
+         */
         function mostrarSeries(series) {
+            // Seleciona o container onde os cards serão inseridos
             const container = document.getElementById('moviesContainer');
 
+            // Filtra séries com imagem e nome válidos
             const seriesValidas = series.filter(serie => serie.poster_path && serie.name);
 
+            // Ordena as séries por nome em ordem alfabética
             seriesValidas.sort((a, b) => a.name.localeCompare(b.name));
 
+            // Para cada série, cria um card e configura seus elementos visuais e interativos
             seriesValidas.forEach(serie => {
+                // Define a URL do pôster ou um placeholder caso não haja imagem disponível
                 const posterUrl = serie.poster_path
                     ? `https://image.tmdb.org/t/p/w500${serie.poster_path}`
                     : 'https://via.placeholder.com/180x250?text=Sem+Imagem';
 
+                // Verifica se a série já está marcada como favorita
                 const estaFavorito = estaNosFavoritos(serie.id);
 
+                // Cria o card para a série e adiciona uma classe para estilização
                 const card = document.createElement('div');
                 card.className = 'filme-card';
-
+                let valor = "botao-favorito";
+                // Se o filme já está favoritado, adiciona a classe correspondente
+                // Caso contrário, adiciona a classe de não favorito
+                estaFavorito ? valor += " botao-nao-favorito" : valor += " botao-favorito";
+                // Define o conteúdo HTML do card: link para detalhes, imagem, título e botão de favorito
                 card.innerHTML = `
                     <a href="detalhes.html?id=${serie.id}&tipo=tv" style="text-decoration: none;">
                         <img src="${posterUrl}" alt="${serie.name}">
                         <div class="card-title">${serie.name}</div>
                     </a>
-                    <button class="botao-favorito">
+                    <button class="${valor}">
                         ${estaFavorito ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
                     </button>
                 `;
 
+                // Configura o comportamento do botão de favoritos para adicionar ou remover a série
                 const botao = card.querySelector('.botao-favorito');
                 botao.addEventListener('click', () => {
                     if (estaFavorito) {
@@ -106,27 +166,33 @@
                     }
                 });
 
+                // Adiciona o card ao container de séries
                 container.appendChild(card);
             });
         }
 
+        /**
+         * Reinicia e renderiza as séries, geralmente após uma alteração na lista de favoritos.
+         * Reseta a página atual e limpa o container antes de buscar novamente.
+         */
         function renderizarSeries() {
             document.getElementById('moviesContainer').innerHTML = '';
             paginaAtual = 1;
             buscarSeries();
         }
 
+        // Evento que monitora a rolagem da página para implementar carregamento infinito.
         window.addEventListener('scroll', () => {
             const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
+            // Se o usuário chegar próximo (50px) do fundo da página, busca mais séries
             if (scrollTop + clientHeight >= scrollHeight - 50) {
                 buscarSeries();
             }
         });
 
+        // Inicia a renderização das séries assim que o conteúdo do DOM for carregado
         document.addEventListener('DOMContentLoaded', renderizarSeries);
     </script>
 </body>
 
 </html>
-

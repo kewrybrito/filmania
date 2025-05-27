@@ -2,57 +2,54 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8"> <!-- Define a codificação para evitar problemas de acentuação -->
+    <!-- Define a codificação de caracteres para evitar problemas com acentuação -->
+    <meta charset="UTF-8">
+    <!-- Ajusta a visualização para dispositivos móveis (responsividade) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Ajusta a visualização para dispositivos móveis -->
+    <!-- Define o título da página -->
     <title>Favoritos de Filmes</title>
-    <link rel="stylesheet" href="/src/assets/css/favoritos.css"> <!-- Importação do arquivo CSS -->
-    <link rel="stylesheet" href="/src/assets/css/cabecalho.css"> <!-- Importação do arquivo CSS do cabeçalho -->
+    <!-- Importa o CSS específico para a página de favoritos -->
+    <link rel="stylesheet" href="/src/assets/css/favoritos.css">
+    <!-- Importa o CSS do cabeçalho para manter a consistência visual em todas as páginas -->
+    <link rel="stylesheet" href="/src/assets/css/cabecalho.css">
 </head>
 
 <body>
-    <div class="container"> <!-- Container principal -->
-        <!-- Cabeçalho da página -->
-        <div  id="header" >
-           <!-- Logo com link
-            <a href="/src/index.html"><img src="/src/assets/img/logo-branco.png" alt="" id="logo-cabecalho"></a>
-          Barra de pesquisa e botões de navegação
-            <div class="input-cabecalho">
-             
-                <input type="text" id="barra-pesquisa" placeholder="Pesquise filmes e séries">
-             
-                <button id="botao-pesquisa" class="icon-button">
-                    <img src="/src/assets/img/lupa.png" alt="icone de lupa" id="icone-lupa">
-                </button>
-            </div>
-            
-            <h4><a href="/src/pages/populares.html" style="text-decoration: none;" class="bt-cabecalho">Populares</a></h4>
-            
-            <h4><a href="/src/pages/filmes.html" style="text-decoration: none;" class="bt-cabecalho">Filmes</a></h4>
-            
-            <h4><a href="/src/pages/series.html" style="text-decoration: none;" class="bt-cabecalho">Séries</a></h4>
-            
-            <button class="botao-cabecalho"><a href="/src/pages/login.html" style="text-decoration: none;">Entrar</a></button>
-             -->
-        </div>
+    <div class="container"> <!-- Container principal que envolve todo o conteúdo -->
+        <!-- Cabeçalho da página: seu conteúdo pode ser carregado dinamicamente via JavaScript -->
+        <div id="header"></div>
+
+        <!-- Título principal da página -->
         <h1>Favoritos de Filmes</h1>
 
-        <!-- <input type="text" id="barra-pesquisa" placeholder="Digite a inicial do filme..."> -->
-        <!-- Campo de entrada para busca -->
-        <!-- <button id="botao-pesquisa">Pesquisar pela Inicial</button> Botão para pesquisar -->
+        <!-- Campo de entrada para o usuário digitar a inicial do filme a ser pesquisado -->
+        <input type="text" id="barra-pesquisa" placeholder="Digite a inicial do filme...">
+        <!-- Botão que aciona a pesquisa dos filmes pela inicial informada -->
+        <button id="botao-pesquisa">Pesquisar pela Inicial</button>
+        <!-- Texto explicativo "Botão para pesquisar" pode ser retirado se não for necessário exibi-lo na tela -->
 
+        <!-- Cabeçalho da seção que exibirá os resultados da pesquisa -->
         <h2>Resultados da Pesquisa</h2>
-<button id="botao-limpar" >Limpar pesquisa</button>
+        <!-- Botão para limpar os resultados da pesquisa e possivelmente resetar o campo de busca -->
+        <button id="botao-limpar">Limpar pesquisa</button>
 
+        <!-- Container para os resultados da pesquisa e lista de favoritos -->
         <div class="results">
+            <!-- Área onde os filmes encontrados serão exibidos após a pesquisa -->
+            <div id="movies-list"></div>
 
-            <div id="movies-list"></div> <!-- Onde os filmes encontrados serão exibidos -->
-
+            <!-- Subtítulo para a seção de filmes favoritos -->
             <h2>Filmes Favoritos</h2>
-            <div id="favorites-list"></div> <!-- Onde os filmes favoritos serão exibidos -->
+            <!-- Área destinada a listar os filmes que foram marcados como favoritos -->
+            <div id="favorites-list"></div>
         </div>
     </div>
 
-    <script src="/src/assets/js/import.js"></script> <!-- Importação do arquivo JavaScript do cabeçalho -->
+    <!-- Inclusão dos scripts JavaScript para funcionalidades dinâmicas -->
+    <script src="/src/assets/js/import.js"></script>
+    <!-- Script que pode importar elementos comuns (ex.: cabeçalho, rodapé) -->
     <script src="/src/assets/js/favoritos.js"></script>
+    <!-- Lógica específica para manipulação dos favoritos e da pesquisa -->
+</body>
+
 </html>

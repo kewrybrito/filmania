@@ -2,54 +2,78 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Define o conjunto de caracteres e garante compatibilidade com navegadores -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Configura o viewport para responsividade em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Importa a biblioteca de ícones Font Awesome para utilizar os ícones de olho -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Link para o arquivo CSS que estiliza o formulário de cadastro -->
     <link rel="stylesheet" href="../assets/css/cadastro.css" />
     <title>Singup</title>
 </head>
 
 <body>
-    
-        <div class="card">
-            <h1>Que Bom Ter Você na Filmania</h1>
+    <!-- Container principal com a classe "card", que envolve o formulário -->
+    <div class="card">
+        <a href="/src/index.html">
+            <div class="logo_imagem">
+                <img src="/src/assets/img/logo-branco.png" alt="" id="logo-login" width="110" height="110   " />
+            </div>
+        </a>    
+        <!-- Título de boas-vindas -->
+        <h1>Que Bom Ter Você na Filmania</h1>
 
-            <div id="msgError"></div>
-            <div id="msgSuccess"></div>
+        <!-- Div destinada à exibição de mensagens de erro -->
+        <div id="msgError"></div>
+        <!-- Div destinada à exibição de mensagens de sucesso -->
+        <div id="msgSuccess"></div>
 
-            
-                <label id="labelNome" for="nome">Nome completo:</label>
-                <input type="text" id="nome" placeholder= ""/>
-                <br>
+        <!-- Campo de entrada para o Nome completo -->
+        <label id="labelNome" for="nome">Nome completo:</label>
+        <!-- Input de texto para o nome; o placeholder está vazio, podendo ser customizado -->
+        <input type="text" id="nome" placeholder="" />
+        <br>
 
-            
-                <label id="labelUsuario" for="email">Email:</label>
-                <input type="email" id="email" placeholder=" " required />
-                <br>
-            
-                <div class="parte-senhas">
-                    <label id="labelSenha" for="senha">Senha:</label>
-                    <div class="input-wrapper">
-                        <input type="password" id="senha" placeholder=" " required />
-                        <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
-                    </div>
+        <!-- Campo de entrada para o Email -->
+        <label id="labelUsuario" for="email">Email:</label>
+        <!-- Input do tipo email para garantir validação básica do formato -->
+        <input type="email" id="email" placeholder=" " required />
+        <br>
 
-                    <label id="labelCSenha" for="Csenha">Confirmar Senha:</label>
-                    <div class="input-wrapper">
-                        <input type="password" id="Csenha" placeholder=" " required />
-                        <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>  
-                    </div>
-                </div>
+        <!-- Container para os campos de senha e confirmação de senha -->
+        <div class="parte-senhas">
+            <!-- Campo de entrada da Senha -->
+            <label id="labelSenha" for="senha">Senha:</label>
+            <div class="input-wrapper">
+                <!-- Input do tipo password para a senha -->
+                <input type="password" id="senha" placeholder=" " required />
+                <!-- Ícone de olho para alternar a visibilidade da senha -->
+                <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
+            </div>
 
-
-                <div class="justify-center">
-                    <button onclick="cadastrar()">Cadastrar</button>
-                </div>
-            <br>
-            <p>Já uma tem conta?  <a href="../pages/login.html" style="text-decoration: none;"> clique aqui</a> </p>
+            <!-- Campo de entrada para confirmar a senha -->
+            <label id="labelCSenha" for="Csenha">Confirmar Senha:</label>
+            <div class="input-wrapper">
+                <!-- Input do tipo password para a confirmação da senha -->
+                <input type="password" id="Csenha" placeholder=" " required />
+                <!-- Ícone de olho para alternar a visibilidade do campo de confirmação -->
+                <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
+            </div>
         </div>
 
+        <!-- Container centralizado para o botão de cadastro -->
+        <div class="justify-center">
+            <!-- Botão que chama a função "cadastrar()" ao ser clicado -->
+            <button onclick="cadastrar()">Cadastrar</button>
+        </div>
+        
+        <!-- Link para redirecionar para a página de login caso o usuário já possua conta -->
+        <p>Já tem uma conta? <a href="../pages/login.html" style="text-decoration: none;">clique aqui</a> </p>
+    </div>
+
+    <!-- Inclusão do script JavaScript que contém a lógica do cadastro -->
     <script src="../assets/js/signup.js"></script>
 </body>
 

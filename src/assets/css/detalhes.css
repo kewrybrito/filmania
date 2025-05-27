@@ -1,154 +1,279 @@
-*{
+/* ==========================================
+   Reset e configurações globais
+========================================== */
+* {
     box-sizing: border-box;
+    /* Inclui padding e border na largura total dos elementos */
     margin: 0px;
+    /* Remove as margens padrão de todos os elementos */
 }
 
+/* ==========================================
+   Importação de fontes personalizadas com @font-face
+========================================== */
 @font-face {
     font-family: 'Quicksand-Medium';
+    /* Define o nome da fonte personalizada */
     src: url('/src/assets/fonts/Quicksand-Medium.ttf');
+    /* Caminho para o arquivo da fonte */
 }
 
 @font-face {
     font-family: 'Quicksand-Regular';
+    /* Define o nome da fonte personalizada */
     src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+    /* Caminho para o arquivo da fonte */
 }
 
-body{
+/* ==========================================
+   Estilização do corpo da página
+========================================== */
+body {
     overflow-x: hidden;
+    /* Impede a rolagem horizontal */
     font-family: "Quicksand-Regular";
+    /* Define a fonte padrão */
 }
 
-#conteudo-detalhes{
+/* ==========================================
+   Container principal: #conteudo-detalhes
+========================================== */
+#conteudo-detalhes {
     display: flex;
+    /* Utiliza Flexbox para organizar os elementos filhos */
     flex-direction: row;
+    /* Organiza os filhos em uma linha (horizontal) */
     justify-content: start;
+    /* Alinha os itens ao início (à esquerda) */
     align-items: center;
+    /* Centraliza verticalmente os filhos */
     height: 90vh;
+    /* Define 90% da altura da viewport */
     background-color: #0D0C1D;
+    /* Cor de fundo escura */
 }
 
-.lado-a{
+/* ==========================================
+   Lado A do conteúdo
+========================================== */
+.lado-a {
     height: 70vh;
+    /* Altura definida para o container */
     width: 24vw;
+    /* Largura definida com base na viewport */
     background-color: #0D0C1D;
+    /* Mesma cor de fundo do container principal */
     padding-left: 2%;
+    /* Espaço interno à esquerda */
     padding-top: 1%;
+    /* Espaço interno no topo */
 }
 
-.lado-a h1{
+.lado-a h1 {
     font-size: 40px;
+    /* Tamanho grande para o título */
     color: #ffff;
+    /* Texto em branco */
 }
 
-.lado-a img{
+.lado-a img {
     width: 380px;
+    /* Largura fixa para a imagem */
     margin-top: 20px;
+    /* Espaçamento acima da imagem */
     border-radius: 10px;
+    /* Bordas arredondadas */
 }
 
-.lado-b{
+/* ==========================================
+   Lado B do conteúdo
+========================================== */
+.lado-b {
     width: 65vw;
+    /* Largura baseada na viewport */
     height: 55vh;
+    /* Altura definida para o container */
     background-color: #0D0C1D;
+    /* Cor de fundo consistente */
     line-height: 1.5;
+    /* Espaçamento entre linhas para melhorar a legibilidade */
     padding-top: 2%;
+    /* Espaço interno no topo */
     padding-left: 1%;
+    /* Espaço interno à esquerda */
 }
 
-.lado-b p{
+.lado-b p {
     font-size: 25px;
+    /* Tamanho da fonte dos parágrafos */
     color: #ffff;
+    /* Texto em branco */
 }
 
-.lado-b h2{
+.lado-b h2 {
     color: white;
+    /* Cor branca para os subtítulos */
 }
 
-.icons-filmes{
+/* ==========================================
+   Seção de ícones de filmes
+========================================== */
+.icons-filmes {
     height: 5vh;
+    /* Altura baseada na viewport */
     width: 20vw;
+    /* Largura definida com base na viewport */
     background-color: #0D0C1D;
+    /* Cor de fundo consistente */
     display: flex;
+    /* Utiliza Flexbox para layout */
 }
 
-.icons-filmes div{
+.icons-filmes div {
     height: 8vh;
+    /* Altura para os elementos internos */
     width: 25vw;
+    /* Largura para os elementos internos */
     background-color: #0D0C1D;
+    /* Cor de fundo igual */
     display: flex;
+    /* Flexbox para organizar conteúdo */
     flex-direction: row;
+    /* Alinhamento horizontal dos itens */
     text-align: center;
+    /* Alinha o texto ao centro */
     gap: 10px;
+    /* Espaçamento entre os itens */
 }
 
-.icons-filmes img{
+.icons-filmes img {
     width: 40px;
+    /* Largura fixa para as imagens dos ícones */
 }
 
-.icons-filmes a{
+.icons-filmes a {
     color: white;
+    /* Texto em branco para os links */
     text-decoration: none;
+    /* Remove sublinhado */
     display: flex;
+    /* Utiliza Flexbox para centralização */
     align-items: center;
+    /* Centraliza verticalmente os itens */
     gap: 10px;
+    /* Espaço entre ícones e texto */
     transition: transform 0.2s ease-in-out;
+    /* Transição suave para efeitos */
 }
 
-.icons-filmes a:hover{
+.icons-filmes a:hover {
     transform: scale(1.05);
+    /* Efeito de aumento ligeiro no hover */
 }
 
-.add-filmes{
+/* ==========================================
+   Botão para adicionar filmes: .add-filmes
+========================================== */
+.add-filmes {
     height: 5vh;
+    /* Altura baseada na viewport */
     width: 10vw;
+    /* Largura baseada na viewport */
     background-color: rgb(68, 156, 156);
+    /* Cor de fundo para destaque */
 }
 
-
+/* ==========================================
+   Estilização do modal (janela flutuante)
+========================================== */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  align-items: center;
-  justify-content: center;
+    display: none;
+    /* Modal inicialmente oculto */
+    position: fixed;
+    /* Posicionamento fixo em relação à viewport */
+    z-index: 999;
+    /* Garante que o modal fique à frente de outros elementos */
+    left: 0;
+    top: 0;
+    /* Posicionado no canto superior esquerdo */
+    width: 100%;
+    height: 100%;
+    /* Cobre toda a tela */
+    background-color: rgba(0, 0, 0, 0.85);
+    /* Fundo semitransparente escuro */
+    align-items: center;
+    /* Centraliza o conteúdo verticalmente */
+    justify-content: center;
+    /* Centraliza o conteúdo horizontalmente */
 }
 
+/* ==========================================
+   Conteúdo do modal
+========================================== */
 .modal-conteudo {
-  position: relative;
-  width: 90%;
-  max-width: 800px;
+    position: relative;
+    /* Permite posicionamento relativo de elementos filhos */
+    width: 90%;
+    /* Largura responsiva */
+    max-width: 800px;
+    /* Largura máxima definida */
 }
 
+/* ==========================================
+   Frame do trailer dentro do modal
+========================================== */
 .trailer-frame {
-  width: 100%;
-  height: 450px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+    width: 100%;
+    /* Ocupa toda a largura do container */
+    height: 450px;
+    /* Altura fixa para o vídeo */
+    border-radius: 20px;
+    /* Bordas arredondadas */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    /* Sombra para profundidade visual */
 }
 
+/* ==========================================
+   Botão de fechar do modal
+========================================== */
 .fechar {
-  position: absolute;
-  top: -30px;
-  right: 0;
-  color: #fff;
-  font-size: 2rem;
-  cursor: pointer;
+    position: absolute;
+    /* Posiciona relativo ao container do modal */
+    top: -30px;
+    /* Posiciona acima do conteúdo do modal */
+    right: 0;
+    /* Posicionado à direita */
+    color: #fff;
+    /* Cor branca para o botão */
+    font-size: 2rem;
+    /* Tamanho de fonte grande */
+    cursor: pointer;
+    /* Indica que o botão é clicável */
 }
 
+/* ==========================================
+   Botão "Ver trailer"
+========================================== */
 .ver-trailer-btn {
-  background-color: #6C5CE7;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
+    background-color: #6C5CE7;
+    /* Cor de fundo do botão */
+    color: #fff;
+    /* Texto em branco */
+    border: none;
+    /* Remove borda */
+    padding: 10px 20px;
+    /* Espaçamento interno (vertical/horizontal) */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    font-size: 1rem;
+    /* Tamanho da fonte */
+    cursor: pointer;
+    /* Indica interatividade */
+    transition: 0.3s;
+    /* Transição suave para alterações de estado */
 }
 
 .ver-trailer-btn:hover {
-  background-color: #A29BFE;
+    background-color: #A29BFE;
+    /* Muda a cor de fundo ao passar o mouse */
 }
