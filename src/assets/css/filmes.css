@@ -104,3 +104,10 @@
 
         }
 
+h1 {
+    position: sticky;
+    top: 0;
+    background: #0D0C1D;
+    padding: 10px 0;
+    z-index: 10;
+}

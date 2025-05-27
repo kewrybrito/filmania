@@ -94,7 +94,7 @@ body{
     transition: transform 0.2s ease-in-out;
 }
 
-.icons-filmes a:hover{
+#botao-favorito:hover{
     transform: scale(1.05);
 }
 
@@ -146,9 +146,26 @@ body{
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
 }
 
 .ver-trailer-btn:hover {
-  background-color: #A29BFE;
+    background-color: #5344c3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
 }
+
+#botao-favorito{
+    background-color: #0D0C1D;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    color: white;
+    font-family: "Quicksand-Medium";
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+     transition: transform 0.2s ease-in-out;
+}   

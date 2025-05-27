@@ -13,10 +13,12 @@
 
 body {
     font-family: "Quicksand-Regular";
-    background-color: #f0f0f0;
+    background-color: #0d0c1d;
     margin: 0;
     padding: 0;
     text-align: center;
+    color: white;
+    overflow-x: hidden;
 }
 
 header {
@@ -47,14 +49,15 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    transform: translateY(-50%) scale(1.2);
+    transition: transform 0.3s ease;
 }
 
 /* Estilo para os resultados e favoritos */
 .results,
 .favorites {
     padding: 20px;
-    background: white;
+    background: #0d0c1d;
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -63,11 +66,12 @@ button:hover {
 .movie-item,
 .favorite-item {
     display: inline-block;
-    background: #ececec;
+    background: #1C1B2A;
     padding: 15px;
     border-radius: 8px;
-    width: 180px;
+    width: 200px;
     margin: 10px;
+    gap: 5px;
 }
 
 .movie-item img,
@@ -77,9 +81,39 @@ button:hover {
 }
 
 .favorite-item button {
-    background-color: #dc3545;
+    background-color: #A29BFE;
+    /* Define a cor do botão */
+    color: white;
+    /* Define a cor do texto */
+    border: none;
+    /* Remove a borda */
+    padding: 10px 15px;
+     /* Adiciona espaçamento interno */
+    border-radius: 15px;
+    /* Arredonda as bordas do botão */
+    cursor: pointer;
+    /* Altera o cursor ao passar sobre o botão */
+    width: 15vh;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+    font-family: "Quicksand-Regular";
 }
 
 .favorite-item button:hover {
-    background-color: #c82333;
+    background-color: #5344c3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
+}
+
+#botao-limpar{
+    background-color: #A29BFE;
+    font-family: "Quicksand-Medium";
+    font-weight: medium;
+    border-radius: 12px;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+}
+
+#botao-limpar:hover{
+    background-color: #5344c3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
 }
