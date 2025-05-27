@@ -47,10 +47,11 @@ body {
     /* Alinha os itens ao início (à esquerda) */
     align-items: center;
     /* Centraliza verticalmente os filhos */
-    height: 90vh;
+    height: 100vh;
     /* Define 90% da altura da viewport */
     background-color: #0D0C1D;
     /* Cor de fundo escura */
+    flex: 1;
 }
 
 /* ==========================================
@@ -166,11 +167,12 @@ body {
     /* Transição suave para efeitos */
 }
 
-<<<<<<< HEAD
-.icons-filmes a:hover {
-=======
-#botao-favorito:hover{
->>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
+/* <<<<<<< HEAD */
+
+/* ======= */
+/* #botao-favorito:hover{ */
+    /* >>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2 */
+    .icons-filmes a:hover {
     transform: scale(1.05);
     /* Efeito de aumento ligeiro no hover */
 }
@@ -259,7 +261,7 @@ body {
    Botão "Ver trailer"
 ========================================== */
 .ver-trailer-btn {
-<<<<<<< HEAD
+/* <<<<<<< HEAD */
     background-color: #6C5CE7;
     /* Cor de fundo do botão */
     color: #fff;
@@ -282,7 +284,7 @@ body {
     background-color: #A29BFE;
     /* Muda a cor de fundo ao passar o mouse */
 }
-=======
+/* =======
   background-color: #6C5CE7;
   color: #fff;
   border: none;
@@ -313,4 +315,8 @@ body {
     cursor: pointer;
      transition: transform 0.2s ease-in-out;
 }   
->>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
+>>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2 */
+#footer{
+    position: relative;
+    
+}

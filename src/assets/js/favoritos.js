@@ -196,5 +196,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Renderiza os filmes favoritos já salvos ao carregar a página
     rederizarFavoritos();
-}
-);
+});

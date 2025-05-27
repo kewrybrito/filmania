@@ -155,17 +155,7 @@ a {
     /* Define a fonte do botão como "Quicksand-Regular" */
 }
 
-<<<<<<< HEAD
-/* Efeito hover para o botão de favorito */
-.botao-nao-favorito:hover:hover {
-    background-color: #5344c3;
-    /* Altera a cor de fundo do botão ao passar o mouse */
-    transform: scale(1.05);
-    /* Aumenta o botão em 5% quando o mouse passa sobre ele */
-    box-shadow: 0 0 15px #5344c3;
-    /* Adiciona uma sombra de 15px com a cor #5344c3 para destaque */
-}
-=======
+
 h1 {
     position: sticky;
     top: 0;
@@ -173,4 +163,4 @@ h1 {
     padding: 10px 0;
     z-index: 10;
 }
->>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
+

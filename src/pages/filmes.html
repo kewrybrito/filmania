@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <!-- Define a codificação de caracteres para evitar problemas com acentuação -->
@@ -24,87 +24,39 @@
 
     <!-- Container que receberá dinamicamente a lista de filmes -->
     <div class="movies-container" id="moviesContainer"></div>
-<<<<<<< HEAD
+    <!-- Linha horizontal separando o conteúdo do rodapé -->
 
-    <!-- Inclusão do script que pode importar elementos comuns, como cabeçalho e rodapé -->
     <script src="/src/assets/js/import.js"></script>
-
     <script>
-        // Chave de acesso para a API do TMDb
-        const apiKey = '1abf5fe580ef33d80c44d534b8e3b6d1';
-        // URL para buscar filmes, adicionando o idioma como português do Brasil
-        const apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=pt-BR';
+        const CHAVE_API = '1abf5fe580ef33d80c44d534b8e3b6d1';
+        const URL_BASE = 'https://api.themoviedb.org/3/discover/movie';
+        let paginaAtual = 1;
+        let carregando = false;
 
-        // Seleciona o container onde os filmes serão renderizados
         const moviesContainer = document.getElementById('moviesContainer');
 
         // ======================= Funções de Favoritos =========================
 
-        /**
-         * Salva a lista de filmes favoritos no localStorage
-         * @param {Array} filmes - Lista de filmes favoritos
-         */
         function salvaFavorito(filmes) {
             localStorage.setItem('favoritos', JSON.stringify(filmes));
         }
 
-        /**
-         * Recupera a lista de filmes favoritos armazenada no localStorage
-         * @returns {Array} - Lista de filmes favoritos
-         */
         function pegarFilmeFavorito() {
             const filmes = localStorage.getItem('favoritos');
             return filmes ? JSON.parse(filmes) : [];
         }
 
-        /**
-         * Adiciona um filme à lista de favoritos e salva no localStorage
-         * @param {number} id - ID do filme
-         * @param {string} title - Título do filme
-         * @param {string} posterUrl - URL do pôster do filme
-         */
         function adicionaFavorito(id, title, posterUrl) {
             const favoritos = pegarFilmeFavorito();
             if (!favoritos.some(filme => filme.id === id)) {
-=======
 
-    
-<script src="/src/assets/js/import.js"></script>
-<script>
-    const CHAVE_API = '1abf5fe580ef33d80c44d534b8e3b6d1';
-    const URL_BASE = 'https://api.themoviedb.org/3/discover/movie';
-    let paginaAtual = 1;
-    let carregando = false;
-
-    const moviesContainer = document.getElementById('moviesContainer');
-
-        // ======================= Funções de Favoritos =========================
-
-    function salvaFavorito(filmes) {
-        localStorage.setItem('favoritos', JSON.stringify(filmes));
-    }
-
-    function pegarFilmeFavorito() {
-        const filmes = localStorage.getItem('favoritos');
-        return filmes ? JSON.parse(filmes) : [];
-    }
-
-    function adicionaFavorito(id, title, posterUrl) {
-        const favoritos = pegarFilmeFavorito();
-        if (!favoritos.some(filme => filme.id === id)) {
->>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
                 favoritos.push({ id, title, posterUrl });
                 salvaFavorito(favoritos);
                 alert(`${title} foi adicionado aos favoritos!`);
                 renderizarFilmes(); // Atualiza os botões
+            }
         }
-    }
 
-<<<<<<< HEAD
-        /**
-         * Remove um filme da lista de favoritos e atualiza no localStorage
-         * @param {number} id - ID do filme
-         */
         function removeDoFavoritos(id) {
             const favoritos = pegarFilmeFavorito();
             const atualizados = favoritos.filter(filme => filme.id !== id);
@@ -113,11 +65,6 @@
             renderizarFilmes();
         }
 
-        /**
-         * Verifica se um filme já está nos favoritos
-         * @param {number} id - ID do filme
-         * @returns {boolean} - True se o filme está nos favoritos, false caso contrário
-         */
         function estaNosFavoritos(id) {
             const favoritos = pegarFilmeFavorito();
             return favoritos.some(filme => filme.id === id);
@@ -125,122 +72,55 @@
 
         // ======================= Buscar Filmes =========================
 
-        /**
-         * Faz uma requisição assíncrona para buscar filmes populares na API
-         */
         async function buscarFilmes() {
-            try {
-                const resposta = await fetch(apiUrl);
-                const dados = await resposta.json();
-=======
-    function removeDoFavoritos(id) {
-        const favoritos = pegarFilmeFavorito();
-        const atualizados = favoritos.filter(filme => filme.id !== id);
-        salvaFavorito(atualizados);
-        alert(`Removido dos favoritos!`);
-        renderizarFilmes();
-    }
+            if (carregando) return;
+            carregando = true;
+            // Faz a requisição para a API do TMDb para buscar filmes populares
+            // A URL inclui a chave da API e a página atual para paginação
+            const resposta = await fetch(`${URL_BASE}?api_key=${CHAVE_API}&language=pt-BR&page=${paginaAtual}`);
+            const dados = await resposta.json();
 
-    function estaNosFavoritos(id) {
-        const favoritos = pegarFilmeFavorito();
-        return favoritos.some(filme => filme.id === id);
-    }
-
-        // ======================= Buscar Filmes =========================
-
-    async function buscarFilmes() {
-        if (carregando) return;
-        carregando = true;
->>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
-
-        const resposta = await fetch(`${URL_BASE}?api_key=${CHAVE_API}&language=pt-BR&page=${paginaAtual}`);
-        const dados = await resposta.json();
-
-        mostrarFilmes(dados.results);
-        paginaAtual++;
-        carregando = false;
-    }
-
-
-
-    function mostrarFilmes(filmes) {
-        const container = document.getElementById('moviesContainer');
-
-        const filmesValidos = filmes.filter(filme => filme.poster_path && filme.title);
-
-        filmesValidos.sort((a, b) => a.title.localeCompare(b.title));
-
-        filmesValidos.forEach(filme => {
-            const posterUrl = filme.poster_path
-                ? `https://image.tmdb.org/t/p/w500${filme.poster_path}`
-                : 'https://via.placeholder.com/180x250?text=Sem+Imagem';
-
-            // Aqui usa a função existente para ver se tá favorito:
-            const estaFavorito = estaNosFavoritos(filme.id);
-
-            const card = document.createElement('div');
-            card.className = 'filme-card';
-
-            card.innerHTML = `
-                <a href="detalhes.html?id=${filme.id}&tipo=movie" style="text-decoration: none;">
-                    <img src="${posterUrl}" alt="${filme.title}">
-                    <div class="card-title">${filme.title}</div>
-                </a>
-                <button class="botao-favorito">
-                    ${estaFavorito ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
-                </button>
-            `;
-
-            const botao = card.querySelector('.botao-favorito');
-            botao.addEventListener('click', () => {
-                if (estaFavorito) {
-                    removeDoFavoritos(filme.id);
-                } else {
-                    adicionaFavorito(filme.id, filme.title, posterUrl);
-                }
-<<<<<<< HEAD
-            } catch (erro) {
-                console.error('Erro ao buscar filmes:', erro);
-                moviesContainer.innerHTML = '<p>Erro ao carregar os filmes.</p>';
-            }
+            mostrarFilmes(dados.results);
+            paginaAtual++;
+            carregando = false;
         }
 
-        /**
-         * Exibe os filmes encontrados no container da página
-         * @param {Array} filmes - Lista de filmes retornada pela API
-         */
-        function mostrarFilmes(filmes) {
-            moviesContainer.innerHTML = '';
 
-            filmes.forEach(filme => {
-                // Se não houver imagem, exibe um placeholder indicando que a imagem não está disponível
+
+        function mostrarFilmes(filmes) {
+            const container = document.getElementById('moviesContainer');
+
+            const filmesValidos = filmes.filter(filme => filme.poster_path && filme.title);
+
+            filmesValidos.sort((a, b) => a.title.localeCompare(b.title));
+
+            filmesValidos.forEach(filme => {
                 const posterUrl = filme.poster_path
                     ? `https://image.tmdb.org/t/p/w500${filme.poster_path}`
                     : 'https://via.placeholder.com/180x250?text=Sem+Imagem';
 
-                // Verifica se o filme já está nos favoritos
+                // Aqui usa a função existente para ver se tá favorito:
                 const estaFavorito = estaNosFavoritos(filme.id);
 
                 // Cria um card para exibir o filme
                 const card = document.createElement('div');
                 card.className = 'filme-card';
                 // Define a classe do botão de favoritos, que muda dependendo se o filme está favoritado ou não
-                let valor ="botao-favorito";
-              // Se o filme já está favoritado, adiciona a classe correspondente
-              // Caso contrário, adiciona a classe de não favorito
+                let valor = "botao-favorito";
+                // Se o filme já está favoritado, adiciona a classe correspondente
+                // Caso contrário, adiciona a classe de não favorito
                 estaFavorito ? valor += " botao-nao-favorito" : valor += " botao-favorito";
-             
-                // Define o conteúdo do card, incluindo imagem, título e botão de favoritos
+
                 card.innerHTML = `
-                    <a href="detalhes.html?id=${filme.id}&tipo=movie" style="text-decoration: none;">
-                        <img src="${posterUrl}" alt="${filme.title}">
-                        <div class="card-title">${filme.title}</div>
-                    </a>
-                    <button class="${valor}">
-                        ${estaFavorito ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
-                    </button>
-                `;
-                // Captura o botão criado dentro do card
+                <a href="detalhes.html?id=${filme.id}&tipo=movie" style="text-decoration: none;">
+                    <img src="${posterUrl}" alt="${filme.title}">
+                    <div class="card-title">${filme.title}</div>
+                </a>
+                <button class="${valor} ">
+                    ${estaFavorito ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
+                </button>
+            `;
+
                 const botao = card.querySelector('.botao-favorito');
                 botao.addEventListener('click', () => {
                     if (estaFavorito) {
@@ -248,49 +128,39 @@
                     } else {
                         adicionaFavorito(filme.id, filme.title, posterUrl);
                     }
+
                 });
 
                 // Adiciona o card de filme ao container principal
-                moviesContainer.appendChild(card);
-=======
->>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
+                container.appendChild(card);
             });
+        }
 
-<<<<<<< HEAD
-        /**
-         * Inicia a busca e exibição dos filmes na tela
-         */
+
         function renderizarFilmes() {
-=======
-            container.appendChild(card);
-        });
-    }
-
-
-    function renderizarFilmes() {
-        document.getElementById('moviesContainer').innerHTML = '';
-        paginaAtual = 1;
-        buscarFilmes();
-    }
-
-
-    window.addEventListener('scroll', () => {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
-        if (scrollTop + clientHeight >= scrollHeight - 50) {
->>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
+            document.getElementById('moviesContainer').innerHTML = '';
+            paginaAtual = 1;
             buscarFilmes();
         }
-    });
 
-<<<<<<< HEAD
-        // Aguarda o carregamento do DOM antes de executar a função inicial de renderização
+
+        window.addEventListener('scroll', () => {
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+            if (scrollTop + clientHeight >= scrollHeight - 50) {
+                // >>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
+                buscarFilmes();
+            }
+        });
+
+        // <<<<<<< HEAD
+        //         // Aguarda o carregamento do DOM antes de executar a função inicial de renderização
+        //         document.addEventListener('DOMContentLoaded', renderizarFilmes);
         document.addEventListener('DOMContentLoaded', renderizarFilmes);
-    </script>
-=======
-    document.addEventListener('DOMContentLoaded', renderizarFilmes);
-</script>
->>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
+        //     </script>
+    <!-- // ======= -->
+    <!-- </script> -->
+    <!-- >>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2 -->
 </body>
 
 </html>
