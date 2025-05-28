@@ -284,14 +284,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Insere o conteúdo do rodapé no elemento com ID "footer"
         document.getElementById('footer').innerHTML = data;
       })
-<<<<<<< HEAD
+
       .catch(error=> {console.error('Erro:' + error)}); // Captura e exibe erros no console
     
     })
-=======
-      .catch(error=> {console.error('Erro:', error)}); // Captura e exibe erros no console
-    }
 
-    
-
->>>>>>> b66cd10cd9947bece94ea589582668883e29ca80
+  
