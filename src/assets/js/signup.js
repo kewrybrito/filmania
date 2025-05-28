@@ -54,7 +54,7 @@ usuario.addEventListener('keyup', () => {
     } else {
         // Se a validação passar, indica sucesso com cores e um check
         labelUsuario.setAttribute('style', 'color: green');
-        labelUsuario.innerHTML = 'Usuário✔️';
+        labelUsuario.innerHTML = 'Email:✔️';
         usuario.setAttribute('style', 'border-color: green');
         validUsuario = true;
     }
@@ -71,7 +71,7 @@ senha.addEventListener('keyup', () => {
     } else {
         // Se a senha atender ao comprimento mínimo, a validação é positiva
         labelSenha.setAttribute('style', 'color: green');
-        labelSenha.innerHTML = 'Senha✔️';
+        labelSenha.innerHTML = 'Senha:✔️';
         senha.setAttribute('style', 'border-color: green');
         validSenha = true;
     }

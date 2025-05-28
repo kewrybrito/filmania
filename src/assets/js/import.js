@@ -1,8 +1,11 @@
-    // Ao carregar a página, dispara uma função
-    
-    // Obtém o caminho da URL atual
-  const path = window.location.pathname;
 
+  // const teste = new Teste(config);
+
+// Ao carregar a página, dispara uma função
+// Obtém o caminho da URL atual
+document.addEventListener("DOMContentLoaded", () => {  
+  const path = window.location.pathname;
+  
   // Define o caminho do cabeçalho com base na estrutura de diretórios
   const basePath = path.includes('/pages/') ? '../components/cabecalho.html' : './components/cabecalho.html';
 
@@ -19,15 +22,22 @@
       document.getElementById('header').innerHTML = data;
    
       // ⚠️ Chama a função só depois que o cabeçalho for carregado
-      verificarUsuarioLogado();
+      VerificarUsuarioLogado();
     })
     .catch(error => {
-      console.error('Erro:', error)})
-        
+
+      console.error('Erro:',error)
+    })
+    
+  })
+
+
+  
   // Função para trocar botão "Entrar" por ícone se o usuário estiver logado
-  function verificarUsuarioLogado() {
+  function VerificarUsuarioLogado(){
     const userLogado = JSON.parse(localStorage.getItem('userLogado'));
     const token = localStorage.getItem('token');
+    const link = document.getElementById('link-favorito');
 
     if (userLogado && token) {
       const nome = userLogado.nome;
@@ -49,8 +59,20 @@
           localStorage.removeItem('token');
           localStorage.removeItem('userLogado');
           location.reload();
-          localStorage.removeItem('favoritos'); // recarrega a página e volta o botão Entrar
+          localStorage.removeItem('favoritos'); 
+          window.location.href = '/src/index.html';// recarrega a página e volta o botão Entrar
         };
+        
+        document.addEventListener("click", function () {
+          link.href = '/src/pages/favoritos.html'; // Sem barra extra no final
+         
+          console.log("Elemento com id 'link-favoritos' não foi encontrado.");
+          
+          
+          
+          
+        
+      });
 
         userContainer.appendChild(nomeSpan);// ======================= Configurações Iniciais =======================
 
@@ -112,7 +134,7 @@
                   const posterUrl = filme.poster_path
                     ? `https://image.tmdb.org/t/p/w500${filme.poster_path}`
                     : 'https://via.placeholder.com/180x250?text=Sem+Imagem';
-
+                    
                   // Configura o conteúdo HTML do card, que inclui:
                   // - A imagem do filme
                   // - O título
@@ -139,52 +161,6 @@
           }
         }
 
-
-        // ======================= Funções de Favoritos =======================
-
-        /**
-         * Adiciona um filme à lista de favoritos e atualiza o armazenamento local.
-         * @param {number} id - ID do filme.
-         * @param {string} title - Título do filme.
-         * @param {string} posterUrl - URL do poster do filme.
-         */
-        function adicionaFavorito(id, title, posterUrl) {
-          // Obtém a lista existente de filmes favoritos do localStorage
-          const favoriteFilme = pegarFilmeFavorito();
-
-          // Verifica se o filme já não foi adicionado aos favoritos
-          if (!favoriteFilme.some(filme => filme.id === id)) {
-            // Se o filme não estiver na lista, adiciona-o
-            favoriteFilme.push({ id, title, posterUrl });
-            // Atualiza o localStorage com a lista modificada
-            salvaFavorito(favoriteFilme);
-            // Atualiza a interface para refletir o novo estado dos favoritos
-            rederizarFavoritos();
-          }
-        }
-
-        /**
-         * Remove um filme da lista de favoritos com base no ID e atualiza o localStorage.
-         * @param {number} id - ID do filme a ser removido.
-         */
-        function removeDoFavoritos(id) {
-          // Recupera a lista atual de favoritos
-          const favoriteFilmes = pegarFilmeFavorito();
-          // Cria uma nova lista que filtra o filme com o ID especificado
-          const carregarFilmes = favoriteFilmes.filter(filme => filme.id !== id);
-          // Atualiza o localStorage com a nova lista filtrada
-          salvaFavorito(carregarFilmes);
-          // Re-renderiza a área de favoritos para refletir a remoção
-          rederizarFavoritos();
-        }
-
-        /**
-         * Salva a lista de filmes favoritos no localStorage.
-         * @param {Array} filme - Array contendo os filmes favoritos.
-         */
-        function salvaFavorito(filme) {
-          localStorage.setItem('favoritos', JSON.stringify(filme));
-        }
 
         /**
          * Recupera a lista de filmes favoritos armazenados no localStorage.
@@ -260,12 +236,11 @@
         });
         
         userContainer.appendChild(botaoSair);
-
+        
         botao.replaceWith(userContainer);
       }
     }
   }
-
 
   // Captura e exibe erros no console
 
@@ -274,8 +249,9 @@
 
     // Obtém o caminho da URL atual
 
-  if (window.document.getElementById("footer")) {
-    
+document.addEventListener("DOMContentLoaded", () => {  
+  const path = window.location.pathname;
+
     // Define o caminho do rodapé com base na estrutura de diretórios
     const basePathF = path.includes('/pages/') ? '../components/rodape.html' : './components/rodape.html';
 
@@ -292,6 +268,6 @@
         // Insere o conteúdo do rodapé no elemento com ID "footer"
         document.getElementById('footer').innerHTML = data;
       })
-      .catch(error=> {console.error('Erro:', error)}); // Captura e exibe erros no console
-    }
-
+      .catch(error=> {console.error('Erro:' + error)}); // Captura e exibe erros no console
+    
+    })

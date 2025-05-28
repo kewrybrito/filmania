@@ -1,11 +1,44 @@
-// Chave de acesso para a API do TMDb
+import {Teste} from "./avisos.js";
+// Chave de acesso para a API do TMD
+
+const config = {
+  
+  cor: "#48f",
+  tipo:'sn', //tipos: ok , sn
+  comando_sn:()=>{},
+  textos: ["OK",""]
+
+};
+const fsim=()=>{
+console.log("Botão Sim Presionado")
+}
+
+const btn_mostrarmsg = document.getElementById('btn-testes');
+
+
+// const teste = new Teste(config);
+btn_mostrarmsg.addEventListener('click',()=>{
+  config.tipo= 'sn';
+  Teste.mostrar(config,"jeferson","lindod");
+  config.comando_sn =()=>{ fsim()};
+  
+})
+
 const apiKey = '1abf5fe580ef33d80c44d534b8e3b6d1';
 
-// Função assíncrona que busca e exibe um filme aleatório dentre os filmes populares
+const btn = document.getElementById('btn-sortear');
+document.addEventListener('DOMContentLoaded',()=>{
+
+  btn.addEventListener('click',()=>{
+    sortearFilme();
+  })
+  
+})
 async function sortearFilme() {
-  // Monta a URL de requisição para buscar filmes populares,
-  // especificando o idioma (pt-BR) e a página (1) dos resultados
-  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`;
+// Função assíncrona que busca e exibe um filme aleatório dentre os filmes populares
+// Monta a URL de requisição para buscar filmes populares,
+// especificando o idioma (pt-BR) e a página (1) dos resultados
+const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`;
 
   try {
     // Realiza a requisição à API usando fetch e aguarda a resposta

@@ -147,6 +147,7 @@
                 estaFavorito ? valor += " botao-nao-favorito" : valor += " botao-favorito";
                 // Define o conteúdo HTML do card: link para detalhes, imagem, título e botão de favorito
                 card.innerHTML = `
+                
                     <a href="detalhes.html?id=${serie.id}&tipo=tv" style="text-decoration: none;">
                         <img src="${posterUrl}" alt="${serie.name}">
                         <div class="card-title">${serie.name}</div>

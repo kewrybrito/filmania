@@ -10,7 +10,7 @@ body {
   /* Centraliza todo o texto horizontalmente */
   overflow-x: hidden;
   /* Impede a rolagem horizontal caso algum conteúdo ultrapasse a largura da janela */
-}
+} 
 
 button {
   /* Inicia as configurações para todos os elementos <button> */
@@ -54,7 +54,7 @@ button:hover {
 
 img {
   /* Configura estilos para todas as imagens da página */
-  max-width: 200px;
+  max-width: 100px;
   /* Limita a largura máxima das imagens a 200px */
   border-radius: 12px;
   /* Arredonda os cantos das imagens com um raio de 12px */
@@ -66,7 +66,7 @@ img {
   /* Seleciona os elementos com a classe "overview" */
   font-size: 1rem;
   /* Define o tamanho da fonte como 1rem (tamanho base) */
-  max-width: 600px;
+  max-width: 80px;
   /* Limita a largura máxima do elemento a 600px */
   margin: 0 auto;
   /* Centraliza o elemento horizontalmente, definindo margem zero para cima e para baixo e automáticas para os lados */
