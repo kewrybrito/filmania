@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+@font-face {
+    /* Inicia a definição de uma fonte personalizada */
+    font-family: 'Quicksand-Medium';
+    /* Nome da fonte personalizada */
+    src: url('/src/assets/fonts/Quicksand-Medium.ttf');
+    /* Caminho para o arquivo da fonte */
+}
+
+@font-face {
+    /* Inicia a definição de outra fonte personalizada */
+    font-family: 'Quicksand-Regular';
+    /* Nome da fonte personalizada */
+    src: url('/src/assets/fonts/Quicksand-Regular.ttf');
+    /* Caminho para o arquivo da fonte */
+}
+
+body{
+    background-color: #0D0C1D;
+    overflow-x: hidden;
+    color: white;
+}
+
+h1{
+    text-align: center;
+    font-family: "Quicksand-Medium";
+}
+
+h2{
+    font-family: "Quicksand-Medium";
+}
+
+p{
+    font-family: "Quicksand-Regular";
+}
+
+.corpo-texto{
+    height: 95vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.corpo-texto div{
+   
+    height: 100vh;
+    width: 50vw;
+}

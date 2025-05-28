@@ -60,7 +60,7 @@ body {
     /* Alinha os itens no início do eixo horizontal */
     align-items: center;
     /* Centraliza os itens verticalmente */
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #00000099;
     /* Aplica uma cor de fundo semitransparente */
     background-blend-mode: overlay;
     /* Mescla a cor de fundo com a imagem usando o modo overlay */
@@ -80,7 +80,7 @@ body {
     /* Estende até o lado direito */
     bottom: 0;
     /* Estende até a parte inferior */
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #00000080;
     /* Aplica uma camada preta semitransparente */
     z-index: -1;
     /* Coloca o pseudo-elemento atrás do conteúdo de .sec-1 */
@@ -610,4 +610,82 @@ body {
     /* Torna o elemento invisível */
     display: none;
     /* Remove o elemento do fluxo do layout */
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    #info {
+        width: 80vw;
+        padding-left: 5%;
+    }
+
+    #info h1 {
+        font-size: 72px;
+    }
+
+    #info p {
+        font-size: 28px;
+    }
+
+    #botao-sec-1 {
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sec-quads {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+
+    .quad-1,
+    .quad-2 {
+        width: 90%;
+        height: auto;
+    }
+
+    .quad-1 button,
+    .quad-2 button {
+        width: 80%;
+        height: auto;
+    }
+
+    #info h1 {
+        font-size: 48px;
+    }
+
+    #info p {
+        font-size: 22px;
+    }
+
+    #botao-sec-1 {
+        width: 60%;
+        height: auto;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #info {
+        width: 90vw;
+        padding-left: 2%;
+    }
+
+    #info h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    #info p {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    #botao-sec-1 {
+        width: 80%;
+        height: auto;
+        padding: 10px;
+    }
 }

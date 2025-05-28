@@ -281,10 +281,6 @@ body {
 }
 
 .ver-trailer-btn:hover {
-    background-color: #A29BFE;
-    /* Muda a cor de fundo ao passar o mouse */
-}
-/* =======
   background-color: #6C5CE7;
   color: #fff;
   border: none;
@@ -312,10 +308,17 @@ body {
     font-family: "Quicksand-Medium";
     font-weight: bold;
     font-size: 18px;
+    width: 300px;
     cursor: pointer;
      transition: transform 0.2s ease-in-out;
 }   
->>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2 */
+
+#botao-favorito:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+
+}
+
 #footer{
     position: relative;
     

@@ -49,12 +49,7 @@ header {
 /* ==========================================
    Estilização de Inputs (Campos de Texto)
 ========================================== */
-input {
-    width: 80%; /* Largura ocupando a maioria do espaço disponível */
-    padding: 10px; /* Espaçamento interno */
-    border: 1px solid #ccc; /* Borda cinza clara */
-    border-radius: 5px; /* Bordas levemente arredondadas */
-}
+
 
 /* ==========================================
    Estilização de Botões
@@ -68,13 +63,7 @@ button {
     cursor: pointer; /* Altera o cursor para indicar que é clicável */
 }
 
-/* Efeito hover para os botões */
-button:hover {
 
-    transform: translateY(-50%) scale(1.2);
-    transition: transform 0.3s ease;
-
-}
 
 /* ==========================================
    Estilo para Área de Resultados e Favoritos
@@ -89,6 +78,7 @@ button:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
 }
+
 
 /* ==========================================
    Itens de Filme e Favoritos
@@ -160,3 +150,52 @@ button:hover {
     box-shadow: 0 0 15px #5344c3;
 }
 
+.input-fav {
+    width: 45vw !important;
+    
+}
+
+
+.botao-fav{
+    background-color: #A29BFE;
+    font-family: "Quicksand-Medium";
+    font-weight: medium;
+    border-radius: 12px;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+}
+
+.botao-fav:hover{
+    background-color: #5344c3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
+}
+
+.botoes-pesquisa{
+    width: 100vw;
+    display: flex;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+}
+
+.botoes-pesquisa input {
+    width: 2px;
+}
+
+.bt-add-fav{
+    background-color: #A29BFE;
+    font-family: "Quicksand-Medium";
+    font-weight: medium;
+    border-radius: 12px;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+}
+
+.bt-add-fav:hover{
+    background-color: #5344c3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #5344c3;
+}

@@ -100,3 +100,17 @@
     width: 10vw;
     /* Define a largura da imagem do logo como 10% da largura da viewport */
 }
+
+
+
+@media screen and (max-width: 768px) {
+    #textos-rodape {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    #icons-rodape {
+        gap: 30px;
+    }
+}
