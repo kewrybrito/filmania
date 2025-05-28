@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Função para trocar botão "Entrar" por ícone se o usuário estiver logado
   function VerificarUsuarioLogado(){
     const userLogado = JSON.parse(localStorage.getItem('userLogado'));
-    const token = localStorage.getItem('token');
     const link = document.getElementById('link-favorito');
+    const token = localStorage.getItem('token');
 
     if (userLogado && token) {
       const nome = userLogado.nome;
@@ -76,7 +76,10 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.removeItem('favoritos'); 
           window.location.href = '/src/index.html';// recarrega a página e volta o botão Entrar
         };
-        
+        const favoritosBotao = document.getElementById('botao-favoritos');
+        if (favoritosBotao) {
+          favoritosBotao.style.display = 'block';
+        }
         document.addEventListener("click", function () {
           link.href = '/src/pages/favoritos.html'; // Sem barra extra no final
          
@@ -177,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
 
-
         /**
          * Recupera a lista de filmes favoritos armazenados no localStorage.
          * @returns {Array} Um array de objetos com os filmes favoritos ou um array vazio se nada estiver salvo.
@@ -255,17 +257,31 @@ document.addEventListener("DOMContentLoaded", () => {
         
         botao.replaceWith(userContainer);
       }
+    } else {
+
+      link.addEventListener("click",  ()=> {
+        alert("Presisa estar logado!!")
+        const link = document.getElementById('link-favorito');
+        link.href = '/src/pages/login.html'; // Sem barra extra no final
+        console.log("Elemento com id 'link-favoritos' não foi encontrado.");
+
+      });
     }
   }
 
+    
+
+    
+
   // Captura e exibe erros no console
 
-
+  
   // Executa a mesma lógica para carregar o rodapé
+  
+  // Obtém o caminho da URL atual
+  document.addEventListener('DOMContentLoaded',()=>{
 
-    // Obtém o caminho da URL atual
 
-document.addEventListener("DOMContentLoaded", () => {  
   const path = window.location.pathname;
 
     // Define o caminho do rodapé com base na estrutura de diretórios
@@ -285,8 +301,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('footer').innerHTML = data;
       })
 
-      .catch(error=> {console.error('Erro:' + error)}); // Captura e exibe erros no console
+  .catch(error=> {console.error('Erro:' + error)}); // Captura e exibe erros no console
+  
+})
     
-    })
 
   

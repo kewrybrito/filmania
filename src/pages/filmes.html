@@ -18,15 +18,9 @@
     <div id="header"></div>
 
     <!-- Linha horizontal separando o cabeçalho do conteúdo -->
-<<<<<<< HEAD
-    <hr>    
-    <h1>Todos os Filmes</h1>
 
-    <!-- Título da página -->
-=======
     
 
->>>>>>> b66cd10cd9947bece94ea589582668883e29ca80
 
     <!-- Container que receberá dinamicamente a lista de filmes -->
     <div class="movies-container" id="moviesContainer"></div>
@@ -154,19 +148,15 @@
             const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
             if (scrollTop + clientHeight >= scrollHeight - 50) {
-                // >>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2
+                
                 buscarFilmes();
             }
         });
 
-        // <<<<<<< HEAD
-        //         // Aguarda o carregamento do DOM antes de executar a função inicial de renderização
-        //         document.addEventListener('DOMContentLoaded', renderizarFilmes);
+       
         document.addEventListener('DOMContentLoaded', renderizarFilmes);
-        //     </script>
-    <!-- // ======= -->
-    <!-- </script> -->
-    <!-- >>>>>>> 2e5fe22b2afbb186c7838566e1636b294ae1e9c2 -->
+          </script>
+   
 </body>
 
 </html>

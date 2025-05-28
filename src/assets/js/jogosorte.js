@@ -1,29 +1,4 @@
-import {Teste} from "./avisos.js";
 // Chave de acesso para a API do TMD
-
-const config = {
-  
-  cor: "#48f",
-  tipo:'sn', //tipos: ok , sn
-  comando_sn:()=>{},
-  textos: ["OK",""]
-
-};
-const fsim=()=>{
-console.log("Botão Sim Presionado")
-}
-
-const btn_mostrarmsg = document.getElementById('btn-testes');
-
-
-// const teste = new Teste(config);
-btn_mostrarmsg.addEventListener('click',()=>{
-  config.tipo= 'sn';
-  Teste.mostrar(config,"jeferson","lindod");
-  config.comando_sn =()=>{ fsim()};
-  
-})
-
 const apiKey = '1abf5fe580ef33d80c44d534b8e3b6d1';
 
 const btn = document.getElementById('btn-sortear');
