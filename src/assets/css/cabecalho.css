@@ -175,3 +175,48 @@
     transform: scale(1.05);
     box-shadow: 0 0 15px #5344c3;
 }
+
+.bt-cabecalho {
+  color: white;
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: font-size 0.3s, color 0.3s, border-color 0.3s, text-shadow 0.3s;
+  text-decoration: none;
+}
+
+.bt-cabecalho:hover {
+  color: white;
+  font-size: 18px;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+}
+
+
+.bt-cabecalho.ativo {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 15px #fff, 0 0 25px #fff;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    #logo-cabecalho {
+        width: 30vw;
+    }
+
+    .input-cabecalho {
+        max-width: 80%;
+    }
+
+    .botao-cabecalho {
+        width: 20vw;
+    }
+}

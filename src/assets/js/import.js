@@ -17,6 +17,18 @@
     .then(data => {
       // Insere o conteúdo do cabeçalho no elemento com ID "header"
       document.getElementById('header').innerHTML = data;
+
+      const pathAtual = window.location.pathname;
+
+      if (pathAtual.includes('populares')) {
+        document.getElementById('link-populares')?.classList.add('ativo');
+      } else if (pathAtual.includes('filmes')) {
+        document.getElementById('link-filmes')?.classList.add('ativo');
+      } else if (pathAtual.includes('series')) {
+        document.getElementById('link-series')?.classList.add('ativo');
+      } else if (pathAtual.includes('favoritos')) {
+        document.getElementById('link-favoritos')?.classList.add('ativo');
+      }
    
       // ⚠️ Chama a função só depois que o cabeçalho for carregado
       verificarUsuarioLogado();
@@ -42,6 +54,8 @@
         nomeSpan.className = 'nome-usuario';
         nomeSpan.innerHTML = `Olá! ${nome}`;
 
+        
+
         const botaoSair = document.createElement('button');
         botaoSair.className = 'botao-sair';
         botaoSair.textContent = 'Sair';
@@ -51,6 +65,11 @@
           location.reload();
           localStorage.removeItem('favoritos'); // recarrega a página e volta o botão Entrar
         };
+
+        const favoritosBotao = document.getElementById('botao-favoritos');
+if (favoritosBotao) {
+  favoritosBotao.style.display = 'block';
+}
 
         userContainer.appendChild(nomeSpan);// ======================= Configurações Iniciais =======================
 
@@ -294,4 +313,6 @@
       })
       .catch(error=> {console.error('Erro:', error)}); // Captura e exibe erros no console
     }
+
+    
 

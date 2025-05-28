@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <!-- Define a codificação de caracteres para evitar problemas com acentuação -->
@@ -7,11 +7,13 @@
     <!-- Ajusta a visualização para dispositivos móveis (responsividade) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Define o título da página -->
-    <title>Favoritos de Filmes</title>
+    <title>Favoritos - Filmania</title>
     <!-- Importa o CSS específico para a página de favoritos -->
     <link rel="stylesheet" href="/src/assets/css/favoritos.css">
     <!-- Importa o CSS do cabeçalho para manter a consistência visual em todas as páginas -->
     <link rel="stylesheet" href="/src/assets/css/cabecalho.css">
+    <link rel="icon" href="/src/assets/img/favicon.png">
+
 </head>
 
 <body>
@@ -21,17 +23,13 @@
 
         <!-- Título principal da página -->
         <h1>Favoritos de Filmes</h1>
-
-        <!-- Campo de entrada para o usuário digitar a inicial do filme a ser pesquisado -->
-        <input type="text" id="barra-pesquisa" placeholder="Digite a inicial do filme...">
-        <!-- Botão que aciona a pesquisa dos filmes pela inicial informada -->
-        <button id="botao-pesquisa">Pesquisar pela Inicial</button>
-        <!-- Texto explicativo "Botão para pesquisar" pode ser retirado se não for necessário exibi-lo na tela -->
-
-        <!-- Cabeçalho da seção que exibirá os resultados da pesquisa -->
-        <h2>Resultados da Pesquisa</h2>
-        <br>
-        <button id="botao-limpar">Limpar pesquisa</button>
+        <div class="botoes-pesquisa">
+            <!-- Campo de entrada para o usuário digitar a inicial do filme a ser pesquisado -->
+            <input class="input-fav" type="text" id="barra-pesquisa" placeholder="Digite a inicial do filme...">
+            <!-- Botão que aciona a pesquisa dos filmes pela inicial informada -->       
+            <button class="botao-fav" id="botao-pesquisa">Pesquisar pela Inicial</button>
+            <button id="botao-limpar">Limpar pesquisa</button>
+        </div>
 
         
         <!-- Container para os resultados da pesquisa e lista de favoritos -->

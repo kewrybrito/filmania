@@ -64,7 +64,7 @@ async function ProcuraFilmesincial(inicial) {
                     elementoFilme.innerHTML = `
                         <img src="${posterUrl}" alt="${filme.title}">
                         <h3>${filme.title}</h3>
-                        <button onclick="adicionaFavorito(${filme.id}, '${filme.title}', '${posterUrl}')">
+                        <button class="bt-add-fav" onclick="adicionaFavorito(${filme.id}, '${filme.title}', '${posterUrl}')">
                           Adicionar aos Favoritos
                         </button>
                     `;
