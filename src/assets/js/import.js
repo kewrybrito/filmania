@@ -66,10 +66,7 @@
           localStorage.removeItem('favoritos'); // recarrega a página e volta o botão Entrar
         };
 
-        const favoritosBotao = document.getElementById('botao-favoritos');
-if (favoritosBotao) {
-  favoritosBotao.style.display = 'block';
-}
+
 
         userContainer.appendChild(nomeSpan);// ======================= Configurações Iniciais =======================
 
