@@ -66,7 +66,7 @@ img {
   /* Seleciona os elementos com a classe "overview" */
   font-size: 1rem;
   /* Define o tamanho da fonte como 1rem (tamanho base) */
-  max-width: 200px;
+  max-width:200px;
   /* Limita a largura máxima do elemento a 600px */
   margin: 0 auto;
   /* Centraliza o elemento horizontalmente, definindo margem zero para cima e para baixo e automáticas para os lados */

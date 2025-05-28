@@ -219,7 +219,7 @@ body {
     /* Utiliza Flexbox */
     flex-direction: row;
     /* Organiza os elementos em linha */
-    justify-content: space-evenly;
+    justify-content: space-around;
     /* Distribui os elementos igualmente na linha */
     align-items: start;
     /* Alinha os elementos ao topo */
@@ -236,6 +236,14 @@ body {
     font-size: 15px;
     /* Define o tamanho da fonte */
 }
+
+.linkedin div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
 
 .linkedin-icon {
     width: 25px;
