@@ -55,7 +55,7 @@ async function ProcuraFilmesincial(inicial) {
                     // Define a URL do poster do filme. Se não houver poster, utiliza uma imagem de placeholder.
                     const posterUrl = filme.poster_path
                         ? `https://image.tmdb.org/t/p/w500${filme.poster_path}`
-                        : 'https://via.placeholder.com/180x250?text=Sem+Imagem';
+                        : "https://placehold.co/180x250?text=Sem+Imagem";
 
                     // Monta o conteúdo HTML do card do filme, incluindo:
                     // - A imagem (poster)
@@ -64,7 +64,7 @@ async function ProcuraFilmesincial(inicial) {
                     elementoFilme.innerHTML = `
                         <img src="${posterUrl}" alt="${filme.title}">
                         <h3>${filme.title}</h3>
-                        <button class="bt-add-fav" onclick="adicionaFavorito(${filme.id}, '${filme.title}', '${posterUrl}')">
+                        <button class="bt-add-fav" id = "link-favoritos"onclick="adicionaFavorito(${filme.id}, '${filme.title}', '${posterUrl}')">
                           Adicionar aos Favoritos
                         </button>
                     `;
@@ -93,6 +93,7 @@ async function ProcuraFilmesincial(inicial) {
  * @param {string} posterUrl - URL do poster do filme.
  */
 function adicionaFavorito(id, title, posterUrl) {
+    
     // Recupera a lista atual de filmes favoritos armazenados
     const favoriteFilme = pegarFilmeFavorito();
 
@@ -103,6 +104,7 @@ function adicionaFavorito(id, title, posterUrl) {
         salvaFavorito(favoriteFilme);
         // Re-renderiza a lista de favoritos na página
         rederizarFavoritos();
+     
     }
 }
 /**
@@ -116,8 +118,11 @@ function removeDoFavoritos(id) {
     const carregarFilmes = favoriteFilmes.filter(filme => filme.id !== id);
     // Atualiza o localStorage com a lista filtrada
     salvaFavorito(carregarFilmes);
+     
     // Atualiza a renderização dos favoritos na interface
     rederizarFavoritos();
+
+
 }
 /**
  * Salva o array de filmes favoritos no localStorage.
@@ -138,6 +143,7 @@ function pegarFilmeFavorito() {
  * Renderiza a lista de filmes favoritos na área designada da página.
  */
 function rederizarFavoritos() {
+   
     // Recupera os filmes favoritos salvos
     const filmesfavoritos = pegarFilmeFavorito();
     // Limpa o conteúdo atual da lista de favoritos

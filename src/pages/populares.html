@@ -56,6 +56,7 @@
          * @param {string} posterUrl - URL do pôster do filme
          */
         function adicionaFavorito(id, title, posterUrl) {
+              window.location.reload()
             const favoritos = pegarFilmesFavoritos();
             // Verifica se o filme já está na lista de favoritos
             if (!favoritos.some(filme => filme.id === id)) {
