@@ -142,7 +142,7 @@ body {
     /* Define transições suaves para propriedades */
 }
 
-#botao-sec-1:hover {
+#botao-sec-1:hover{
     /* Estiliza o estado hover do elemento com ID "botao-sec-1" */
     background-color: #5344c3;
     /* Altera a cor de fundo ao passar o mouse */
@@ -152,7 +152,7 @@ body {
     /* Adiciona uma sombra com cor #5344c3 */
 }
 
-#bt-sec-1 {
+#bt-sec-1,  #bt {
     /* Seleciona o elemento com ID "bt-sec-1" */
     color: white;
     /* Define a cor do texto como branco */

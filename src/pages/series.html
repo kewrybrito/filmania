@@ -60,6 +60,7 @@
          * @param {string} posterUrl - URL do pôster da série
          */
         function adicionaFavorito(id, name, posterUrl) {
+              window.location.reload()
             const favoritos = pegarSeriesFavoritas();
             // Verifica se a série já não está nos favoritos
             if (!favoritos.some(serie => serie.id === id)) {

@@ -44,7 +44,7 @@
             <label id="userLabel" for="email">Email</label>
 
             <!-- Input do tipo email (campo obrigatório) -->
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required autocomplete="email">
         </div>
 
         <!-- Grupo de formulário para o campo de senha -->
@@ -54,10 +54,10 @@
 
             <!-- Label que identifica o campo de senha; os comentários ajudam na acessibilidade -->
             <!-- A biblioteca Font Awesome pode ser utilizada para melhorar a interface (ex.: ícone de olho) -->
-            <label id="senhaLabel" for="password">Senha</label>
+            <label id="senhaLabel" for="senha">Senha</label>
 
             <!-- Input do tipo password (campo obrigatório com mínimo de 6 caracteres) -->
-            <input type="password" id="senha" name="password" required minlength="6">
+            <input type="password" id="senha" name="password" required >
         </div>
 
         <!-- Botão de login que chama a função "entrar()" quando clicado -->

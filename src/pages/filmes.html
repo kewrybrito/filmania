@@ -47,6 +47,7 @@
         }
 
         function adicionaFavorito(id, title, posterUrl) {
+              window.location.reload()
             const favoritos = pegarFilmeFavorito();
             if (!favoritos.some(filme => filme.id === id)) {
 

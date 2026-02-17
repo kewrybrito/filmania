@@ -44,6 +44,4 @@ const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&langua
     console.error("Erro:", error);
   }
 
-  // Exibe no console uma mensagem informando que o arquivo JS foi carregado com sucesso
-  console.log("Arquivo JS carregado com sucesso!");
 }
